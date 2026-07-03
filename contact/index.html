@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>צור קשר — Flow</title>
+<meta name="description" content="צרו קשר עם Flow — נחזור אליכם בהקדם."/>
+<link rel="preconnect" href="https://api.fontshare.com"/>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Satoshi',system-ui,sans-serif;background:#f7f8fa;color:#0b1220;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:48px 20px}
+.wrap{width:100%;max-width:560px}
+h1{font-family:'Cabinet Grotesk','Helvetica Neue',sans-serif;font-size:clamp(2rem,6vw,2.75rem);color:#0E46D4;font-weight:800;margin-bottom:28px}
+.fg{margin-bottom:14px}
+input,textarea{width:100%;padding:14px 16px;border:1px solid #d6deea;border-radius:10px;background:#fff;font:inherit;color:#0b1220;outline:none;transition:border-color .15s,box-shadow .15s}
+input::placeholder,textarea::placeholder{color:#7a8699}
+input:required{border-color:#a259c9}
+input:required::placeholder{color:#a259c9}
+.req-note{font-size:.85rem;color:#a259c9;margin-bottom:10px;font-weight:600}
+input:focus,textarea:focus{border-color:#0E46D4;box-shadow:0 0 0 3px rgba(14,70,212,.15)}
+textarea{resize:vertical;min-height:120px}
+button{width:100%;margin-top:8px;padding:16px;border:0;border-radius:999px;background:#a259c9;color:#fff;font:inherit;font-weight:700;font-size:1.05rem;cursor:pointer;transition:background .15s,transform .15s}
+button:hover{background:#8e44b8;transform:translateY(-1px)}
+.back{display:inline-block;margin-top:18px;color:#0E46D4;text-decoration:none;font-weight:600;font-size:.95rem}
+.back:hover{text-decoration:underline}
+</style>
+<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"></head>
+<body>
+<div class="wrap">
+  <h1>Let&rsquo;s Flow.</h1>
+  <div class="req-note">* שדה חובה</div>
+  <div class="fg"><input type="text" id="ct_fn" maxlength="100" placeholder="שם *" autocomplete="name" required/></div>
+  <div class="fg"><input type="tel" id="ct_fp" maxlength="30" placeholder="טלפון" autocomplete="tel"/></div>
+  <div class="fg"><input type="email" id="ct_fe" maxlength="120" placeholder="אימייל *" autocomplete="email" required/></div>
+  <div class="fg"><input type="text" id="ct_fc" maxlength="120" placeholder="שם החברה" autocomplete="organization"/></div>
+  <div class="fg"><textarea id="ct_fm" maxlength="1000" placeholder="הודעה"></textarea></div>
+  <button type="button" id="ct_submitBtn">שליחה</button>
+  <a href="/" class="back">← חזרה לדף הבית</a>
+</div>
+<script>
+(function(){
+  const btn=document.getElementById('ct_submitBtn');
+  const emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  btn.addEventListener('click',()=>{
+    const fn=document.getElementById('ct_fn').value.trim();
+    const fp=document.getElementById('ct_fp').value.trim();
+    const fe=document.getElementById('ct_fe').value.trim();
+    const fc=document.getElementById('ct_fc').value.trim();
+    const fm=document.getElementById('ct_fm').value.trim();
+    if(!fn||!fe||!fm){alert('אנא מלאו שם, אימייל והודעה.');return;}
+    if(fn.length>100||fp.length>30||fe.length>120||fc.length>120||fm.length>1000){alert('אחד השדות ארוך מדי.');return;}
+    if(!emailRe.test(fe)){alert('אימייל לא תקין.');return;}
+    btn.style.opacity='0.7';btn.style.pointerEvents='none';
+    fetch('https://formsubmit.co/ajax/mor@flow-az.com',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        _subject:'פנייה חדשה מהאתר — '+fn,
+        _template:'table',
+        'שם':fn,'טלפון':fp,'אימייל':fe,'חברה':fc,'הודעה':fm
+      })
+    }).then(r=>{
+      if(!r.ok)throw new Error();
+      alert(`תודה ${fn}! קיבלנו את הפנייה ונחזור אליכם בקרוב.`);
+      ['ct_fn','ct_fp','ct_fe','ct_fc','ct_fm'].forEach(id=>{document.getElementById(id).value='';});
+    }).catch(()=>{
+      alert('אירעה שגיאה בשליחה. אפשר לכתוב לנו ישירות: mor@flow-az.com');
+    }).finally(()=>{
+      btn.style.opacity='';btn.style.pointerEvents='';
+    });
+  });
+})();
+</script>
+</body>
+</html>
