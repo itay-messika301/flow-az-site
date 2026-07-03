@@ -504,7 +504,7 @@ footer{padding-block:var(--space-12) var(--space-8);border-top:1px solid var(--b
 .nl-pop__success.show{display:block}
 .nl-pop__success svg{width:48px;height:48px;color:var(--primary);margin:0 auto var(--space-3)}
 </style>
-<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"></head>
+<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"><script src="/js/leads.js"></script></head>
 <body>
 <!-- NAV -->
 <nav class="nav" id="navbar">
@@ -870,12 +870,19 @@ if(brightSlider){brightSlider.value='2';applyTheme('2');brightSlider.addEventLis
       return;
     }
     btn.style.opacity='0.7';btn.style.pointerEvents='none';
-    setTimeout(()=>{
+    const val=id=>{const el=document.getElementById(id);return el?el.value.trim():'';};
+    sendFlowLead('הרצאות',{
+      'שם':fn,'שם משפחה':fl,'טלפון':fp,'אימייל':fe,'חברה':val('lc_fc'),
+      'מספר משתתפים':val('lc_fcount'),'פורמט':val('lc_fformat'),'מיקום':val('lc_floc'),'רמה':val('lc_flevel'),'הודעה':fm
+    }).then(()=>{
       alert(isHe()?`תודה ${fn}! קיבלנו את הפנייה להרצאות ונחזור אליכם בקרוב.`:`Thank you ${fn}! Your Lectures request has been received — we'll be in touch soon.`);
       ['lc_fn','lc_fl','lc_fp','lc_fe','lc_fc','lc_fcount','lc_fformat','lc_floc','lc_flevel','lc_fm'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
       if(locWrap) locWrap.style.display='none';
+    }).catch(()=>{
+      alert(isHe()?'אירעה שגיאה בשליחה. אפשר לכתוב לנו ישירות: mor@flow-az.com':'Something went wrong. Please email us directly: mor@flow-az.com');
+    }).finally(()=>{
       btn.style.opacity='';btn.style.pointerEvents='';
-    },400);
+    });
   });
 })();
 </script>

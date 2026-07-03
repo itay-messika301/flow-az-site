@@ -511,7 +511,7 @@ footer{padding-block:var(--space-12) var(--space-8);border-top:1px solid var(--b
 .nl-pop__success.show{display:block}
 .nl-pop__success svg{width:48px;height:48px;color:var(--primary);margin:0 auto var(--space-3)}
 </style>
-<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"></head>
+<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"><script src="/js/leads.js"></script></head>
 <body>
 <!-- NAV -->
 <nav class="nav" id="navbar">
@@ -841,11 +841,17 @@ if(brightSlider){
       return;
     }
     btn.style.opacity='0.7';btn.style.pointerEvents='none';
-    setTimeout(()=>{
+    const fc=(document.getElementById('pj_fc')||{value:''}).value.trim();
+    sendFlowLead('פרויקטים',{
+      'שם':fn,'שם משפחה':fl,'טלפון':fp,'אימייל':fe,'חברה':fc,'הודעה':fm
+    }).then(()=>{
       alert(isHe()?`תודה ${fn}! קיבלנו את הפנייה לפרויקטים ונחזור אליכם בקרוב.`:`Thank you ${fn}! Your Projects request has been received — we'll be in touch soon.`);
       ['pj_fn','pj_fl','pj_fp','pj_fe','pj_fc','pj_fm'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    }).catch(()=>{
+      alert(isHe()?'אירעה שגיאה בשליחה. אפשר לכתוב לנו ישירות: mor@flow-az.com':'Something went wrong. Please email us directly: mor@flow-az.com');
+    }).finally(()=>{
       btn.style.opacity='';btn.style.pointerEvents='';
-    },400);
+    });
   });
 })();
 </script>

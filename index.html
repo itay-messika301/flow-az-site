@@ -522,7 +522,7 @@ body.lang-he .nl-pop__body{left:var(--space-5);right:auto}
   .nl-pop__consent{color:var(--text-muted) !important}
 }
 </style>
-<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"></head>
+<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"><script src="/js/leads.js"></script></head>
 <body>
 
 <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
@@ -1168,9 +1168,17 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
       if(consent) consent.focus();
       return;
     }
-    main.style.display='none';
-    success.classList.add('show');
-    setTimeout(close, 2800);
+    const name=document.getElementById('nlPopName').value.trim();
+    const last=document.getElementById('nlPopLastName').value.trim();
+    sendFlowLead('ניוזלטר',{
+      'שם':name,'שם משפחה':last,'אימייל':email,'אישור דיוור':'כן'
+    }).then(()=>{
+      main.style.display='none';
+      success.classList.add('show');
+      setTimeout(close, 2800);
+    }).catch(()=>{
+      alert(isHe?'אירעה שגיאה בהרשמה. נסו שוב או כתבו לנו: mor@flow-az.com':'Something went wrong. Please try again or email us: mor@flow-az.com');
+    });
   });
 })();
 </script>

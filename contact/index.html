@@ -25,7 +25,7 @@ button:hover{background:#8e44b8;transform:translateY(-1px)}
 .back{display:inline-block;margin-top:18px;color:#0E46D4;text-decoration:none;font-weight:600;font-size:.95rem}
 .back:hover{text-decoration:underline}
 </style>
-<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"></head>
+<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"><script src="/js/leads.js"></script></head>
 <body>
 <div class="wrap">
   <h1>Let&rsquo;s Flow.</h1>
@@ -52,16 +52,9 @@ button:hover{background:#8e44b8;transform:translateY(-1px)}
     if(fn.length>100||fp.length>30||fe.length>120||fc.length>120||fm.length>1000){alert('אחד השדות ארוך מדי.');return;}
     if(!emailRe.test(fe)){alert('אימייל לא תקין.');return;}
     btn.style.opacity='0.7';btn.style.pointerEvents='none';
-    fetch('https://formsubmit.co/ajax/mor@flow-az.com',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({
-        _subject:'פנייה חדשה מהאתר — '+fn,
-        _template:'table',
-        'שם':fn,'טלפון':fp,'אימייל':fe,'חברה':fc,'הודעה':fm
-      })
-    }).then(r=>{
-      if(!r.ok)throw new Error();
+    sendFlowLead('צור קשר',{
+      'שם':fn,'טלפון':fp,'אימייל':fe,'חברה':fc,'הודעה':fm
+    }).then(()=>{
       alert(`תודה ${fn}! קיבלנו את הפנייה ונחזור אליכם בקרוב.`);
       ['ct_fn','ct_fp','ct_fe','ct_fc','ct_fm'].forEach(id=>{document.getElementById(id).value='';});
     }).catch(()=>{

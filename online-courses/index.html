@@ -515,7 +515,7 @@ footer{padding-block:var(--space-12) var(--space-8);border-top:1px solid var(--b
   .intro-video { grid-template-columns: 1fr !important; }
 }
 </style>
-<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"></head>
+<meta property="og:image" content="https://flow-az.com/images/flow-logo.png"><meta name="twitter:image" content="https://flow-az.com/images/flow-logo.png"><script src="/js/leads.js"></script></head>
 <body>
 <!-- NAV -->
 <nav class="nav" id="navbar">
@@ -870,11 +870,18 @@ if(brightSlider){brightSlider.value='2';applyTheme('2');brightSlider.addEventLis
       return;
     }
     btn.style.opacity='0.7';btn.style.pointerEvents='none';
-    setTimeout(()=>{
+    const val=id=>{const el=document.getElementById(id);return el?el.value.trim():'';};
+    sendFlowLead('קורסים אונליין',{
+      'שם':fn,'שם משפחה':fl,'טלפון':fp,'אימייל':fe,'חברה':val('oc_fc'),
+      'תחום עניין':val('oc_finterest'),'נושא':val('oc_ftopic'),'הודעה':fm
+    }).then(()=>{
       alert(isHe()?`תודה ${fn}! קיבלנו את הפנייה לקורסים אונליין ונחזור אליכם בקרוב.`:`Thank you ${fn}! Your Online Courses request has been received — we'll be in touch soon.`);
-      ['oc_fn','oc_fl','oc_fp','oc_fe','oc_fc','oc_fm'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+      ['oc_fn','oc_fl','oc_fp','oc_fe','oc_fc','oc_finterest','oc_ftopic','oc_fm'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    }).catch(()=>{
+      alert(isHe()?'אירעה שגיאה בשליחה. אפשר לכתוב לנו ישירות: mor@flow-az.com':'Something went wrong. Please email us directly: mor@flow-az.com');
+    }).finally(()=>{
       btn.style.opacity='';btn.style.pointerEvents='';
-    },400);
+    });
   });
 })();
 </script>
