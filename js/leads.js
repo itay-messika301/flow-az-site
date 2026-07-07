@@ -1,9 +1,9 @@
 /* Flow — lead delivery for all site forms.
-   Every form posts JSON to the Make.com webhook (Make routes to Monday +
-   email). If the webhook is unset or fails for any reason, the lead falls
-   back to a FormSubmit email so nothing is ever lost. */
+   Every form emails the full submission to Mor via FormSubmit.
+   To route through Make instead, set `webhook` to a Make webhook URL —
+   FormSubmit then becomes the automatic fallback. */
 window.FLOW_LEADS = {
-  webhook: 'https://hook.eu1.make.com/m5pe94q7gpj1rninakylc12pyv8zky86',
+  webhook: '',
   email: 'mor@flow-az.com'
 };
 
@@ -18,7 +18,13 @@ window.sendFlowLead = function (form, fields) {
         _subject: 'פנייה חדשה מהאתר — ' + form,
         _template: 'table'
       }, payload))
-    }).then(function (r) { if (!r.ok) throw new Error('formsubmit ' + r.status); });
+    }).then(function (r) {
+      if (!r.ok) throw new Error('formsubmit ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      /* FormSubmit answers HTTP 200 even on failure — must check the body */
+      if (String(j.success) !== 'true') throw new Error('formsubmit: ' + (j.message || 'not delivered'));
+    });
   }
 
   if (!window.FLOW_LEADS.webhook) return viaEmail();
@@ -31,7 +37,6 @@ window.sendFlowLead = function (form, fields) {
     if (!r.ok) throw new Error('webhook ' + r.status);
     return r.text();
   }).then(function (t) {
-    /* Make returns 200 with an error text when the scenario is off */
     if (/no scenario listening/i.test(t)) throw new Error('scenario off');
   }).catch(function () {
     return viaEmail();
