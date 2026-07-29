@@ -650,12 +650,12 @@ footer{padding-block:var(--space-12) var(--space-8);border-top:1px solid var(--b
         <p class="form-sub" data-en="Tell us about the event and we'll match the right talk and speaker." data-he="ספרו לנו על האירוע ונתאים את ההרצאה והדובר המתאימים.">Tell us about the event and we'll match the right talk and speaker.</p>
         <input type="hidden" id="lc_topic" value="Lectures"/>
         <div class="form-row">
-          <div class="fg"><label for="lc_fn" data-en="First name" data-he="שם פרטי">First name</label><input type="text" id="lc_fn" maxlength="60" placeholder="Mor" autocomplete="given-name"/></div>
+          <div class="fg"><label for="lc_fn" data-en="First name *" data-he="שם פרטי *">First name *</label><input type="text" id="lc_fn" maxlength="60" placeholder="Mor" autocomplete="given-name"/></div>
           <div class="fg"><label for="lc_fl" data-en="Last name" data-he="שם משפחה">Last name</label><input type="text" id="lc_fl" maxlength="60" placeholder="Nissim" autocomplete="family-name"/></div>
         </div>
         <div class="form-row">
-          <div class="fg"><label for="lc_fp" data-en="Phone" data-he="טלפון">Phone</label><input type="tel" id="lc_fp" maxlength="30" placeholder="+972-50-000-0000" autocomplete="tel"/></div>
-          <div class="fg"><label for="lc_fe" data-en="Email" data-he="אימייל">Email</label><input type="email" id="lc_fe" maxlength="120" placeholder="mor@company.com" autocomplete="email"/></div>
+          <div class="fg"><label for="lc_fp" data-en="Phone *" data-he="טלפון *">Phone *</label><input type="tel" id="lc_fp" required maxlength="30" placeholder="+972-50-000-0000" autocomplete="tel"/></div>
+          <div class="fg"><label for="lc_fe" data-en="Email *" data-he="אימייל *">Email *</label><input type="email" id="lc_fe" maxlength="120" placeholder="mor@company.com" autocomplete="email"/></div>
         </div>
         <div class="fg"><label for="lc_fc" data-en="Company / Organization" data-he="חברה / ארגון">Company / Organization</label><input type="text" id="lc_fc" maxlength="120" placeholder="My Company Ltd." autocomplete="organization"/></div>
         <div class="form-row">
@@ -678,7 +678,7 @@ footer{padding-block:var(--space-12) var(--space-8);border-top:1px solid var(--b
             <option value="mixed" data-en="Mixed levels" data-he="רמות מעורבות">Mixed levels</option>
           </select>
         </div>
-        <div class="fg"><label for="lc_fm" data-en="Message" data-he="הודעה">Message</label><textarea id="lc_fm" maxlength="1000" placeholder="Event date, topic of interest..." data-ph-en="Event date, topic of interest..." data-ph-he="תאריך האירוע, נושא ההרצאה..."></textarea></div>
+        <div class="fg"><label for="lc_fm" data-en="Message *" data-he="הודעה *">Message *</label><textarea id="lc_fm" maxlength="1000" placeholder="Event date, topic of interest..." data-ph-en="Event date, topic of interest..." data-ph-he="תאריך האירוע, נושא ההרצאה..."></textarea></div>
         <button class="btn-submit" id="lc_submitBtn" type="button">
           <span data-en="Send lecture request" data-he="שלחו בקשת הרצאה">Send lecture request</span>
           <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -857,8 +857,12 @@ if(brightSlider){brightSlider.value='2';applyTheme('2');brightSlider.addEventLis
     const fp=document.getElementById('lc_fp').value.trim();
     const fe=document.getElementById('lc_fe').value.trim();
     const fm=document.getElementById('lc_fm').value.trim();
-    if(!fn||!fe||!fm){
-      alert(isHe()?'אנא מלאו שם, אימייל והודעה.':'Please fill in name, email and message.');
+    if(!fn||!fe||!fm||!fp){
+      alert(isHe()?'אנא מלאו שם, טלפון, אימייל והודעה.':'Please fill in name, phone, email and message.');
+      return;
+    }
+    if(fp.replace(/\D/g,'').length<9){
+      alert(isHe()?'אנא מלאו מספר טלפון תקין.':'Please enter a valid phone number.');
       return;
     }
     if(fn.length>60||fl.length>60||fp.length>30||fe.length>120||fm.length>1000){

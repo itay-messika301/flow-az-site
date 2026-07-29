@@ -639,12 +639,12 @@ footer{padding-block:var(--space-12) var(--space-8);border-top:1px solid var(--b
         <p class="form-sub" data-en="Workflow automation, AI agents, CRM & integrations — start here." data-he="אוטומציה לתהליכים, סוכני AI, CRM ואינטגרציות — מתחילים כאן.">Workflow automation, AI agents, CRM & integrations — start here.</p>
         <input type="hidden" id="pj_topic" value="Projects"/>
         <div class="form-row">
-          <div class="fg"><label for="pj_fn" data-en="First name" data-he="שם פרטי">First name</label><input type="text" id="pj_fn" maxlength="60" placeholder="Mor" autocomplete="given-name"/></div>
+          <div class="fg"><label for="pj_fn" data-en="First name *" data-he="שם פרטי *">First name *</label><input type="text" id="pj_fn" maxlength="60" placeholder="Mor" autocomplete="given-name"/></div>
           <div class="fg"><label for="pj_fl" data-en="Last name" data-he="שם משפחה">Last name</label><input type="text" id="pj_fl" maxlength="60" placeholder="Nissim" autocomplete="family-name"/></div>
         </div>
         <div class="form-row">
-          <div class="fg"><label for="pj_fp" data-en="Phone" data-he="טלפון">Phone</label><input type="tel" id="pj_fp" maxlength="30" placeholder="+972-50-000-0000" autocomplete="tel"/></div>
-          <div class="fg"><label for="pj_fe" data-en="Email" data-he="אימייל">Email</label><input type="email" id="pj_fe" maxlength="120" placeholder="mor@company.com" autocomplete="email"/></div>
+          <div class="fg"><label for="pj_fp" data-en="Phone *" data-he="טלפון *">Phone *</label><input type="tel" id="pj_fp" required maxlength="30" placeholder="+972-50-000-0000" autocomplete="tel"/></div>
+          <div class="fg"><label for="pj_fe" data-en="Email *" data-he="אימייל *">Email *</label><input type="email" id="pj_fe" maxlength="120" placeholder="mor@company.com" autocomplete="email"/></div>
         </div>
         <div class="fg"><label for="pj_fc" data-en="Company / Organization" data-he="חברה / ארגון">Company / Organization</label><input type="text" id="pj_fc" maxlength="120" placeholder="My Company Ltd." autocomplete="organization"/></div>
         <div class="fg"><label for="pj_fm" data-en="Describe your project" data-he="תארו את הפרויקט">Describe your project</label><textarea id="pj_fm" maxlength="1000" placeholder="What process or pain point are you trying to solve? What does success look like for you?" data-ph-en="What process or pain point are you trying to solve? What does success look like for you?" data-ph-he="איזה תהליך או נקודת כאב אתם רוצים לפתור? איך נראית עבורכם הצלחה?"></textarea></div>
@@ -828,8 +828,12 @@ if(brightSlider){
     const fp=document.getElementById('pj_fp').value.trim();
     const fe=document.getElementById('pj_fe').value.trim();
     const fm=document.getElementById('pj_fm').value.trim();
-    if(!fn||!fe||!fm){
-      alert(isHe()?'אנא מלאו שם, אימייל והודעה.':'Please fill in name, email and message.');
+    if(!fn||!fe||!fm||!fp){
+      alert(isHe()?'אנא מלאו שם, טלפון, אימייל והודעה.':'Please fill in name, phone, email and message.');
+      return;
+    }
+    if(fp.replace(/\D/g,'').length<9){
+      alert(isHe()?'אנא מלאו מספר טלפון תקין.':'Please enter a valid phone number.');
       return;
     }
     if(fn.length>60||fl.length>60||fp.length>30||fe.length>120||fm.length>1000){

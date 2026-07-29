@@ -31,7 +31,7 @@ button:hover{background:#8e44b8;transform:translateY(-1px)}
   <h1>Let&rsquo;s Flow.</h1>
   <div class="req-note">* שדה חובה</div>
   <div class="fg"><input type="text" id="ct_fn" maxlength="100" placeholder="שם *" autocomplete="name" required/></div>
-  <div class="fg"><input type="tel" id="ct_fp" maxlength="30" placeholder="טלפון" autocomplete="tel"/></div>
+  <div class="fg"><input type="tel" id="ct_fp" maxlength="30" placeholder="טלפון *" autocomplete="tel" required/></div>
   <div class="fg"><input type="email" id="ct_fe" maxlength="120" placeholder="אימייל *" autocomplete="email" required/></div>
   <div class="fg"><input type="text" id="ct_fc" maxlength="120" placeholder="שם החברה" autocomplete="organization"/></div>
   <div class="fg"><textarea id="ct_fm" maxlength="1000" placeholder="הודעה"></textarea></div>
@@ -48,7 +48,8 @@ button:hover{background:#8e44b8;transform:translateY(-1px)}
     const fe=document.getElementById('ct_fe').value.trim();
     const fc=document.getElementById('ct_fc').value.trim();
     const fm=document.getElementById('ct_fm').value.trim();
-    if(!fn||!fe||!fm){alert('אנא מלאו שם, אימייל והודעה.');return;}
+    if(!fn||!fe||!fm||!fp){alert('אנא מלאו שם, טלפון, אימייל והודעה.');return;}
+    if(fp.replace(/\D/g,'').length<9){alert('אנא מלאו מספר טלפון תקין.');return;}
     if(fn.length>100||fp.length>30||fe.length>120||fc.length>120||fm.length>1000){alert('אחד השדות ארוך מדי.');return;}
     if(!emailRe.test(fe)){alert('אימייל לא תקין.');return;}
     btn.style.opacity='0.7';btn.style.pointerEvents='none';

@@ -670,12 +670,12 @@ body.lang-he .yt-courses-grid{direction:rtl}
         <p class="form-sub" data-en="Request a course on a specific topic or ask a question about our content areas." data-he="בקשו קורס בנושא ספציפי או שאלו שאלה על עולמות התוכן שלנו.">Request a course on a specific topic or ask a question about our content areas.</p>
         <input type="hidden" id="oc_topic" value="Online Courses"/>
         <div class="form-row">
-          <div class="fg"><label for="oc_fn" data-en="First name" data-he="שם פרטי">First name</label><input type="text" id="oc_fn" maxlength="60" placeholder="Mor" autocomplete="given-name"/></div>
+          <div class="fg"><label for="oc_fn" data-en="First name *" data-he="שם פרטי *">First name *</label><input type="text" id="oc_fn" maxlength="60" placeholder="Mor" autocomplete="given-name"/></div>
           <div class="fg"><label for="oc_fl" data-en="Last name" data-he="שם משפחה">Last name</label><input type="text" id="oc_fl" maxlength="60" placeholder="Nissim" autocomplete="family-name"/></div>
         </div>
         <div class="form-row">
-          <div class="fg"><label for="oc_fp" data-en="Phone" data-he="טלפון">Phone</label><input type="tel" id="oc_fp" maxlength="30" placeholder="+972-50-000-0000" autocomplete="tel"/></div>
-          <div class="fg"><label for="oc_fe" data-en="Email" data-he="אימייל">Email</label><input type="email" id="oc_fe" maxlength="120" placeholder="mor@company.com" autocomplete="email"/></div>
+          <div class="fg"><label for="oc_fp" data-en="Phone *" data-he="טלפון *">Phone *</label><input type="tel" id="oc_fp" required maxlength="30" placeholder="+972-50-000-0000" autocomplete="tel"/></div>
+          <div class="fg"><label for="oc_fe" data-en="Email *" data-he="אימייל *">Email *</label><input type="email" id="oc_fe" maxlength="120" placeholder="mor@company.com" autocomplete="email"/></div>
         </div>
         <div class="fg">
           <label for="oc_finterest" data-en="Inquiry type" data-he="סוג הפנייה">Inquiry type</label>
@@ -857,8 +857,12 @@ if(brightSlider){brightSlider.value='2';applyTheme('2');brightSlider.addEventLis
     const fp=document.getElementById('oc_fp').value.trim();
     const fe=document.getElementById('oc_fe').value.trim();
     const fm=document.getElementById('oc_fm').value.trim();
-    if(!fn||!fe||!fm){
-      alert(isHe()?'אנא מלאו שם, אימייל והודעה.':'Please fill in name, email and message.');
+    if(!fn||!fe||!fm||!fp){
+      alert(isHe()?'אנא מלאו שם, טלפון, אימייל והודעה.':'Please fill in name, phone, email and message.');
+      return;
+    }
+    if(fp.replace(/\D/g,'').length<9){
+      alert(isHe()?'אנא מלאו מספר טלפון תקין.':'Please enter a valid phone number.');
       return;
     }
     if(fn.length>60||fl.length>60||fp.length>30||fe.length>120||fm.length>1000){
