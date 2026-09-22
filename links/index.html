@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mor Nissim — לינקים</title>
+<meta name="description" content="מור נסים — Flow. אתר, אינסטגרם, וואצאפ, טלפון ומייל במקום אחד."/>
+<meta property="og:title" content="Mor Nissim"/>
+<meta property="og:description" content="אתר, אינסטגרם, וואצאפ, טלפון ומייל במקום אחד."/>
+<meta property="og:image" content="https://flow-az.com/images/mor-profile.jpg"/>
+<meta property="og:url" content="https://flow-az.com/links/"/>
+<meta name="theme-color" content="#0E46D4"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"/>
+<link rel="icon" type="image/png" href="/images/favicon.png"/>
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://api.fontshare.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0E46D4;--blue-hi:#0538B9;--gold:#FFB400;
+  --ink:#0b1220;--muted:#64748b;--line:#d9e1ee;
+  --bg:#f5f8fc;--card:#ffffff;--chip:#eaf0fb;
+}
+html{background:var(--bg)}
+body{
+  font-family:'Heebo',system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(900px 480px at 50% -220px,rgba(14,70,212,.12),transparent 70%),
+    var(--bg);
+  color:var(--ink);min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:56px 20px 40px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center}
+.avatar{
+  width:120px;height:120px;border-radius:50%;padding:4px;background:var(--card);
+  box-shadow:0 0 0 3px var(--blue),0 12px 32px rgba(14,70,212,.18);
+  position:relative;
+}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.avatar::after{
+  content:"";position:absolute;right:6px;bottom:6px;width:20px;height:20px;border-radius:50%;
+  background:var(--gold);border:3px solid var(--card);
+}
+h1{
+  font-family:'Cabinet Grotesk','Heebo','Helvetica Neue',sans-serif;
+  font-weight:800;font-size:2.1rem;letter-spacing:-.01em;color:var(--ink);
+  margin-top:20px;direction:ltr;
+}
+.links{width:100%;display:flex;flex-direction:column;gap:14px;margin-top:32px}
+.btn{
+  display:flex;align-items:center;gap:16px;
+  background:var(--card);border:1.5px solid var(--line);border-radius:18px;
+  padding:14px 16px;text-decoration:none;color:var(--ink);
+  box-shadow:0 2px 10px rgba(11,18,32,.04);
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;
+}
+.btn:hover,.btn:focus-visible{
+  transform:translateY(-2px);border-color:var(--blue);
+  box-shadow:0 10px 26px rgba(14,70,212,.16);outline:none;
+}
+.btn:active{transform:translateY(0)}
+.ic{
+  flex:0 0 48px;width:48px;height:48px;border-radius:14px;
+  background:var(--chip);color:var(--blue);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s ease,color .15s ease;
+}
+.btn:hover .ic{background:var(--blue);color:#fff}
+.ic svg{width:24px;height:24px;display:block}
+.txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.lbl{font-weight:700;font-size:1.08rem;line-height:1.2}
+.sub{font-size:.86rem;color:var(--muted);direction:ltr;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.arrow{flex:0 0 auto;color:#b6c2d6;transition:color .15s ease,transform .15s ease}
+.arrow svg{width:18px;height:18px;display:block}
+.btn:hover .arrow{color:var(--blue);transform:translateX(-3px)}
+.more{width:100%;margin-top:36px}
+.more h2{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.more h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.cards{display:flex;flex-direction:column;gap:10px}
+.card{
+  display:flex;align-items:center;gap:14px;
+  background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:14px 16px;text-decoration:none;color:var(--ink);
+  font-weight:600;font-size:.98rem;line-height:1.35;
+  box-shadow:0 2px 10px rgba(11,18,32,.04);
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;
+}
+.card::before{content:"";flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.card>span:not(.arrow){flex:1}
+.card:hover,.card:focus-visible{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 10px 26px rgba(14,70,212,.16);outline:none}
+.card:hover .arrow{color:var(--blue);transform:translateX(-3px)}
+footer{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:10px}
+footer a{display:block;opacity:.85;transition:opacity .15s}
+footer a:hover{opacity:1}
+footer img{height:22px;width:auto;display:block}
+footer span{font-size:.78rem;color:var(--muted);direction:ltr}
+@media (max-width:380px){
+  body{padding-top:44px}
+  .avatar{width:104px;height:104px}
+  h1{font-size:1.85rem}
+  .lbl{font-size:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn,.card,.ic,.arrow{transition:none}
+  .btn:hover,.card:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="avatar"><img src="/images/mor-profile.jpg" alt="מור נסים" width="120" height="120"/></div>
+  <h1>Mor Nissim</h1>
+
+  <nav class="links" aria-label="קישורים">
+    <a class="btn" href="https://flow-az.com/">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg></span>
+      <span class="txt"><span class="lbl">האתר שלי</span><span class="sub">flow-az.com</span></span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
+    </a>
+
+    <a class="btn" href="https://www.instagram.com/mornissim_" target="_blank" rel="noopener">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></span>
+      <span class="txt"><span class="lbl">אינסטגרם</span><span class="sub">@mornissim_</span></span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
+    </a>
+
+    <a class="btn" href="https://wa.me/972557210724" target="_blank" rel="noopener">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.9-1.3A9.5 9.5 0 1 0 12 2.5zm0 1.8a7.7 7.7 0 1 1-3.9 14.3l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 0 1 12 4.3zm-3 3.9c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3l-1.9-.9c-.3-.1-.5-.2-.7.2l-.8 1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5L9.8 8.6c-.2-.4-.4-.4-.6-.4H9z"/></svg></span>
+      <span class="txt"><span class="lbl">וואצאפ</span><span class="sub">שלחו לי הודעה</span></span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
+    </a>
+
+    <a class="btn" href="tel:+972557210724">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.5h3l1.6 4-2 1.3a11 11 0 0 0 5.6 5.6l1.3-2 4 1.6v3a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 3.5 5.6a2 2 0 0 1 2-2.1z"/></svg></span>
+      <span class="txt"><span class="lbl">טלפון</span><span class="sub">055-7210724</span></span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
+    </a>
+
+    <a class="btn" href="mailto:office@flow-az.com">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7.5 12 13l8.5-5.5"/></svg></span>
+      <span class="txt"><span class="lbl">מייל</span><span class="sub">office@flow-az.com</span></span>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
+    </a>
+  </nav>
+
+  <section class="more" aria-labelledby="more-h">
+    <h2 id="more-h">עוד ממני</h2>
+    <div class="cards">
+      <a class="card" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener"><span>🤖 טכנו-Tips 🤖 – קבוצת הוואצאפ השקטה ה-7</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
+      <a class="card" href="https://wkf.ms/4mLTwnh" target="_blank" rel="noopener"><span>ליצירת קשר בנושא הזמנת סדנאות, למידה ביחד איתי והצעות עסקיות</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
+      <a class="card" href="https://flow-az.com/online-courses/"><span>בואו ללמוד איתי – לכל הסדנאות והקורסים הדיגיטליים</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
+      <a class="card" href="https://www.timeless.day/?via=mor" target="_blank" rel="noopener"><span>סוכן בינה מלאכותית שיתמלל, יסכם ויבצע משימות מהמחשב שלכם</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
+      <a class="card" href="https://manychat.partnerlinks.io/ym2u421bkigu" target="_blank" rel="noopener"><span>יצירת בוט לוואצאפ ואוטומציות לרשתות החברתיות – קוד למאניצ׳אט</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
+      <a class="card" href="https://try.monday.com/rcthkics2k6x" target="_blank" rel="noopener"><span>משתמש פרו ל-14 יום חינם במערכת מאנדיי (ניהול משימות, פרויקטים <span style="white-space:nowrap">ו-CRM</span>)</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
+      <a class="card" href="https://account.smoove.io/%D7%A4%D7%AA%D7%99%D7%97%D7%AA-%D7%97%D7%A9%D7%91%D7%95%D7%9F.aspx?af=Mornissim" target="_blank" rel="noopener"><span>קוד הנחה לסמוב 25%</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="https://flow-az.com/" aria-label="Flow"><img src="/images/flow-logo.png" alt="Flow"/></a>
+    <span>© Flow</span>
+  </footer>
+</main>
+</body>
+</html>
