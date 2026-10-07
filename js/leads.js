@@ -6,7 +6,8 @@
    FormSubmit then becomes the automatic fallback. */
 window.FLOW_LEADS = {
   webhook: '',
-  email: 'mor@flow-az.com'
+  email: 'mor@flow-az.com',
+  crm: 'https://eblogcwzwechjbobarir.supabase.co/functions/v1/ingest'
 };
 
 window.sendFlowLead = function (form, fields) {
@@ -66,6 +67,17 @@ window.sendFlowLead = function (form, fields) {
       if (String(j.success) !== 'true') throw new Error('formsubmit: ' + (j.message || 'not delivered'));
     });
   }
+
+  /* Flow CRM — every lead also lands in the CRM. Fire-and-forget:
+     the email below stays the source of truth if the CRM is unreachable. */
+  try {
+    fetch(window.FLOW_LEADS.crm, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true
+    }).catch(function () {});
+  } catch (e) {}
 
   if (!window.FLOW_LEADS.webhook) return viaEmail();
 
