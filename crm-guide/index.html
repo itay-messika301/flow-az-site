@@ -324,6 +324,13 @@ footer{text-align:center;color:var(--faint);font-size:13px;padding:24px 0 40px}
     <p style="color:var(--muted)">לחיצה אחת עוזרת לי לדעת שזה שווה להמשיך לכתוב מדריכים כאלה.</p>
     <button id="likeBtn" onclick="like()" style="margin-top:14px;font:700 18px 'IBM Plex Sans Hebrew',sans-serif;background:var(--primary-dim);color:var(--primary);border:2px solid var(--primary);border-radius:999px;padding:12px 26px;cursor:pointer">המדריך עזר לי 💙</button>
     <div id="likeThanks" style="display:none;margin-top:12px;color:var(--green);font-weight:600">תודה! 💙</div>
+    <form id="whoForm" onsubmit="return sendWho(event)" style="display:none;margin:14px auto 0;max-width:360px">
+      <p style="color:var(--muted);font-size:15px;margin:0 0 8px">רוצים שאדע מי אתם? (לא חובה)</p>
+      <div style="display:flex;gap:8px">
+        <input id="whoInput" maxlength="60" placeholder="שם או @אינסטגרם" style="flex:1;min-width:0;font:16px 'IBM Plex Sans Hebrew',sans-serif;border:1px solid #d7dbe2;border-radius:12px;padding:10px 12px"/>
+        <button style="font:700 16px 'IBM Plex Sans Hebrew',sans-serif;background:var(--primary);color:#fff;border:0;border-radius:12px;padding:10px 16px;cursor:pointer">שליחה</button>
+      </div>
+    </form>
     <a href="https://wa.me/972557210724?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A8!%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9A%20%D7%A2%D7%9C%20%D7%94-CRM%20%D7%95%D7%91%D7%A0%D7%99%D7%AA%D7%99..." target="_blank" rel="noopener" onclick="track('feedback')" style="display:block;margin-top:14px;font-weight:600">ספרו לי מה בניתם ←</a>
   </div>
 
@@ -343,13 +350,23 @@ footer{text-align:center;color:var(--faint);font-size:13px;padding:24px 0 40px}
 <a class="sticky-wa" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">💬 לקבוצת הוואטסאפ</a>
 
 <script>
-/* anonymous counter: opens by source (?s=wa / ?s=ig) and "helped me" clicks — no personal data */
-var SRC = (new URLSearchParams(location.search).get('s') || 'direct').slice(0, 20)
-function track(kind) {
+/* counter: opens by source (?s=wa / ?s=ig) and "helped me" clicks; a name only if the visitor typed one (or ?u= from a personal DM link) */
+var QS = new URLSearchParams(location.search)
+var SRC = (QS.get('s') || 'direct').slice(0, 20)
+var WHO = (QS.get('u') || '').slice(0, 60)
+function track(kind, who) {
   try {
     fetch('https://eblogcwzwechjbobarir.supabase.co/functions/v1/hit', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ page: 'crm-guide', kind: kind, src: SRC }), keepalive: true }).catch(function () {})
+      body: JSON.stringify({ page: 'crm-guide', kind: kind, src: SRC, who: who || WHO || undefined }), keepalive: true }).catch(function () {})
   } catch (e) {}
+}
+function sendWho(e) {
+  e.preventDefault()
+  var v = document.getElementById('whoInput').value.trim()
+  if (v) { track('name', v); try { localStorage.setItem('crmGuideWho', '1') } catch (x) {} }
+  document.getElementById('whoForm').style.display = 'none'
+  document.getElementById('likeThanks').textContent = v ? 'תודה ' + v + '! 💙' : 'תודה! 💙'
+  return false
 }
 try { if (!sessionStorage.getItem('crmGuideSeen')) { sessionStorage.setItem('crmGuideSeen', '1'); track('view') } } catch (e) { track('view') }
 function like() {
@@ -358,6 +375,9 @@ function like() {
   if (!done) { track('like'); try { localStorage.setItem('crmGuideLiked', '1') } catch (e) {} }
   document.getElementById('likeBtn').style.display = 'none'
   document.getElementById('likeThanks').style.display = 'block'
+  var known = !!WHO
+  try { known = known || localStorage.getItem('crmGuideWho') === '1' } catch (e) {}
+  if (!done && !known) document.getElementById('whoForm').style.display = 'block'
 }
 try { if (localStorage.getItem('crmGuideLiked') === '1') { document.getElementById('likeBtn').style.display = 'none'; document.getElementById('likeThanks').style.display = 'block' } } catch (e) {}
 function copyPrompt(id, btn) {
