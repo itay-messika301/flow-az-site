@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>איך בניתי לעצמי CRM עם Claude — מדריך | Flow</title>
+<meta name="description" content="המדריך המלא: איך בניתי מערכת CRM אישית עם Claude, בלי לכתוב שורת קוד — לידים מכל האפיקים, תזכורות, הכנסות ומעקב מהנייד."/>
+<meta property="og:title" content="איך בניתי לעצמי CRM עם Claude — בלי לכתוב שורת קוד"/>
+<meta property="og:description" content="השלבים, הפרומפטים, מה עבד ומה לא — מדריך מאת מור נסים, Flow"/>
+<meta property="og:image" content="https://flow-az.com/images/mor-profile.jpg"/>
+<meta property="og:type" content="article"/>
+<link rel="icon" type="image/png" href="/images/favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#f5f8fc;--surface:#fff;--surface-2:#eef2f8;--text:#15171c;--muted:#4a5260;--faint:#7b8290;
+  --primary:#0E46D4;--primary-hi:#0538B9;--primary-dim:#e8eefc;--green:#10b981;--green-dim:#e7f8f1;
+  --amber:#b45309;--amber-dim:#fef3e2;--rose:#e11d48;--border:#dde3ec;--wa:#25D366;
+  --radius:18px;--shadow:0 1px 2px rgba(11,18,32,.06),0 8px 28px rgba(11,18,32,.07);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans Hebrew',system-ui,sans-serif;font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--primary)}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+header.top img{height:26px}
+header.top a.join{font-size:14px;font-weight:600;text-decoration:none;background:var(--wa);color:#fff;padding:7px 14px;border-radius:999px}
+.hero{padding:28px 0 8px}
+.kicker{display:inline-block;font-size:13px;font-weight:600;color:var(--primary);background:var(--primary-dim);padding:4px 12px;border-radius:999px;margin-bottom:14px}
+h1{font-size:clamp(30px,6.5vw,46px);line-height:1.15;font-weight:700;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--primary)}
+.lead{font-size:19px;color:var(--muted);margin-top:14px}
+.byline{display:flex;align-items:center;gap:12px;margin-top:22px;font-size:15px;color:var(--muted)}
+.byline img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.toc{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px;margin:28px 0}
+.toc b{display:block;margin-bottom:6px}
+.toc ol{padding-right:20px;columns:2;column-gap:28px;font-size:15px}
+@media(max-width:560px){.toc ol{columns:1}}
+section{padding:34px 0 6px}
+h2{font-size:clamp(23px,4.6vw,30px);line-height:1.25;font-weight:700;margin-bottom:12px;display:flex;gap:10px;align-items:baseline}
+h2 .n{font-size:15px;font-weight:700;color:var(--primary);background:var(--primary-dim);border-radius:10px;padding:2px 10px;flex-shrink:0}
+h3{font-size:19px;font-weight:600;margin:20px 0 6px}
+p+p{margin-top:12px}
+ul.clean{list-style:none;padding:0;margin-top:10px}
+ul.clean li{padding:8px 0 8px 0;border-bottom:1px solid var(--border);display:flex;gap:10px}
+ul.clean li:last-child{border:0}
+ul.clean li .ic{flex-shrink:0;width:28px;height:28px;border-radius:9px;background:var(--primary-dim);display:grid;place-items:center;font-size:15px}
+.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+.note{border-right:4px solid var(--primary);background:var(--surface);border-radius:12px;padding:14px 16px;margin-top:16px;font-size:16px}
+.note.warn{border-color:#f59e0b;background:#fffaf0}
+.prompt{position:relative;background:#0b1220;color:#e7ecf5;border-radius:16px;padding:20px 20px 18px;margin-top:14px;font-size:16px;line-height:1.8;white-space:pre-wrap}
+.prompt button{position:absolute;top:12px;left:12px;font:600 13px 'IBM Plex Sans Hebrew',sans-serif;background:#fff;color:#0b1220;border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
+.prompt mark{background:#1d3a8a;color:#fff;border-radius:6px;padding:0 4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 14px;font-size:15px}
+.qa b{display:block;font-size:14px;color:var(--primary)}
+.chat{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.bubble{max-width:88%;border-radius:16px;padding:10px 14px;font-size:15.5px;line-height:1.6}
+.bubble.me{background:var(--primary);color:#fff;align-self:flex-start;border-bottom-right-radius:4px}
+.bubble.ai{background:var(--surface);box-shadow:var(--shadow);align-self:flex-end;border-bottom-left-radius:4px}
+.bubble small{display:block;opacity:.75;font-size:12.5px;margin-top:3px}
+/* ---- illustrated screens (dummy data) ---- */
+.screens{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
+@media(max-width:600px){.screens{grid-template-columns:1fr}}
+.phone{background:#f5f7fb;border:8px solid #0b1220;border-radius:30px;padding:14px 12px 16px;box-shadow:var(--shadow);font-size:13px;line-height:1.45}
+.phone .bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.phone .bar img{height:14px}
+.phone .ttl{font-weight:700;font-size:16px;margin-bottom:8px}
+.mini{background:#fff;border-radius:12px;padding:10px;box-shadow:0 1px 2px rgba(0,0,0,.05);margin-bottom:8px}
+.mini .row{display:flex;justify-content:space-between;gap:6px}
+.mini .big{font-weight:700;font-size:18px}
+.chip{display:inline-block;font-size:11px;border-radius:999px;padding:1px 8px;background:var(--surface-2);color:var(--muted);margin-left:4px}
+.chip.b{background:var(--primary-dim);color:var(--primary)}
+.chip.g{background:var(--green-dim);color:#047857}
+.chip.a{background:var(--amber-dim);color:var(--amber)}
+.chip.r{background:#ffe4e6;color:var(--rose)}
+.cols{display:flex;gap:6px}
+.cols .col{flex:1;background:#e9edf4;border-radius:10px;padding:6px}
+.cols .col h6{font-size:11px;font-weight:600;margin-bottom:5px;display:flex;justify-content:space-between;color:var(--muted)}
+.cols .tile{background:#fff;border-radius:8px;padding:6px;margin-bottom:5px;font-size:11.5px}
+.cols .tile b{display:block;font-size:12px}
+.cap{text-align:center;font-size:14px;color:var(--muted);margin-top:8px}
+.bar2{height:7px;border-radius:9px;background:var(--surface-2);overflow:hidden;margin-top:5px}
+.bar2 i{display:block;height:100%;background:var(--primary);border-radius:9px}
+.mail{background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden;font-size:14px;margin-top:16px}
+.mail .hd{background:var(--primary);color:#fff;padding:14px 16px}
+.mail .bd{padding:12px 16px}
+.mail .sec{font-weight:600;margin:8px 0 4px;display:flex;align-items:center;gap:6px}
+.mail .sec i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.mail .ln{display:flex;justify-content:space-between;border-bottom:1px solid #eef0f4;padding:5px 0;color:var(--muted)}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px;font-size:14.5px}
+.flow span{background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 12px}
+.flow .arr{border:0;background:none;padding:0;color:var(--faint)}
+.mist{display:grid;gap:10px;margin-top:12px}
+.mist .card{padding:14px 16px}
+.mist b{display:block}
+table.cost{width:100%;border-collapse:collapse;margin-top:12px;font-size:15.5px;background:var(--surface);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+table.cost td{padding:11px 14px;border-bottom:1px solid var(--border)}
+table.cost tr:last-child td{border:0}
+table.cost td:last-child{color:var(--muted);text-align:left;white-space:nowrap}
+.cta{background:linear-gradient(135deg,#0E46D4,#0538B9);color:#fff;border-radius:24px;padding:30px 22px;text-align:center;margin:40px 0 20px}
+.cta h2{color:#fff;justify-content:center;display:block}
+.cta p{color:#dbe4ff}
+.cta a.btn{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:var(--wa);color:#fff;text-decoration:none;font-weight:700;font-size:18px;padding:14px 26px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.cta a.sec{display:block;margin-top:14px;color:#fff;opacity:.85;font-size:15px}
+footer{text-align:center;color:var(--faint);font-size:13px;padding:24px 0 40px}
+.sticky-wa{position:fixed;bottom:16px;left:16px;z-index:10;background:var(--wa);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:11px 16px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25);display:flex;gap:8px;align-items:center}
+@media(min-width:900px){.sticky-wa{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a href="https://flow-az.com/"><img src="/images/flow-logo.png" alt="Flow"/></a>
+    <a class="join" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">לקבוצת הוואטסאפ</a>
+  </header>
+
+  <div class="hero">
+    <span class="kicker">מדריך · Claude בעבודה אמיתית</span>
+    <h1>איך בניתי לעצמי <em>CRM</em> עם&nbsp;Claude<span style="display:block;font-size:.62em;color:var(--muted);font-weight:600;margin-top:6px">בלי לכתוב שורת קוד</span></h1>
+    <p class="lead">החלפתי את מאנדיי במערכת שבנויה בדיוק לעסק שלי: לידים מכל האפיקים, תזכורות, הכנסות, לקוחות, עמלות לשגרירים — ונוחה מהנייד. הנה כל הדרך: הפרומפטים, השאלות, מה עבד, ומה לא.</p>
+    <div class="byline"><img src="/images/mor-profile.jpg" alt="מור נסים"/><div><b>מור נסים</b> · Flow — אוטומציה ו-AI לעסקים וארגונים</div></div>
+  </div>
+
+  <nav class="toc">
+    <b>מה במדריך</b>
+    <ol>
+      <li><a href="#why">למה בכלל לבנות לבד</a></li>
+      <li><a href="#start">השיחה הראשונה עם Claude</a></li>
+      <li><a href="#what">מה המערכת יודעת לעשות</a></li>
+      <li><a href="#auto">מה קורה לבד</a></li>
+      <li><a href="#how">איך עובדים עם Claude לאורך הדרך</a></li>
+      <li><a href="#safe">אבטחה ופרטיות</a></li>
+      <li><a href="#cost">כמה זה עולה ומה צריך</a></li>
+      <li><a href="#oops">טעויות שעשינו (כדי שאתם לא)</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <section id="why">
+    <h2><span class="n">1</span>למה בכלל לבנות לבד?</h2>
+    <p>עבדתי עם מאנדיי. זה כלי מצוין — אבל הוא טבלאי, הוא לא מכיר את העסק שלי, ולעדכן ממנו בנייד באמצע יום עבודה זה סיוט. הלידים שלי מגיעים מעשרה כיוונים: טופס באתר, מייל, וואטסאפ, אינסטגרם, המלצות מפה לאוזן, רכישות בדף סליקה.</p>
+    <p>ומה שבאמת רציתי לדעת בכל רגע: <b>מה עליי היום, מי מחכה לי, וכמה כסף באמת נכנס החודש.</b></p>
+    <div class="note">ההבדל הגדול: מערכת מדף גורמת לכם להתאים את העסק אליה. מערכת שאתם בונים עם Claude מתאימה את עצמה לעסק — ומשתנה בכל פעם שאתם אומרים "זה לא עובד לי ככה".</div>
+  </section>
+
+  <!-- 2 -->
+  <section id="start">
+    <h2><span class="n">2</span>השיחה הראשונה עם Claude</h2>
+    <p>הדבר הכי חשוב שעשיתי קרה עוד לפני שורת הקוד הראשונה: <b>ביקשתי מ-Claude לא להניח הנחות ולשאול אותי הכל.</b> זה ההבדל בין מערכת "בערך" לבין מערכת שמרגישה כאילו תפרו אותה עליכם.</p>
+    <p>הנה הפרומפט שאני השתמשתי בו — מוכן להעתקה. תחליפו את החלקים המסומנים:</p>
+    <div class="prompt" id="p1"><button onclick="copyPrompt('p1',this)">העתקה</button>אני רוצה לבנות מערכת CRM למעקב אחרי הלידים שנכנסים <mark>מהאתר שלי, מהמייל, מוואטסאפ, מאינסטגרם</mark> ובכללי מכל האפיקים. אני רוצה שבמערכת אוכל לקבל תזכורות, לראות כמה הכנסות נכנסות, ושיהיה לי נוח לעדכן ולצרף דברים מהנייד.
+היום אני עובד/ת עם <mark>מאנדיי / אקסל / מחברת</mark> ומרגיש לי ש<mark>זה טבלאי מדי ולא מותאם לצרכים שלי</mark>.
+העסק שלי: <mark>תיאור קצר — מה אתם מוכרים ולמי</mark>.
+תבנה לי תכנית עבודה לבניית מערכת כזו ברמת גימור גבוהה. חשוב לי שלא תניח הנחות — תשאל אותי כל מה שאתה צריך כדי שתהיה לנו היום מערכת עובדת. המערכת כולה בעברית.</div>
+
+    <h3>השאלות ש-Claude שאל אותי (ושכדאי לכם לחשוב עליהן מראש)</h3>
+    <div class="grid2">
+      <div class="qa"><b>תשתית</b>מערכת משלך, גיליון גוגל, או כלי מדף עם התאמות?</div>
+      <div class="qa"><b>תחומי פעילות</b>אילו שירותים — ולכל אחד שלבים משלו?</div>
+      <div class="qa"><b>אפיקים</b>מאיפה לידים צריכים להיכנס לבד, בלי להקליד?</div>
+      <div class="qa"><b>הכנסות</b>יעד חודשי? צפי? מעקב תשלומים? רווחיות לפי לקוח?</div>
+      <div class="qa"><b>תזכורות</b>פוש, מייל בוקר, יומן, וואטסאפ?</div>
+      <div class="qa"><b>הנייד</b>אייפון או אנדרואיד? (משנה איך משתפים לתוך המערכת)</div>
+      <div class="qa"><b>הנתונים הקיימים</b>לייבא הכל, רק מה שפתוח, או להתחיל נקי?</div>
+      <div class="qa"><b>מי משתמש</b>רק אתם, או גם צוות?</div>
+    </div>
+    <div class="note">טיפ: כשאתם לא בטוחים — תגידו את זה. "אני לא יודעת, תבדוק" זו תשובה מצוינת. Claude בדק בשבילי אם יש לי מפתחות וחשבונות קיימים, במקום שאני אנחש.</div>
+  </section>
+
+  <!-- 3 -->
+  <section id="what">
+    <h2><span class="n">3</span>מה המערכת יודעת לעשות</h2>
+    <p>כך זה נראה (עם נתוני דמה — את הלקוחות האמיתיים שלי אני שומרת לעצמי 🙂):</p>
+    <div class="screens">
+      <div>
+        <div class="phone">
+          <div class="bar"><img src="/images/flow-logo.png" alt=""/><span style="color:#94a3b8">☰</span></div>
+          <div class="ttl">בוקר טוב 👋</div>
+          <div class="mini">
+            <div class="row"><b>הכנסות</b><span><span class="chip b">חודש</span></span></div>
+            <div class="row" style="margin-top:6px"><div><div style="color:#64748b;font-size:11px">נסגר</div><div class="big" style="color:#0E46D4">₪18,400</div></div><div><div style="color:#64748b;font-size:11px">נכנס בפועל</div><div class="big" style="color:#047857">₪12,950</div></div></div>
+            <div class="bar2"><i style="width:62%"></i></div>
+          </div>
+          <div class="mini"><b>מה עליי היום</b>
+            <div class="row" style="margin-top:4px"><span>○ לשלוח הצעה לסטודיו כרמל</span><span style="color:#94a3b8">10:00</span></div>
+            <div class="row"><span>○ פולואפ — דנה לוי</span><span style="color:#e11d48">באיחור</span></div>
+          </div>
+        </div>
+        <p class="cap">מסך "היום" — כסף ומשימות במבט אחד</p>
+      </div>
+      <div>
+        <div class="phone">
+          <div class="bar"><b style="font-size:15px">לידים</b><span class="chip b">+ ליד חדש</span></div>
+          <div class="cols">
+            <div class="col"><h6>ליד חדש <span>2</span></h6><div class="tile"><b>סטודיו כרמל</b>אתר תדמית <span class="chip">אינסטגרם</span></div><div class="tile"><b>דנה לוי</b><span class="chip">הפניה</span></div></div>
+            <div class="col"><h6>הצעה נשלחה <span>1</span></h6><div class="tile"><b>מאפיית שחר</b>אוטומציית הזמנות <span class="chip b">₪6,500</span></div></div>
+            <div class="col"><h6>נסגר <span>1</span></h6><div class="tile"><b>יוגה בים</b>סדנת AI <span class="chip g">₪3,200</span></div></div>
+          </div>
+        </div>
+        <p class="cap">לוח לידים — לכל שירות שלבים משלו</p>
+      </div>
+      <div>
+        <div class="phone">
+          <div class="ttl">מאפיית שחר</div>
+          <div class="mini"><div class="row"><span>הכנסה</span><b>₪6,500</b></div><div class="row"><span>שולם</span><b style="color:#047857">₪3,250</b></div><div class="row"><span>יתרה · עד 31.10</span><b style="color:#b45309">₪3,250</b></div></div>
+          <div class="mini"><b>⏱ בנק שעות</b><div class="row" style="margin-top:3px"><span>נוצלו 6 מתוך 10</span><span style="color:#047857">נותרו 4</span></div><div class="bar2"><i style="width:60%"></i></div></div>
+          <div class="mini"><span class="chip b">פרויקטים 1</span><span class="chip">הרצאות +</span><span class="chip">קורסים +</span></div>
+        </div>
+        <p class="cap">כרטיס לקוח — כסף, שעות, שירותים, מסמכים</p>
+      </div>
+      <div>
+        <div class="phone">
+          <div class="ttl">עדכון מצילום מסך ✨</div>
+          <div class="mini" style="background:#e7f8f1"><span style="font-size:12px">💬 "היי! אחרי שיחה פנימית אנחנו רוצים להתקדם, אפשר הצעה עד סוף השבוע?"</span></div>
+          <div class="mini"><b>העדכון שה-AI כתב</b><div style="margin-top:3px">הלקוח מעוניין להתקדם ומבקש הצעת מחיר עד סוף השבוע.</div></div>
+          <div class="mini"><div class="row"><span>שלב חדש</span><span class="chip b">הצעה נשלחה</span></div><div class="row"><span>צעד הבא</span><span>לשלוח הצעה · ה׳ 09:00</span></div></div>
+        </div>
+        <p class="cap">מדביקים צילום מסך ← עדכון סטטוס + צעד הבא</p>
+      </div>
+    </div>
+
+    <h3>והרשימה המלאה</h3>
+    <ul class="clean">
+      <li><span class="ic">📋</span><div><b>לידים לפי שירות</b> — פרויקטים, הרצאות, קורסים, שיתופי פעולה. כל אחד עם השלבים שלו, ופילטרים לפי כל פרמטר.</div></li>
+      <li><span class="ic">👥</span><div><b>לקוחות שמקבלים כמה שירותים</b> — אותו לקוח יכול לקנות קורס, להזמין הרצאה ולעשות פרויקט. הכל בכרטיס אחד.</div></li>
+      <li><span class="ic">💰</span><div><b>כסף אמיתי</b> — נסגר מול נכנס בפועל, לפני ואחרי מע״מ, צפי גבייה ל-30 יום, רווחיות חודשית, תנאי תשלום באחוזים (למשל "עד ה-20 בחודש העוקב").</div></li>
+      <li><span class="ic">🔁</span><div><b>עבודה חוזרת</b> — הרצאה חודשית או ריטיינר: מגדירים פעם אחת, ורושמים כל מפגש בלחיצה.</div></li>
+      <li><span class="ic">⭐</span><div><b>שגרירים</b> — מי ממליץ עליי, כמה לידים ולקוחות הגיעו ממנו, ועמלה שמחושבת לבד כשעסקה נסגרת (כולל תשלום חלקי).</div></li>
+      <li><span class="ic">🎟</span><div><b>מוצרים</b> — וובינר או סדנה עם רשימת נרשמים, הכנסות, וכפתור "העתקת מיילים" לשליחת הזום.</div></li>
+      <li><span class="ic">✅</span><div><b>משימות</b> — כלליות או של לקוח, עם תדירות חוזרת. ושבוע העבודה ישראלי — ראשון הבא זה "שבוע הבא".</div></li>
+      <li><span class="ic">🤝</span><div><b>ברטר</b> — לקוח שמשלם בחשבונית מול חשבונית מופיע בהכנסות, אבל בנפרד מהכסף שבאמת נכנס.</div></li>
+    </ul>
+  </section>
+
+  <!-- 4 -->
+  <section id="auto">
+    <h2><span class="n">4</span>מה קורה לבד (החלק הכי כיפי)</h2>
+    <h3>טופס באתר ← ליד</h3>
+    <div class="flow"><span>מישהו ממלא טופס</span><span class="arr">←</span><span>ליד חדש בתחום הנכון</span><span class="arr">←</span><span>תזכורת לחזור מחר ב-09:00</span></div>
+    <h3>רכישה בדף סליקה ← רשום ושילם</h3>
+    <div class="flow"><span>מייל אישור רכישה</span><span class="arr">←</span><span>AI קורא שם/טלפון/סכום</span><span class="arr">←</span><span>נרשם למוצר הנכון, בלי כפילויות</span></div>
+    <h3>מייל עם פנייה ← "לאישור"</h3>
+    <div class="flow"><span>מייל חדש</span><span class="arr">←</span><span>AI מסנן פרסומות והזמנות יומן</span><span class="arr">←</span><span>פנייה עסקית מחכה לאישור בלחיצה</span></div>
+    <h3>צילום מסך מוואטסאפ או מאינסטגרם ← ליד</h3>
+    <div class="flow"><span>צילום מסך</span><span class="arr">←</span><span>שיתוף ב-iPhone</span><span class="arr">←</span><span>ה-AI ממלא את הפרטים</span></div>
+
+    <div class="mail">
+      <div class="hd"><b style="font-size:17px">בוקר טוב</b><div style="opacity:.85;font-size:13px">5 משימות להיום · 2 לידים חדשים · 1 מחכה לאישור</div></div>
+      <div class="bd">
+        <div class="sec"><i style="background:#e11d48"></i>באיחור</div><div class="ln"><span>פולואפ — דנה לוי</span><span>12.10</span></div>
+        <div class="sec"><i style="background:#0E46D4"></i>להיום</div><div class="ln"><span>לשלוח הצעה — סטודיו כרמל</span><span>10:00</span></div>
+        <div class="sec"><i style="background:#f59e0b"></i>תשלומים לגבייה השבוע</div><div class="ln"><span>מאפיית שחר · ₪3,250</span><span>31.10</span></div>
+      </div>
+    </div>
+    <p class="cap">מייל הבוקר שמגיע כל יום (חוץ משבת 😉)</p>
+  </section>
+
+  <!-- 5 -->
+  <section id="how">
+    <h2><span class="n">5</span>איך עובדים עם Claude לאורך הדרך</h2>
+    <p>המערכת לא נבנתה בפרומפט אחד. היא נבנתה בשבוע של שיחות קצרות: <b>להשתמש, לשים לב מה מעצבן, ולבקש שינוי.</b> כמה דוגמאות אמיתיות:</p>
+    <div class="chat">
+      <div class="bubble me">שת״פים זה כמו פרסומים — תשאיר את זה תחת אותה נישה<small>← שני התחומים אוחדו לאחד</small></div>
+      <div class="bubble me">למה כל המערכת בלי מע״מ? אני רוצה לראות גם וגם<small>← כל סכום מוצג לפני וכולל, ואפשר להקליד כולל מע״מ</small></div>
+      <div class="bubble me">אל תניח כמה הרצאות עשיתי — אני רוצה להזין בעצמי<small>← עבודה חוזרת הפכה ל"רישום מפגש" ידני</small></div>
+      <div class="bubble me">שבוע העבודה שלי מתחיל בראשון<small>← "שבוע הבא" במשימות, ותזכורות לא נופלות על שבת</small></div>
+      <div class="bubble me">אני רוצה לרשום עמלה ששילמתי לשגריר — גם חלקית<small>← היסטוריית תשלומים לכל עמלה</small></div>
+    </div>
+    <h3>3 הרגלים שעשו את ההבדל</h3>
+    <ul class="clean">
+      <li><span class="ic">📸</span><div><b>שולחים צילום מסך במקום להסביר.</b> "זה מופיע פעמיים, למה?" + צילום — ו-Claude מוצא את הסיבה ומתקן את השורש, לא רק את התסמין.</div></li>
+      <li><span class="ic">🔢</span><div><b>בודקים את המספרים.</b> כשהדשבורד הראה הכנסה שלא הגיוני שנכנסה החודש — עצרתי ושאלתי "למה". התברר שתאריכים "נוחשו". מאז נוסף "מה נכלל?" מתחת לכל סכום.</div></li>
+      <li><span class="ic">🎯</span><div><b>מבקשים דבר אחד בכל פעם, ומתארים את הצורך — לא את הפתרון.</b> "אני רוצה לדעת כמה כל שגריר הביא" עובד טוב יותר מ"תוסיף עמודה".</div></li>
+    </ul>
+  </section>
+
+  <!-- 6 -->
+  <section id="safe">
+    <h2><span class="n">6</span>אבטחה ופרטיות — לא לדלג על זה</h2>
+    <p>CRM מחזיק את המידע הכי רגיש בעסק: לקוחות, טלפונים, כסף. אז זה מה שהקפדנו עליו:</p>
+    <ul class="clean">
+      <li><span class="ic">🔐</span><div><b>כניסה רק עם Google</b> של החשבון העסקי שלי — כולל האימות הדו-שלבי של Google. אין סיסמה שאפשר לנחש.</div></li>
+      <li><span class="ic">🛡</span><div><b>הנעילה בשרת, לא רק במסך.</b> גם מי שמגיע לכתובת לא יראה כלום בלי להיות אני.</div></li>
+      <li><span class="ic">🔑</span><div><b>מפתחות לא מדביקים בצ'אט.</b> מפתחות API מדביקים ישירות בהגדרות של השירות — Claude עצמו הנחה אותי לעשות ככה.</div></li>
+      <li><span class="ic">💾</span><div><b>גיבוי יומי לדרייב</b> — 30 ימים אחורה.</div></li>
+      <li><span class="ic">🙈</span><div><b>לא חושפים את המייל</b> בדף הכניסה, ולא משאירים כניסה "זמנית" פתוחה.</div></li>
+    </ul>
+  </section>
+
+  <!-- 7 -->
+  <section id="cost">
+    <h2><span class="n">7</span>כמה זה עולה ומה צריך</h2>
+    <table class="cost">
+      <tr><td><b>Claude</b> (מנוי עם Claude Code) — מי שבונה איתכם</td><td>המנוי הקיים</td></tr>
+      <tr><td><b>Supabase</b> — מסד הנתונים, הקבצים והשרת</td><td>חינם</td></tr>
+      <tr><td><b>אחסון</b> — על הדומיין הקיים של האתר</td><td>חינם</td></tr>
+      <tr><td><b>מפתח Claude API</b> — ל-AI שקורא מיילים וצילומי מסך</td><td>כמה דולרים בחודש</td></tr>
+      <tr><td><b>Google Workspace</b> — מייל, דרייב, כניסה</td><td>קיים</td></tr>
+      <tr><td><b>זמן</b> — עד מערכת עובדת</td><td>יום אחד</td></tr>
+      <tr><td><b>זמן</b> — עד שהיא בדיוק כמו שרציתי</td><td>שבוע של שיחות קצרות</td></tr>
+    </table>
+    <div class="note">ומה צריך לדעת? לא לכתוב קוד. כן לדעת מה אתם רוצים, להיות מוכנים לפתוח חשבון פה ושם (Claude מדריך צעד-צעד), ולבדוק את התוצאה בעיניים.</div>
+  </section>
+
+  <!-- 8 -->
+  <section id="oops">
+    <h2><span class="n">8</span>טעויות שעשינו (כדי שאתם לא)</h2>
+    <div class="mist">
+      <div class="card"><b>🗑 ניקוי "נתוני בדיקה" מחק נתונים אמיתיים</b>ביום הראשון, ניקוי של רשומות בדיקה מחק גם ליד אמיתי. מאז: לא בודקים על הנתונים האמיתיים, ומוחקים רק רשומה מזוהה — אחת-אחת. ויש גיבוי יומי.</div>
+      <div class="card"><b>📅 תאריכים ש"נוחשו"</b>כשלא היה תאריך תשלום, המערכת שמה את היום — והדשבורד הראה כסף שנכנס מזמן כאילו נכנס החודש. הכלל: מה שלא ידוע נשאר "לא ידוע".</div>
+      <div class="card"><b>👯 ליד שנכנס פעמיים</b>טופס באתר שלח גם ליד וגם מייל — והמייל הפך לליד שני. התיקון: המערכת מזהה מי כבר קיים ומצרפת אליו.</div>
+      <div class="card"><b>🔁 "הנחה נוחה" שלא מתאימה למציאות</b>הרצאה "כל חודשיים" ייצרה לבד חובות על מפגשים שלא קרו. מערכת טובה שואלת, לא מנחשת.</div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>רוצים עוד כאלה?</h2>
+    <p>בקבוצת הוואטסאפ שלי עולים בדיוק דברים כאלה: איך לעבוד עם Claude ועם AI בעסק — בפועל, עם פרומפטים, דוגמאות ותהליכים אמיתיים. קבוצה שקטה, רק תוכן.</p>
+    <a class="btn" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.2-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>
+      הצטרפות לקבוצה
+    </a>
+    <a class="sec" href="https://flow-az.com/projects/#contact">רוצים שנבנה כזה גם לעסק שלכם? דברו איתי ←</a>
+  </div>
+
+  <footer>© Flow · מור נסים · <a href="https://flow-az.com/">flow-az.com</a></footer>
+</div>
+
+<a class="sticky-wa" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">💬 לקבוצת הוואטסאפ</a>
+
+<script>
+function copyPrompt(id, btn) {
+  var el = document.getElementById(id).cloneNode(true)
+  el.querySelector('button').remove()
+  navigator.clipboard.writeText(el.innerText.trim()).then(function () {
+    btn.textContent = 'הועתק ✓'
+    setTimeout(function () { btn.textContent = 'העתקה' }, 1800)
+  })
+}
+</script>
+</body>
+</html>
