@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>איך בניתי לעצמי CRM עם Claude — מדריך | Flow</title>
-<meta name="description" content="המדריך המלא: איך בניתי מערכת CRM אישית עם Claude, בלי לכתוב שורת קוד — לידים מכל האפיקים, תזכורות, הכנסות ומעקב מהנייד."/>
-<meta property="og:title" content="איך בניתי לעצמי CRM עם Claude — בלי לכתוב שורת קוד"/>
+<title>איך בניתי לעצמי CRM עם Claude Code — מדריך | Flow</title>
+<meta name="description" content="המדריך המלא: איך בניתי מערכת CRM אישית עם Claude Code, בלי לכתוב שורת קוד — לידים מכל האפיקים, תזכורות, הכנסות ומעקב מהנייד."/>
+<meta property="og:title" content="איך בניתי לעצמי CRM עם Claude Code — בלי לכתוב שורת קוד"/>
 <meta property="og:description" content="השלבים, הפרומפטים, מה עבד ומה לא — מדריך מאת מור נסים, Flow"/>
 <meta property="og:image" content="https://flow-az.com/images/mor-profile.jpg"/>
 <meta property="og:type" content="article"/>
@@ -120,8 +120,8 @@ footer{text-align:center;color:var(--faint);font-size:13px;padding:24px 0 40px}
   </header>
 
   <div class="hero">
-    <span class="kicker">מדריך · Claude בעבודה אמיתית</span>
-    <h1>איך בניתי לעצמי <em>CRM</em> עם&nbsp;Claude<span style="display:block;font-size:.62em;color:var(--muted);font-weight:600;margin-top:6px">בלי לכתוב שורת קוד</span></h1>
+    <span class="kicker">מדריך · Claude Code בעבודה אמיתית</span>
+    <h1>איך בניתי לעצמי <em>CRM</em> עם&nbsp;Claude&nbsp;Code<span style="display:block;font-size:.62em;color:var(--muted);font-weight:600;margin-top:6px">בלי לכתוב שורת קוד</span></h1>
     <p class="lead">החלפתי את מערכת ה-CRM שעבדתי איתה במערכת שבנויה בדיוק לעסק שלי: לידים מכל האפיקים, תזכורות, הכנסות, לקוחות, עמלות לשגרירים — ונוחה מהנייד. הנה כל הדרך: הפרומפטים, השאלות, מה עבד, ומה לא.</p>
     <div class="byline"><img src="/images/mor-profile.jpg" alt="מור נסים"/><div><b>מור נסים</b> · Flow — אוטומציה ו-AI לעסקים וארגונים</div></div>
   </div>
@@ -151,6 +151,7 @@ footer{text-align:center;color:var(--faint);font-size:13px;padding:24px 0 40px}
   <!-- 2 -->
   <section id="start">
     <h2><span class="n">2</span>השיחה הראשונה עם Claude</h2>
+    <div class="note" style="margin-top:0;margin-bottom:16px"><b>איפה כותבים את זה?</b> ב-<b>Claude Code</b> — הלשונית <b>Code</b> באפליקציית Claude למחשב, ולא בצ'אט הרגיל. ההבדל: בצ'אט מקבלים קוד להעתיק ולהסתדר איתו לבד. ב-Claude Code, Claude <b>בונה בפועל</b> — יוצר את הקבצים, מקים את מסד הנתונים ומעלה את המערכת לאוויר, ואתם רק עונים על שאלות ומאשרים. כלול במנוי Pro/Max.</div>
     <p>הדבר הכי חשוב שעשיתי קרה עוד לפני שורת הקוד הראשונה: <b>ביקשתי מ-Claude לא להניח הנחות ולשאול אותי הכל.</b> זה ההבדל בין מערכת "בערך" לבין מערכת שמרגישה כאילו תפרו אותה עליכם.</p>
     <p>הנה הפרומפט שאני השתמשתי בו — מוכן להעתקה. תחליפו את החלקים המסומנים:</p>
     <div class="prompt" id="p1"><button onclick="copyPrompt('p1',this)">העתקה</button>אני רוצה לבנות מערכת CRM למעקב אחרי הלידים שנכנסים <mark>מהאתר שלי, מהמייל, מוואטסאפ, מאינסטגרם</mark> ובכללי מכל האפיקים. אני רוצה שבמערכת אוכל לקבל תזכורות, לראות כמה הכנסות נכנסות, ושיהיה לי נוח לעדכן ולצרף דברים מהנייד.
