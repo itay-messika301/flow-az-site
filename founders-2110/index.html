@@ -5,24 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ערכת הכלים · יש לי עובד שלא ישן</title>
 <meta name="description" content="כל הפרומפטים וההוראות מההרצאה של מור נסים בכנס FOUNDERS #01, מוכנים להעתקה.">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#07131F; --bg2:#0D1F31; --bg3:#13293F; --line:rgba(255,255,255,.09);
-  --text:#F2F6FA; --muted:#8FA3B8; --dim:#4A5E73; --accent:#4FA8F5; --accent-deep:#1A72C8; --accent-soft:rgba(79,168,245,.13);
+  --bg:#F5F8FC; --bg2:#FFFFFF; --bg3:#EEF4FA; --line:#DCE5EE;
+  --text:#0B1A2A; --muted:#4D6176; --dim:#8395A8; --accent:#1A72C8; --accent-deep:#0F5AA6; --accent-soft:rgba(26,114,200,.10);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:Heebo,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
-  background-image:radial-gradient(900px 600px at 100% -10%,rgba(79,168,245,.12),transparent 60%)}
+  background-image:radial-gradient(900px 600px at 100% -10%,rgba(79,168,245,.18),transparent 60%)}
 .wrap{max-width:760px;margin:0 auto;padding:0 18px 80px}
 a{color:var(--accent)}
 .ltr{direction:ltr;unicode-bidi:isolate}
 
-header{padding:44px 0 28px}
+header{padding:40px 0 28px;display:flex;gap:18px;align-items:flex-start}
+header .txt{flex:1;min-width:0}
+.me{flex:none;width:112px;height:112px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px #fff,0 0 0 7px var(--accent),0 12px 30px rgba(11,26,42,.18);margin-top:6px}
+@media (min-width:640px){.me{width:150px;height:150px}}
 .kicker{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.03em}
 h1{font-size:clamp(34px,8vw,52px);font-weight:900;line-height:1.08;margin:10px 0 14px}
 h1 span{color:var(--accent)}
@@ -35,17 +38,17 @@ nav.toc::-webkit-scrollbar{display:none}
 nav.toc a{flex:none;font-size:14px;font-weight:700;color:var(--text);text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:7px 15px;background:var(--bg2)}
 
 section{margin-top:44px;scroll-margin-top:70px}
-.num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--bg);font-weight:900;font-size:15px;margin-left:10px;vertical-align:3px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:900;font-size:15px;margin-left:10px;vertical-align:3px}
 h2{font-size:28px;font-weight:900;line-height:1.2}
 .sub{color:var(--muted);font-size:16px;margin-top:6px}
 
-.card{background:var(--bg2);border:1.5px solid var(--line);border-radius:20px;padding:20px;margin-top:16px}
+.card{background:var(--bg2);border:1.5px solid var(--line);border-radius:20px;padding:20px;margin-top:16px;box-shadow:0 6px 24px rgba(11,26,42,.05)}
 .card.hero{border-color:rgba(79,168,245,.5);box-shadow:0 0 0 4px rgba(79,168,245,.08)}
 
 .prompt{position:relative;background:var(--bg3);border:1.5px solid var(--line);border-radius:16px;padding:18px 18px 64px;margin-top:14px;font-size:16.5px;line-height:1.7;white-space:pre-wrap}
 .prompt .lbl{display:block;font-size:12.5px;font-weight:800;color:var(--accent);margin-bottom:6px;white-space:normal}
-.copy{position:absolute;bottom:12px;left:12px;font:inherit;font-size:15px;font-weight:800;border:0;border-radius:12px;padding:9px 18px;background:var(--accent);color:var(--bg);cursor:pointer;display:flex;align-items:center;gap:8px}
-.copy.ok{background:#6fdc94}
+.copy{position:absolute;bottom:12px;left:12px;font:inherit;font-size:15px;font-weight:800;border:0;border-radius:12px;padding:9px 18px;background:var(--accent);color:#fff;cursor:pointer;display:flex;align-items:center;gap:8px}
+.copy.ok{background:#1f9d55}
 .fill{color:var(--accent);font-weight:700}
 
 .rows{display:grid;gap:10px;margin-top:14px}
@@ -57,7 +60,7 @@ h2{font-size:28px;font-weight:900;line-height:1.2}
 .steps{display:grid;gap:12px;margin-top:16px}
 .step{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--bg2);border:1.5px solid var(--line);border-radius:18px;padding:16px}
 .step i{font-style:normal;width:44px;height:44px;border-radius:50%;border:3px solid var(--accent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px}
-.step:last-child i{background:var(--accent);color:var(--bg)}
+.step:last-child i{background:var(--accent);color:#fff}
 .step b{font-size:19px;font-weight:900;display:block}
 .step span{color:var(--muted);font-size:15.5px}
 
@@ -76,13 +79,14 @@ ul.check{list-style:none;margin-top:12px;display:grid;gap:10px}
 ul.check li{display:grid;grid-template-columns:26px 1fr;gap:8px;font-size:16px}
 ul.check li::before{content:"";width:20px;height:20px;margin-top:4px;border-radius:6px;border:2px solid var(--accent);background:var(--accent-soft)}
 .keep{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.keep span{border:1.5px dashed rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;font-weight:700;font-size:15px}
+.keep span{border:1.5px dashed var(--dim);border-radius:999px;padding:6px 14px;font-weight:700;font-size:15px}
 
-.cta{margin-top:56px;background:linear-gradient(160deg,var(--accent-deep),#0d3a63);border-radius:24px;padding:28px 22px;text-align:center}
+.cta{margin-top:56px;color:#fff;background:linear-gradient(160deg,#1A72C8,#0d3a63);border-radius:24px;padding:28px 22px;text-align:center}
 .cta h2{font-size:26px}
 .cta p{color:rgba(255,255,255,.85);margin:8px 0 18px}
 .btn{display:block;text-decoration:none;font-weight:800;font-size:17px;border-radius:14px;padding:14px;margin-top:10px}
-.btn.wa{background:#fff;color:var(--bg)}
+.btn.wa{background:#fff;color:#0B1A2A}
+.btn.ig{background:rgba(255,255,255,.12);color:#fff}
 .btn.yt{background:rgba(255,255,255,.12);color:#fff}
 footer{margin-top:36px;text-align:center;color:var(--dim);font-size:13.5px}
 footer a{color:var(--muted)}
@@ -97,10 +101,13 @@ footer a{color:var(--muted)}
 <div class="wrap">
 
 <header>
+  <div class="txt">
   <div class="kicker">FOUNDERS #01 · ערכת הכלים</div>
   <h1>יש לי עובד<br><span>שלא ישן</span></h1>
   <p class="intro">כל מה שראיתם בהרצאה, מוכן להעתקה. לא צריך לדעת קוד. צריך לדעת להסביר איך אתם עובדים.</p>
   <div class="by">מאת <b>מור נסים</b> · Flow</div>
+  </div>
+  <img class="me" src="mor.jpg" alt="מור נסים">
 </header>
 
 <nav class="toc">
@@ -235,6 +242,7 @@ footer a{color:var(--muted)}
   <h2>רוצים עוד כאלה?</h2>
   <p>בקהילה שלי אני משתפת כלים, פרומפטים ותהליכים כמו אלה שראיתם הערב.</p>
   <a class="btn wa" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">הצטרפות לקהילה בוואטסאפ</a>
+  <a class="btn ig" href="https://www.instagram.com/mornissim_/" target="_blank" rel="noopener">האינסטגרם שלי</a>
   <a class="btn yt" href="https://youtube.com/@mornissim" target="_blank" rel="noopener">הערוץ שלי ביוטיוב</a>
 </div>
 
