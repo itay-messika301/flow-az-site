@@ -318,6 +318,14 @@ footer{text-align:center;color:var(--faint);font-size:13px;padding:24px 0 40px}
     </div>
   </section>
 
+  <div class="card" id="feedback" style="text-align:center;margin-top:40px">
+    <h2 style="display:block;margin-bottom:6px">השתמשתם? בניתם משהו?</h2>
+    <p style="color:var(--muted)">לחיצה אחת עוזרת לי לדעת שזה שווה להמשיך לכתוב מדריכים כאלה.</p>
+    <button id="likeBtn" onclick="like()" style="margin-top:14px;font:700 18px 'IBM Plex Sans Hebrew',sans-serif;background:var(--primary-dim);color:var(--primary);border:2px solid var(--primary);border-radius:999px;padding:12px 26px;cursor:pointer">המדריך עזר לי 💙</button>
+    <div id="likeThanks" style="display:none;margin-top:12px;color:var(--green);font-weight:600">תודה! 💙</div>
+    <a href="https://wa.me/972557210724?text=%D7%94%D7%99%D7%99%20%D7%9E%D7%95%D7%A8!%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9A%20%D7%A2%D7%9C%20%D7%94-CRM%20%D7%95%D7%91%D7%A0%D7%99%D7%AA%D7%99..." target="_blank" rel="noopener" onclick="track('feedback')" style="display:block;margin-top:14px;font-weight:600">ספרו לי מה בניתם ←</a>
+  </div>
+
   <div class="cta">
     <h2>רוצים עוד כאלה?</h2>
     <p>בקבוצת הוואטסאפ שלי עולים בדיוק דברים כאלה: איך לעבוד עם Claude ועם AI בעסק — בפועל, עם פרומפטים, דוגמאות ותהליכים אמיתיים. קבוצה שקטה, רק תוכן.</p>
@@ -334,6 +342,23 @@ footer{text-align:center;color:var(--faint);font-size:13px;padding:24px 0 40px}
 <a class="sticky-wa" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">💬 לקבוצת הוואטסאפ</a>
 
 <script>
+/* anonymous counter: opens by source (?s=wa / ?s=ig) and "helped me" clicks — no personal data */
+var SRC = (new URLSearchParams(location.search).get('s') || 'direct').slice(0, 20)
+function track(kind) {
+  try {
+    fetch('https://eblogcwzwechjbobarir.supabase.co/functions/v1/hit', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ page: 'crm-guide', kind: kind, src: SRC }), keepalive: true }).catch(function () {})
+  } catch (e) {}
+}
+try { if (!sessionStorage.getItem('crmGuideSeen')) { sessionStorage.setItem('crmGuideSeen', '1'); track('view') } } catch (e) { track('view') }
+function like() {
+  var done = false
+  try { done = localStorage.getItem('crmGuideLiked') === '1' } catch (e) {}
+  if (!done) { track('like'); try { localStorage.setItem('crmGuideLiked', '1') } catch (e) {} }
+  document.getElementById('likeBtn').style.display = 'none'
+  document.getElementById('likeThanks').style.display = 'block'
+}
+try { if (localStorage.getItem('crmGuideLiked') === '1') { document.getElementById('likeBtn').style.display = 'none'; document.getElementById('likeThanks').style.display = 'block' } } catch (e) {}
 function copyPrompt(id, btn) {
   var el = document.getElementById(id).cloneNode(true)
   el.querySelector('button').remove()
