@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ערכת הכלים · יש לי עובד שלא ישן</title>
+<meta name="description" content="כל הפרומפטים וההוראות מההרצאה של מור נסים בכנס FOUNDERS #01, מוכנים להעתקה.">
+<meta name="color-scheme" content="dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07131F; --bg2:#0D1F31; --bg3:#13293F; --line:rgba(255,255,255,.09);
+  --text:#F2F6FA; --muted:#8FA3B8; --dim:#4A5E73; --accent:#4FA8F5; --accent-deep:#1A72C8; --accent-soft:rgba(79,168,245,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Heebo,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(900px 600px at 100% -10%,rgba(79,168,245,.12),transparent 60%)}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 80px}
+a{color:var(--accent)}
+.ltr{direction:ltr;unicode-bidi:isolate}
+
+header{padding:44px 0 28px}
+.kicker{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.03em}
+h1{font-size:clamp(34px,8vw,52px);font-weight:900;line-height:1.08;margin:10px 0 14px}
+h1 span{color:var(--accent)}
+.intro{font-size:18px;color:var(--muted);max-width:560px}
+.by{display:flex;align-items:center;gap:12px;margin-top:22px;font-size:15px;color:var(--muted)}
+.by b{color:var(--text)}
+
+nav.toc{display:flex;gap:8px;overflow-x:auto;padding:12px 0 18px;position:sticky;top:0;background:linear-gradient(var(--bg) 75%,transparent);z-index:5;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{flex:none;font-size:14px;font-weight:700;color:var(--text);text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:7px 15px;background:var(--bg2)}
+
+section{margin-top:44px;scroll-margin-top:70px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--bg);font-weight:900;font-size:15px;margin-left:10px;vertical-align:3px}
+h2{font-size:28px;font-weight:900;line-height:1.2}
+.sub{color:var(--muted);font-size:16px;margin-top:6px}
+
+.card{background:var(--bg2);border:1.5px solid var(--line);border-radius:20px;padding:20px;margin-top:16px}
+.card.hero{border-color:rgba(79,168,245,.5);box-shadow:0 0 0 4px rgba(79,168,245,.08)}
+
+.prompt{position:relative;background:var(--bg3);border:1.5px solid var(--line);border-radius:16px;padding:18px 18px 64px;margin-top:14px;font-size:16.5px;line-height:1.7;white-space:pre-wrap}
+.prompt .lbl{display:block;font-size:12.5px;font-weight:800;color:var(--accent);margin-bottom:6px;white-space:normal}
+.copy{position:absolute;bottom:12px;left:12px;font:inherit;font-size:15px;font-weight:800;border:0;border-radius:12px;padding:9px 18px;background:var(--accent);color:var(--bg);cursor:pointer;display:flex;align-items:center;gap:8px}
+.copy.ok{background:#6fdc94}
+.fill{color:var(--accent);font-weight:700}
+
+.rows{display:grid;gap:10px;margin-top:14px}
+.row{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:start;font-size:16px}
+.row .k{color:var(--muted);font-weight:700;font-size:14px;padding-top:2px}
+.row .v{font-weight:600}
+.lvl{display:inline-block;font-size:13px;font-weight:800;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:3px 12px;margin-top:10px}
+
+.steps{display:grid;gap:12px;margin-top:16px}
+.step{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--bg2);border:1.5px solid var(--line);border-radius:18px;padding:16px}
+.step i{font-style:normal;width:44px;height:44px;border-radius:50%;border:3px solid var(--accent);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px}
+.step:last-child i{background:var(--accent);color:var(--bg)}
+.step b{font-size:19px;font-weight:900;display:block}
+.step span{color:var(--muted);font-size:15.5px}
+
+.tip{margin-top:14px;font-size:15px;color:var(--muted);border-right:3px solid var(--accent);padding:4px 14px 4px 0}
+.tip b{color:var(--text)}
+
+.tbl{width:100%;border-collapse:collapse;margin-top:14px;font-size:14.5px;background:var(--bg2);border-radius:16px;overflow:hidden}
+.tbl th,.tbl td{padding:11px 12px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:13.5px;color:var(--accent);background:rgba(79,168,245,.07)}
+.tbl td:first-child{font-weight:800}
+.tbl tr:last-child td{border-bottom:0}
+.scroll{overflow-x:auto;border-radius:16px;border:1.5px solid var(--line);margin-top:14px}
+.scroll .tbl{margin:0;min-width:520px}
+
+ul.check{list-style:none;margin-top:12px;display:grid;gap:10px}
+ul.check li{display:grid;grid-template-columns:26px 1fr;gap:8px;font-size:16px}
+ul.check li::before{content:"";width:20px;height:20px;margin-top:4px;border-radius:6px;border:2px solid var(--accent);background:var(--accent-soft)}
+.keep{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.keep span{border:1.5px dashed rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;font-weight:700;font-size:15px}
+
+.cta{margin-top:56px;background:linear-gradient(160deg,var(--accent-deep),#0d3a63);border-radius:24px;padding:28px 22px;text-align:center}
+.cta h2{font-size:26px}
+.cta p{color:rgba(255,255,255,.85);margin:8px 0 18px}
+.btn{display:block;text-decoration:none;font-weight:800;font-size:17px;border-radius:14px;padding:14px;margin-top:10px}
+.btn.wa{background:#fff;color:var(--bg)}
+.btn.yt{background:rgba(255,255,255,.12);color:#fff}
+footer{margin-top:36px;text-align:center;color:var(--dim);font-size:13.5px}
+footer a{color:var(--muted)}
+
+@media (min-width:640px){
+  .card,.prompt{padding-left:24px;padding-right:24px}
+  .row{grid-template-columns:160px 1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">FOUNDERS #01 · ערכת הכלים</div>
+  <h1>יש לי עובד<br><span>שלא ישן</span></h1>
+  <p class="intro">כל מה שראיתם בהרצאה, מוכן להעתקה. לא צריך לדעת קוד. צריך לדעת להסביר איך אתם עובדים.</p>
+  <div class="by">מאת <b>מור נסים</b> · Flow</div>
+</header>
+
+<nav class="toc">
+  <a href="#start">מתחילים כאן</a>
+  <a href="#steps">4 השלבים</a>
+  <a href="#mail">מיון מייל</a>
+  <a href="#brief">בריף לפגישה</a>
+  <a href="#proposal">הצעת מחיר</a>
+  <a href="#tools">באיזה כלי</a>
+  <a href="#control">בקרה</a>
+</nav>
+
+<!-- START -->
+<section id="start">
+  <h2>מחר בבוקר, תעשו דבר אחד</h2>
+  <p class="sub">פתחו את הכלי שאתם כבר משתמשים בו, למשל Claude,‏ ChatGPT או Gemini, והדביקו:</p>
+  <div class="prompt"><span class="lbl">הפרומפט למחר</span>תראיין אותי, שאלה אחת בכל פעם, על משימה שחוזרת אצלי כל שבוע. בסוף תכתוב הוראות קבועות כדי שתוכל לעשות אותה בשבילי.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>למה זה עובד:</b> רוב האנשים לא יודעים להסביר מה הם עושים עד שמישהו שואל אותם. הראיון הוא שלב ההדרכה, והוא נעשה בשבילכם.</p>
+</section>
+
+<!-- STEPS -->
+<section id="steps">
+  <h2>איך בונים עובד כזה</h2>
+  <p class="sub">בדיוק כמו שקולטים עובד חדש. הדרגתי ומבוקר.</p>
+  <div class="steps">
+    <div class="step"><i>1</i><div><b>הדרכה</b><span>כותבים איך אתם עושים את המשימה: מה, באיזה סדר, ואיך נראית תוצאה טובה. אין לכם מושג מה לכתוב? תנו לו לראיין אתכם.</span></div></div>
+    <div class="step"><i>2</i><div><b>גישות</b><span>מחברים מקור אחד בכל פעם (מייל, דרייב, יומן). בהתחלה רק קריאה. הוא לא שולח ולא מוחק.</span></div></div>
+    <div class="step"><i>3</i><div><b>חפיפה</b><span>מריצים ביחד שבוע-שבועיים. בודקים כל תוצר, וכל תיקון נכנס להוראות כדי שהטעות לא תחזור.</span></div></div>
+    <div class="step"><i>4</i><div><b>עצמאות</b><span>רק כשזה עובד בלי תיקונים, מתזמנים את זה שירוץ לבד.</span></div></div>
+  </div>
+  <p class="tip"><b>שלוש מדרגות:</b> לשאול (צ׳אט) ← להאציל (משימה עם הוראות קבועות) ← לאטמט (רץ לבד בזמן קבוע). כל מתכון למטה מסומן במדרגה שלו.</p>
+</section>
+
+<!-- MAIL -->
+<section id="mail">
+  <h2><span class="num">1</span>טבלת המייל של הבוקר</h2>
+  <p class="sub">במקום לקרוא 80 מיילים, קוראים טבלה אחת.</p>
+  <div class="card">
+    <div class="rows">
+      <div class="row"><div class="k">מה מחובר</div><div class="v">תיבת המייל</div></div>
+      <div class="row"><div class="k">מה מוגדר פעם אחת</div><div class="v">ההוראה למטה</div></div>
+      <div class="row"><div class="k">מתי זה רץ</div><div class="v">לבד, ימים א׳–ה׳ ב-<span class="ltr">09:30</span></div></div>
+    </div>
+    <span class="lvl">מדרגה: לאטמט</span>
+  </div>
+  <div class="prompt"><span class="lbl">ההוראה הקבועה</span>עבור על כל המיילים שהגיעו אליי ב-24 השעות האחרונות. ביום ראשון, עבור על כל השבוע הקודם.
+קבץ אותם לפי פרויקט או לקוח, והחזר טבלה אחת עם ארבע עמודות:
+פרויקט/לקוח · מה קרה · מה נדרש ממני · דחיפות (גבוהה / בינונית / נמוכה).
+סדר את הטבלה מהדחוף ביותר.
+בסוף, שורה אחת: כמה מיילים לא דורשים ממני שום פעולה.
+חשוב: אל תשלח, אל תמחק ואל תענה על שום מייל. רק תקרא ותסכם.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>הדרך הנכונה:</b> שבוע ראשון מריצים את זה ידנית כל בוקר ומתקנים את ההוראה. רק אחר כך מגדירים משימה מתוזמנת (ראו <a href="#tools">באיזה כלי</a>).</p>
+</section>
+
+<!-- BRIEF -->
+<section id="brief">
+  <h2><span class="num">2</span>בריף לפני פגישה</h2>
+  <p class="sub">"יש לי פגישה בעוד שעה. מה אני צריכה לדעת?"</p>
+  <div class="card">
+    <div class="rows">
+      <div class="row"><div class="k">מה מחובר</div><div class="v">מייל · דרייב · יומן</div></div>
+      <div class="row"><div class="k">מה מוגדר פעם אחת</div><div class="v">תבנית: איפה עומדים, מה פתוח, מה להעלות</div></div>
+      <div class="row"><div class="k">מתי זה רץ</div><div class="v">כשמבקשים, במשפט אחד</div></div>
+    </div>
+    <span class="lvl">מדרגה: להאציל</span>
+  </div>
+  <div class="prompt"><span class="lbl">הפרומפט</span>יש לי פגישה עם <span class="fill">[שם הלקוח]</span> ב-<span class="fill">[שעה]</span>.
+עבור על המיילים, המסמכים והיומן שקשורים אליו, והכן לי בריף של עמוד אחד בשלושה חלקים:
+1. איפה עומדים: סטטוס, החלטות אחרונות ותאריכים.
+2. מה פתוח: שאלות, משימות ותשלומים.
+3. מה כדאי להעלות בפגישה.
+ליד כל נקודה ציין מאיזה מייל או מסמך היא הגיעה. אם חסר לך מידע, תגיד. אל תשלים מהדמיון.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>שדרוג:</b> שמרו את זה כהוראה קבועה (סקיל, פרויקט או Gem). מאותו רגע מספיק לכתוב "בריף לפגישה עם דנה ב-14:00".</p>
+</section>
+
+<!-- PROPOSAL -->
+<section id="proposal">
+  <h2><span class="num">3</span>מסיכום פגישה להצעת מחיר</h2>
+  <p class="sub">"לא כתבתי פרומפט. לימדתי אותו פעם אחת איך אני עובדת."</p>
+  <div class="card">
+    <div class="rows">
+      <div class="row"><div class="k">מה מחובר</div><div class="v">סיכום הפגישה (תמלול או הערות)</div></div>
+      <div class="row"><div class="k">מה מוגדר פעם אחת</div><div class="v">סקיל: המבנה, הטון והעיצוב שלכם</div></div>
+      <div class="row"><div class="k">מתי זה רץ</div><div class="v">כשמבקשים, בסוף פגישה</div></div>
+    </div>
+    <span class="lvl">מדרגה: להאציל</span>
+  </div>
+  <div class="prompt"><span class="lbl">שלב א׳ · פעם אחת: מלמדים אותו</span>אני רוצה ללמד אותך איך אני בונה הצעת מחיר, כדי שתוכל להכין אותה בשבילי מתוך סיכום פגישה.
+תראיין אותי, שאלה אחת בכל פעם: מה המבנה, מה הטון, איך אני מתמחרת, מה תמיד מופיע ומה אף פעם לא.
+אחר כך בקש ממני 2–3 הצעות קודמות שלי כדוגמה.
+בסוף כתוב מסמך הוראות מסודר, שאשמור כהוראות קבועות.<button class="copy" type="button">העתקה</button></div>
+  <div class="prompt"><span class="lbl">שלב ב׳ · בכל פעם: משתמשים</span>הנה סיכום הפגישה עם <span class="fill">[שם הלקוח]</span>. הכן הצעת מחיר לפי ההוראות.
+סמן כל דבר שלא הופיע בסיכום ואתה הנחת אותו.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>הסוד:</b> כל פעם שאתם מתקנים הצעה, בקשו ממנו לעדכן את ההוראות. ככה הוא משתפר, ואתם לא מתקנים את אותו דבר פעמיים.</p>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <h2>באיזה כלי?</h2>
+  <p class="sub">זה לא הכלי, זו השיטה. ארבעת השלבים קיימים בצורה כזו או אחרת בכל הכלים הגדולים:</p>
+  <div class="scroll">
+    <table class="tbl">
+      <thead><tr><th>שלב</th><th>Claude</th><th>ChatGPT</th><th>Gemini</th></tr></thead>
+      <tbody>
+        <tr><td>הדרכה</td><td>סקיל או פרויקט</td><td>GPT מותאם או פרויקט</td><td>Gem</td></tr>
+        <tr><td>גישות</td><td>חיבורים: Gmail,‏ Drive, יומן</td><td>חיבורים (Connectors)</td><td>אפליקציות Google</td></tr>
+        <tr><td>חפיפה</td><td>שיחה, ותיקון הסקיל</td><td>שיחה, ועדכון ההוראות</td><td>שיחה, ועדכון ה-Gem</td></tr>
+        <tr><td>עצמאות</td><td>משימה מתוזמנת</td><td>Tasks</td><td>פעולות מתוזמנות</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tip">שמות התפריטים משתנים מדי פעם. אם משהו לא נמצא, פשוט שאלו את הכלי עצמו: "איך אני מתזמן משימה שתרוץ כל בוקר?"</p>
+</section>
+
+<!-- CONTROL -->
+<section id="control">
+  <h2>לפני שנותנים לזה לרוץ לבד</h2>
+  <div class="card">
+    <ul class="check">
+      <li>בהתחלה רק הרשאות קריאה. בלי שליחה, מחיקה או תשלום.</li>
+      <li>שבוע-שבועיים של הרצה ידנית ובדיקה של כל תוצר.</li>
+      <li>כל תיקון נכנס להוראות, לא רק לשיחה.</li>
+      <li>שום דבר לא יוצא בשמכם בלי שעברתם עליו.</li>
+      <li>מחברים רק את מה שהמשימה באמת צריכה.</li>
+    </ul>
+  </div>
+  <h2 style="margin-top:30px;font-size:22px">ומה לא מאצילים</h2>
+  <div class="keep"><span>שיקול דעת</span><span>יחסים</span><span>ההחלטה הסופית</span></div>
+</section>
+
+<div class="cta">
+  <h2>רוצים עוד כאלה?</h2>
+  <p>בקהילה שלי אני משתפת כלים, פרומפטים ותהליכים כמו אלה שראיתם הערב.</p>
+  <a class="btn wa" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">הצטרפות לקהילה בוואטסאפ</a>
+  <a class="btn yt" href="https://youtube.com/@mornissim" target="_blank" rel="noopener">הערוץ שלי ביוטיוב</a>
+</div>
+
+<footer>מור נסים · <a href="https://flow-az.com">Flow</a> · אוטומציות ו-AI</footer>
+</div>
+
+<script>
+document.querySelectorAll('.prompt').forEach(box => {
+  const btn = box.querySelector('.copy');
+  btn.addEventListener('click', async () => {
+    const clone = box.cloneNode(true);
+    clone.querySelectorAll('.copy,.lbl').forEach(n => n.remove());
+    const text = clone.textContent.trim();
+    try { await navigator.clipboard.writeText(text); }
+    catch (e) {
+      const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (_) {} ta.remove();
+    }
+    btn.textContent = 'הועתק ✓'; btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = 'העתקה'; btn.classList.remove('ok'); }, 1800);
+  });
+});
+</script>
+</body>
+</html>
