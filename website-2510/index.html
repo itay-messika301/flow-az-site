@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>החומרים · מרעיון לאתר בשעה וחצי · מור נסים</title>
+<meta name="description" content="חוברת עבודה, צ'קליסט וספריית פרומפטים מהוובינר מרעיון לאתר בשעה וחצי">
+<meta property="og:title" content="מרעיון לאתר בשעה וחצי · החומרים">
+<meta property="og:description" content="חוברת עבודה, צ'קליסט וספריית פרומפטים מהוובינר של מור נסים">
+<meta property="og:url" content="https://flow-az.com/website-2510/">
+<meta property="og:image" content="https://flow-az.com/website-2510/mor.jpg">
+<style>
+@font-face{font-family:Heebo;font-weight:400;src:url(fonts/heebo-hebrew-400.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:700;src:url(fonts/heebo-hebrew-700.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:900;src:url(fonts/heebo-hebrew-900.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:400;src:url(fonts/heebo-latin-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:Heebo;font-weight:700;src:url(fonts/heebo-latin-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:Heebo;font-weight:900;src:url(fonts/heebo-latin-900.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+:root{--ink:#2b2350;--ink2:#41377a;--pink:#d6437f;--pink-d:#b12f66;--soft:rgba(214,67,127,.10);--bg:#fbeef3;--card:#fff;--line:#ecdbe4;--text:#2b2350;--muted:#5f587c;--dim:#948dae}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Heebo,system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(900px 600px at 100% -10%,rgba(214,67,127,.16),transparent 60%)}
+.wrap{max-width:780px;margin:0 auto;padding:0 16px 70px}
+a{color:var(--pink-d)}
+.ltr{direction:ltr;unicode-bidi:isolate}
+header{padding:38px 0 24px;display:flex;gap:18px;align-items:flex-start}
+header .txt{flex:1;min-width:0}
+.me{flex:none;width:104px;height:104px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px #fff,0 0 0 7px var(--pink),0 12px 30px rgba(43,35,80,.18);margin-top:6px}
+@media (min-width:640px){.me{width:140px;height:140px}}
+.kicker{font-size:14px;font-weight:700;color:var(--pink-d)}
+h1{font-size:clamp(32px,8vw,50px);font-weight:900;line-height:1.08;margin:8px 0 12px}
+h1 span{color:var(--pink)}
+.intro{font-size:18px;color:var(--muted)}
+nav.toc{display:flex;gap:8px;overflow-x:auto;padding:12px 0 16px;position:sticky;top:0;background:linear-gradient(var(--bg) 78%,transparent);z-index:5;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{flex:none;font-size:14px;font-weight:700;color:var(--text);text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:7px 15px;background:var(--card)}
+section{margin-top:44px;scroll-margin-top:70px}
+h2{font-size:30px;font-weight:900;line-height:1.2}
+h2 small{display:block;font-size:16px;font-weight:400;color:var(--muted);margin-top:6px}
+h3{font-size:23px;font-weight:900;line-height:1.3;display:flex;align-items:center;gap:10px}
+h4{font-size:18px;font-weight:900;margin:22px 0 4px;color:var(--ink2)}
+.num{flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--pink);color:#fff;font-weight:900;font-size:16px}
+.card,.chap{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:20px;margin-top:16px;box-shadow:0 6px 24px rgba(43,35,80,.05)}
+.chap > p{margin-top:12px;font-size:16.5px}
+.order{list-style:none;counter-reset:o;display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.order li{counter-increment:o;background:var(--bg);border-radius:999px;padding:6px 14px;font-size:15px}
+.order li::before{content:counter(o) ". ";color:var(--pink);font-weight:900}
+.prompt{position:relative;background:#f7f2fb;border:1.5px solid var(--line);border-right:5px solid var(--pink);border-radius:16px;padding:16px 18px 62px;margin-top:14px;font-size:16.5px;line-height:1.7;white-space:pre-wrap}
+.prompt .lbl{display:block;font-size:12.5px;font-weight:900;color:var(--pink-d);margin-bottom:4px;white-space:normal}
+.copy{position:absolute;bottom:12px;left:12px;font:inherit;font-size:15px;font-weight:900;border:0;border-radius:12px;padding:9px 18px;background:var(--ink);color:#fff;cursor:pointer}
+.copy.ok{background:#1f8a4c}
+ul.todo{list-style:none;margin-top:12px;display:grid;gap:8px}
+ul.todo label{display:grid;grid-template-columns:28px 1fr;gap:8px;font-size:16px;cursor:pointer;align-items:start}
+ul.todo input{width:22px;height:22px;margin-top:3px;accent-color:var(--pink);cursor:pointer}
+ul.todo input:checked + span{color:var(--dim);text-decoration:line-through}
+.tip{margin-top:14px;font-size:15px;color:var(--muted);border-right:3px solid var(--pink);padding:4px 14px 4px 0}
+.tip b{color:var(--text)}
+.cgroup{break-inside:avoid}
+.sum{list-style:none;display:grid;gap:10px;margin-top:12px}
+.sum li{display:grid;grid-template-columns:30px 1fr;gap:6px;font-size:16.5px}
+.sum li::before{content:"✦";color:var(--pink);font-weight:900}
+.scroll{overflow-x:auto;border-radius:16px;border:1.5px solid var(--line);margin-top:14px}
+.tbl{width:100%;min-width:520px;border-collapse:collapse;font-size:14.5px;background:var(--card)}
+.tbl th,.tbl td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:13.5px;color:var(--pink-d);background:var(--soft)}
+.tbl td:first-child{font-weight:700}
+.tbl tr:last-child td{border-bottom:0}
+.note{font-size:13.5px;color:var(--dim);margin-top:8px}
+.progress{font-size:14px;font-weight:700;color:var(--muted);margin-top:8px}
+.reset{font:inherit;font-size:13px;color:var(--muted);background:none;border:1.5px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer;margin-right:8px}
+.offer{margin-top:44px;color:#fff;background:linear-gradient(160deg,var(--ink2),var(--ink));border-radius:24px;padding:28px 22px;text-align:center}
+.offer h2{font-size:30px}
+.offer h2 span{color:#f07aa9}
+.offer p{color:rgba(255,255,255,.85);margin:8px 0}
+.offer .price{font-size:44px;font-weight:900;margin:12px 0 2px}
+.offer .price .cur{font-size:28px;margin-right:6px}
+.offer .price s{font-size:24px;color:rgba(255,255,255,.55);margin-left:12px}
+.offer .when{display:inline-block;background:rgba(255,255,255,.1);border-radius:10px;padding:4px 12px;font-weight:700;color:#f07aa9}
+.btn{display:block;text-decoration:none;font-weight:900;font-size:17px;border-radius:14px;padding:14px;margin-top:10px;text-align:center}
+.btn.buy{background:var(--pink);color:#fff}
+.links{margin-top:44px}
+.btn.wa{background:var(--ink);color:#fff}
+.btn.yt,.btn.ig{background:var(--card);color:var(--text);border:1.5px solid var(--line)}
+footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
+@media (min-width:640px){.card,.chap{padding:24px}}
+@media print{
+  body{background:#fff} nav.toc,.copy,.reset{display:none}
+  .prompt{padding-bottom:16px;break-inside:avoid} .chap{break-inside:avoid-page;box-shadow:none}
+  section{margin-top:24px} a{color:var(--text)}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="txt">
+    <div class="kicker">מהוובינר "מרעיון לאתר בשעה וחצי" · 25.10.2026</div>
+    <h1>האתר שלכם, <span>צעד אחר צעד</span></h1>
+    <p class="intro">כל מה שראיתם בוובינר, בדף אחד. עובדים יחד עם ההקלטה: עוצרים, מעתיקים פרומפט, מסמנים ✓ וממשיכים.</p>
+  </div>
+  <img class="me" src="mor.jpg" alt="מור נסים">
+</header>
+
+<nav class="toc" aria-label="תוכן העניינים">
+  <a href="#summary">בקצרה</a><a href="#workbook">חוברת עבודה</a><a href="#checklist">צ'קליסט</a><a href="#prompts">פרומפטים</a><a href="#costs">עלויות</a><a href="#twin">התאומה הדיגיטלית</a><a href="#links">קהילה</a>
+</nav>
+
+<section id="summary">
+  <h2>בקצרה<small>אם יש לכם רק דקה</small></h2>
+  <div class="card">
+    <ul class="sum">
+      <li><span><b>זו שיטה, לא כלי.</b> עובדים עם <span class="ltr">Claude Code</span>, בטאב <span class="ltr">Code</span> שבאפליקציה של <span class="ltr">Claude</span>. אותה שיטה עובדת גם ב-<span class="ltr">Codex</span>.</span></li>
+      <li><span><b>הסדר:</b> תכנית ← בנייה במחשב ← בדיקות ← חיבורים ← אבטחה ← משתפים. האתר יוצא לעולם רק בסוף.</span></li>
+      <li><span><b>מתארים צרכים, לא מוצרים.</b> "שיישמר", "שלא ייעלם", "שיהיה קישור". את הטכנולוגיה קלוד בוחר ומסביר.</span></li>
+      <li><span><b><span class="ltr">Plan Mode</span></b> ו"תשאל אותי כל מה שאתה צריך" לפני כל פרויקט.</span></li>
+      <li><span><b>מאתר קיים:</b> בונים מחדש עם התוכן שלכם, ומכל כתובת ישנה עושים הפניה 301.</span></li>
+      <li><span><b><span class="ltr">GEO</span>:</b> טקסט ברור עם עובדות, נתונים מובנים, ואתר שעובד בנייד. בלי קסמים.</span></li>
+      <li><span><b>לפני שמפרסמים:</b> בלי סודות בקוד, הצהרת נגישות, הודעת פרטיות ליד הטופס ותיבת דיוור ריקה.</span></li>
+      <li><span><b>"תעצור בכל שלב שדורש ממני פעולה."</b> פתיחת חשבונות והרשאות הם שלכם.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="workbook">
+  <h2>חוברת עבודה<small>פרק לכל נושא בוובינר. מסמנים ✓, והסימון נשמר בדפדפן שלכם.</small></h2>
+  <div class="progress"><span id="prog">0</span> מתוך <span id="total">0</span> צעדים הושלמו <button class="reset" type="button" id="reset">איפוס</button></div>
+  <article class="chap" id="ch0"><h3><span class="num">0</span>לפני שמתחילים</h3>
+  <p>מה צריך: אפליקציית <span class="ltr">Claude Desktop</span> ותכנית בתשלום של <span class="ltr">Claude</span> (מ-<span class="ltr">$20</span> לחודש. <span class="ltr">Claude Code</span> כלול בכל התכניות בתשלום).</p>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c1"><span>מורידים ומתקינים את <span class="ltr">Claude Desktop</span>, ונכנסים לחשבון</span></label></li><li><label><input type="checkbox" data-k="c2"><span>פותחים את הטאב <span class="ltr">Code</span></span></label></li><li><label><input type="checkbox" data-k="c3"><span>יוצרים במחשב תיקייה חדשה לאתר (למשל בשולחן העבודה), ובוחרים בה</span></label></li><li><label><input type="checkbox" data-k="c4"><span>מכינים: טקסטים על העסק, לוגו ותמונות, אם יש</span></label></li></ul>
+  <p class="tip"><b>זו שיטה, לא כלי.</b> אותה עבודה אפשר לעשות גם ב-<span class="ltr">Codex</span> של <span class="ltr">OpenAI</span>, שגם לו יש אפליקציה שעובדת על תיקייה במחשב.</p></article><article class="chap" id="ch1"><h3><span class="num">1</span>השיטה: מרעיון לתכנית</h3>
+  <ol class="order"><li><b>תכנית</b> ב-<span class="ltr">Plan Mode</span></li><li><b>בונים לוקאלית</b>, במחשב</li><li><b>סוכני משנה בודקים</b></li><li><b>מחברים לעולם</b></li><li><b>בדיקות אבטחה</b></li><li><b>משתפים</b></li></ol>
+  <p><span class="ltr">Plan Mode</span> = מצב שבו קלוד רק חושב ומציע תכנית, בלי לשנות שום קובץ. רק אחרי שאישרתם הוא בונה.</p>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c5"><span>כותבים בריף: מה העסק עושה ולמי, מה הגולש צריך לעשות באתר, ומה חשוב לכם. בלי מילה על טכנולוגיה</span></label></li><li><label><input type="checkbox" data-k="c6"><span>עוברים ל-<span class="ltr">Plan Mode</span> ומדביקים את הבריף, ובסופו את המשפט של ה-95%</span></label></li><li><label><input type="checkbox" data-k="c7"><span>עונים על השאלות של קלוד</span></label></li><li><label><input type="checkbox" data-k="c8"><span>קוראים את התכנית, מתקנים מה שצריך, ומאשרים</span></label></li></ul>
+  <div class="prompt"><span class="lbl">הבריף: התבנית שלכם</span>אני רוצה אתר ל[שם העסק]: [מה העסק עושה, במשפט אחד].
+מגיעים אליי בעיקר [מי הלקוחות, ומה הם רוצים].
+באתר הם צריכים [מה הגולש צריך לעשות: להבין מה מתאים לו, להשאיר פרטים, לקבוע פגישה, לשלם].
+חשוב לי [איך זה צריך להרגיש], ושיעבוד מצוין בטלפון.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">הבריף: הדוגמה מהוובינר</span>אני רוצה אתר לסטודיו הפילאטיס שלי, &quot;סטודיו מרכז&quot;: שיעורי מזרן ומכשירים בקבוצות של עד 8.
+מגיעות אליי בעיקר נשים שרוצות גב חזק יותר, רובן בלי ניסיון.
+באתר הן צריכות להבין איזה שיעור מתאים להן, להשאיר פרטים, לקבוע שיעור ניסיון ולשלם על כרטיסייה.
+חשוב לי שייראה חם ואישי, לא כמו תבנית, ושיעבוד מצוין בטלפון.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">המשפט שמוסיפים לכל פרויקט</span>תשאל אותי כל מה שאתה צריך כדי לבצע את המשימה ברמת דיוק והצלחה של לפחות 95%.<button class="copy" type="button">העתקה</button></div></article><article class="chap" id="ch2"><h3><span class="num">2</span>מסלול א': אתר מאפס</h3>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c9"><span>מאשרים את התכנית, וקלוד בונה טיוטה ראשונה</span></label></li><li><label><input type="checkbox" data-k="c10"><span>מבקשים: "תפתח לי את האתר בדפדפן"</span></label></li><li><label><input type="checkbox" data-k="c11"><span>מתקנים בשפה פשוטה: אומרים מה מפריע, לא איך לתקן. צילום מסך עם חץ עוזר מאוד</span></label></li><li><label><input type="checkbox" data-k="c12"><span>בודקים בטלפון ומתקנים</span></label></li><li><label><input type="checkbox" data-k="c13"><span>שולחים סוכני משנה לבדיקה, ומאשרים את התיקונים</span></label></li></ul>
+  <div class="prompt"><span class="lbl">תיקונים בשפה פשוטה (דוגמאות)</span>הכפתור לא בולט. אני רוצה שיראו אותו ראשון.
+זה נראה כמו תבנית. תן לזה אופי חם ואישי.
+הכותרת לא אומרת כלום. מה הלקוחה מקבלת?<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">מובייל</span>תבדוק איך האתר נראה בטלפון, ותתקן כל מה שלא נוח לקרוא או ללחוץ.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">סוכני משנה בודקים</span>תשלח שני סוכני משנה במקביל:
+הראשון יעבור על כל האתר ויבדוק שהכל עובד: כפתורים, קישורים והטופס.
+השני יבדוק את העיצוב: יישור בעברית, קריאות, ואיך זה נראה בטלפון.
+שיחזרו עם רשימת בעיות לפי חשיבות, ובלי לתקן כלום עד שאאשר.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>סוכן משנה</b> = עוד עותק של קלוד שבודק בעיניים טריות. הוא לא "יודע" מה אמור לעבוד, ולכן מוצא את מה שאנחנו כבר לא רואים.</p>
+  <p class="tip"><b>למה מובייל:</b> מאז יולי 2024 גוגל סורקת אתרים רק כמו טלפון. תוכן שלא נגיש בנייד לא נכנס לגוגל.</p></article><article class="chap" id="ch3"><h3><span class="num">3</span>מסלול ב': מאתר קיים</h3>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c14"><span>אוספים טקסטים מכל עמוד, ותמונות בקובץ המקורי</span></label></li><li><label><input type="checkbox" data-k="c15"><span>רושמים את כל העמודים ואת הכתובות שלהם (מה שמופיע בשורת הכתובת)</span></label></li><li><label><input type="checkbox" data-k="c16"><span><span class="ltr">WordPress</span>: כלים ← ייצוא, ושומרים את הקובץ</span></label></li><li><label><input type="checkbox" data-k="c17"><span><span class="ltr">Wix</span>: מייצאים אנשי קשר ומוצרים לקובץ. את הבלוג מעתיקים ידנית, כי אי אפשר לייצא אותו</span></label></li><li><label><input type="checkbox" data-k="c18"><span>בודקים לאן הטפסים שולחים היום, ואיפה רשום הדומיין</span></label></li><li><label><input type="checkbox" data-k="c19"><span>מדביקים ב-<span class="ltr">Plan Mode</span> את פרומפט המעבר עם צילומי מסך של כל העמודים</span></label></li><li><label><input type="checkbox" data-k="c20"><span>מוודאים שבתכנית יש הפניה קבועה (301) מכל כתובת ישנה לחדשה</span></label></li><li><label><input type="checkbox" data-k="c21"><span>מכבים את האתר הישן רק אחרי שהדומיין מפנה לאתר החדש וההפניות עובדות</span></label></li></ul>
+  <div class="prompt"><span class="lbl">המעבר מאתר קיים</span>יש לי אתר ישן בבונה אתרים, ואני רוצה לבנות אותו מחדש כאתר שלי.
+מצרפת צילומי מסך של כל העמודים ואת רשימת הכתובות:
+[הדביקו כאן את רשימת הכתובות, למשל: /about · /prices · /contact]
+• כל התוכן נשאר
+• מכל כתובת ישנה, הפניה קבועה לכתובת החדשה
+• עיצוב עדכני שעובד מצוין בטלפון
+תשאל אותי כל מה שאתה צריך, ואז תציג לי תכנית.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>הפניה 301</b> = שלט "עברנו דירה" לגוגל ולגולשים. לפי גוגל היא לא גורמת לאיבוד הדירוג, ומשאירים אותה לפחות שנה.</p>
+  <p class="tip"><b>הדומיין:</b> אי אפשר להעביר אותו בתוך 60 יום מרישום, משינוי פרטי בעלים או מהעברה קודמת. בינתיים משאירים אותו איפה שהוא ומפנים אותו לאתר החדש.</p></article><article class="chap" id="ch4"><h3><span class="num">4</span>חיבורים: טופס, יומן ותשלום</h3>
+  <h4>טופס לידים</h4>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c22"><span>מבקשים טופס שמגיע למייל. בשליחה הראשונה <span class="ltr">FormSubmit</span> שולח מייל אישור, ולוחצים עליו</span></label></li><li><label><input type="checkbox" data-k="c23"><span>שולחים ליד לבדיקה ורואים שהגיע</span></label></li><li><label><input type="checkbox" data-k="c24"><span>אם רוצים גם רשימת לידים: מבקשים מקלוד לשמור כל פנייה (למשל ב-<span class="ltr">Supabase</span>)</span></label></li></ul>
+  <div class="prompt"><span class="lbl">טופס לידים</span>תוסיף לאתר טופס השארת פרטים. כשמישהי שולחת, אני רוצה לקבל מייל.
+חשוב לי שתהיה הגנה מספאם, תיבה לאישור דיוור שלא מסומנת מראש, והודעה קצרה ליד הטופס: למה אוספים את הפרטים, מי אחראי עליהם ולמי הם מועברים.<button class="copy" type="button">העתקה</button></div>
+  <h4>יומן</h4>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c25"><span>ב-<span class="ltr">Google Calendar</span> יוצרים דף הזמנת פגישות (בחשבון חינמי יש דף אחד)</span></label></li><li><label><input type="checkbox" data-k="c26"><span>מעתיקים את הקישור או את קוד ההטמעה, ומדביקים לקלוד</span></label></li></ul>
+  <div class="prompt"><span class="lbl">יומן לקביעת פגישות</span>יצרתי דף הזמנת פגישות ב-Google Calendar. הנה הקישור.
+תטמיע אותו באתר בקטע &quot;קביעת שיעור ניסיון&quot;, שייראה חלק מהאתר ויעבוד טוב בטלפון.<button class="copy" type="button">העתקה</button></div>
+  <h4>תשלום</h4>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c27"><span>ב-<span class="ltr">Cardcom</span> יוצרים לינק לתשלום (בלי קוד)</span></label></li><li><label><input type="checkbox" data-k="c28"><span>בונים ובודקים קודם במסוף הבדיקות: עסקה מלאה, בלי חיוב אמיתי</span></label></li><li><label><input type="checkbox" data-k="c29"><span>מוסיפים כפתור באתר שמוביל ללינק</span></label></li></ul>
+  <div class="prompt"><span class="lbl">כפתור תשלום</span>יצרתי לינק לתשלום ב-Cardcom. הנה הקישור.
+תוסיף לאתר כפתור &quot;[לרכישה]&quot; שמוביל אליו, במקום בולט ליד המחיר.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>לא מדביקים סיסמאות בצ'אט.</b> אם צריך פרטי מסוף, מבקשים מקלוד לשמור אותם בקובץ מוגן שלא מתפרסם.</p></article><article class="chap" id="ch5"><h3><span class="num">5</span>מובייל, ו-GEO מול SEO</h3>
+  <p><b><span class="ltr">SEO</span></b> = לעלות גבוה בגוגל. <b><span class="ltr">GEO</span></b> = שמנועי <span class="ltr">AI</span> כמו <span class="ltr">ChatGPT</span> יצטטו אתכם בתשובה.</p>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c30"><span>טקסט ברור עם עובדות: מספרים, שעות, מחירים ומקורות</span></label></li><li><label><input type="checkbox" data-k="c31"><span>נתונים מובנים לעסק מקומי (שם, כתובת, שעות, טלפון)</span></label></li><li><label><input type="checkbox" data-k="c32"><span>לבדוק שהאתר מאפשר לסורקים של מנועי ה-<span class="ltr">AI</span> לקרוא אותו (אפשר לחסום אימון ועדיין להופיע בחיפוש)</span></label></li><li><label><input type="checkbox" data-k="c33"><span>האתר עובד בנייד</span></label></li></ul>
+  <div class="prompt"><span class="lbl">GEO: נתונים מובנים</span>תוסיף לאתר נתונים מובנים לעסק מקומי, ותסביר לי במשפט מה כל אחד עושה.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>מה לא צריך:</b> גוגל כותבת שאין צורך בקבצים או בסימון מיוחד כדי להופיע בסיכומי <span class="ltr">AI</span>. ל-<span class="ltr">llms.txt</span> אין עדות שהמנועים הגדולים משתמשים בו. ותוצאות "שאלות ותשובות" בגוגל הופסקו במאי 2026.</p></article><article class="chap" id="ch6"><h3><span class="num">6</span>אבטחה ודרישות חוק</h3>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c34"><span>אין סיסמאות או מפתחות בקבצי האתר</span></label></li><li><label><input type="checkbox" data-k="c35"><span>ברור לאן נשלחים הפרטים מהטופס, ומי רואה אותם</span></label></li><li><label><input type="checkbox" data-k="c36"><span>התיקייה ב-<span class="ltr">GitHub</span> מוגדרת כפרטית</span></label></li><li><label><input type="checkbox" data-k="c37"><span>האתר מוצפן (<span class="ltr">HTTPS</span>)</span></label></li><li><label><input type="checkbox" data-k="c38"><span>יש הצהרת נגישות, ליד הטופס יש הודעת פרטיות, ותיבת הדיוור לא מסומנת מראש</span></label></li><li><label><input type="checkbox" data-k="c39"><span>אם מוכרים באתר: יש תקנון עם מחיר כולל, אספקה, אחריות וזכות ביטול</span></label></li><li><label><input type="checkbox" data-k="c40"><span>מריצים את פרומפט הבדיקה, ומאשרים תיקונים</span></label></li></ul>
+  <div class="prompt"><span class="lbl">דפי נגישות, פרטיות ותקנון (טיוטה לבדיקה)</span>תכין לאתר טיוטה של הצהרת נגישות, מדיניות פרטיות ותקנון ביטולים, לפי מה שהאתר באמת עושה: אילו פרטים הטופס אוסף, לאן הם נשלחים, ומה מוכרים באתר.
+תסמן לי כל מקום שבו חסר לך פרט, ואל תמציא. אני אבדוק את הנוסח מול עורך דין.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">הפרומפט שבודק את הכל</span>עבור על האתר כבודק אבטחה וכבודק נגישות:
+ודא שאין סודות או פרטים אישיים בקוד, שהטופס כולל הודעת פרטיות ותיבת הסכמה לדיוור שלא מסומנת מראש,
+שיש הצהרת נגישות, ושהאתר עומד בת&quot;י 5568 ברמה AA.
+תן לי רשימה לפי חשיבות, ואל תתקן עד שאאשר.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>מידע כללי ובסיסי, נכון ל-22.10.2026. לא ייעוץ משפטי.</b> לפני שמסתמכים עליו לגבי העסק שלכם, כדאי להתייעץ עם עורך דין. הפירוט בצ'קליסט למטה.</p></article><article class="chap" id="ch7"><h3><span class="num">7</span>לאוויר ודומיין</h3>
+  <p>שלושה שמות: <b><span class="ltr">GitHub</span></b> שומר את הקוד (הארון) · <b><span class="ltr">Vercel</span></b> מגיש אותו לעולם (חלון הראווה) · <b><span class="ltr">Supabase</span></b> זוכר את הנתונים (הפנקס). אתר בלי טופס לא צריך את <span class="ltr">Supabase</span>.</p>
+  <ul class="todo"><li><label><input type="checkbox" data-k="c41"><span>מדביקים את הפרומפט "מחברים לעולם"</span></label></li><li><label><input type="checkbox" data-k="c42"><span>פותחים את החשבונות בעצמכם, כשקלוד עוצר ומבקש</span></label></li><li><label><input type="checkbox" data-k="c43"><span>שולחים לעצמכם את הכתובת ובודקים בטלפון</span></label></li><li><label><input type="checkbox" data-k="c44"><span>קונים דומיין ומחברים אותו</span></label></li></ul>
+  <div class="prompt"><span class="lbl">מחברים לעולם</span>אני רוצה להעלות את האתר הזה לאוויר. מה שחשוב לי:
+• שהקוד יישמר במקום שאפשר לחזור ממנו אחורה
+• שהפניות שלקוחות ימלאו יישמרו ולא ייעלמו
+• ושתהיה כתובת שאפשר לשלוח ללקוח
+תגיד לי אילו שירותים צריך בשביל זה ולמה כל אחד, ואז תדריך אותי צעד-צעד, כולל פתיחת החשבונות.
+תעצור בכל שלב שדורש ממני פעולה, ותסביר לי מה אני עושה ולמה.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">דומיין משלכם</span>קניתי דומיין. תחבר אותו לאתר ותדריך אותי צעד-צעד, כולל HTTPS. תעצור בכל שלב שדורש ממני פעולה.<button class="copy" type="button">העתקה</button></div>
+  <p class="tip"><b>המשפט שאסור לדלג עליו:</b> "תעצור בכל שלב שדורש ממני פעולה". פתיחת חשבון ואישור הרשאות הם שלכם.</p></article>
+</section>
+
+<section id="checklist">
+  <h2>צ'קליסט: מרעיון ועד אתר באוויר<small>עוברים עליו לפני שמשתפים את הקישור.</small></h2>
+  <div class="card"><div class="cgroup"><h4>תכנון</h4><ul class="todo"><li><label><input type="checkbox" data-k="c45"><span>בריף: מה העסק עושה, למי, ומה הגולש צריך לעשות</span></label></li><li><label><input type="checkbox" data-k="c46"><span>תכנית ב-<span class="ltr">Plan Mode</span>, שקראתי ואישרתי</span></label></li></ul></div><div class="cgroup"><h4>בנייה</h4><ul class="todo"><li><label><input type="checkbox" data-k="c47"><span>טיוטה במחשב</span></label></li><li><label><input type="checkbox" data-k="c48"><span>תיקונים בשפה פשוטה</span></label></li><li><label><input type="checkbox" data-k="c49"><span>סוכני משנה בדקו פונקציונליות ועיצוב</span></label></li></ul></div><div class="cgroup"><h4>מובייל</h4><ul class="todo"><li><label><input type="checkbox" data-k="c50"><span>כל העמודים נוחים לקריאה וללחיצה בטלפון</span></label></li><li><label><input type="checkbox" data-k="c51"><span>בדקתי בטלפון אמיתי</span></label></li></ul></div><div class="cgroup"><h4>חיבורים</h4><ul class="todo"><li><label><input type="checkbox" data-k="c52"><span>טופס לידים שמגיע למייל, ונבדק בשליחה אמיתית</span></label></li><li><label><input type="checkbox" data-k="c53"><span>יומן לקביעת פגישות</span></label></li><li><label><input type="checkbox" data-k="c54"><span>תשלום: נבדק קודם במסוף בדיקות</span></label></li></ul></div><div class="cgroup"><h4><span class="ltr">GEO</span></h4><ul class="todo"><li><label><input type="checkbox" data-k="c55"><span>טקסט ברור עם עובדות</span></label></li><li><label><input type="checkbox" data-k="c56"><span>נתונים מובנים לעסק מקומי</span></label></li><li><label><input type="checkbox" data-k="c57"><span>מנועי ה-<span class="ltr">AI</span> מורשים לקרוא את האתר</span></label></li></ul></div><div class="cgroup"><h4>אבטחה</h4><ul class="todo"><li><label><input type="checkbox" data-k="c58"><span>אין סיסמאות או מפתחות בקוד</span></label></li><li><label><input type="checkbox" data-k="c59"><span>התיקייה ב-<span class="ltr">GitHub</span> פרטית</span></label></li><li><label><input type="checkbox" data-k="c60"><span><span class="ltr">HTTPS</span></span></label></li><li><label><input type="checkbox" data-k="c61"><span>הגנה מספאם בטופס</span></label></li></ul></div><div class="cgroup"><h4>נגישות</h4><ul class="todo"><li><label><input type="checkbox" data-k="c62"><span>האתר עומד בת"י 5568 ברמה <span class="ltr">AA</span> (החובה היא לעמוד בתקן, לא להתקין תוסף)</span></label></li><li><label><input type="checkbox" data-k="c63"><span>הצהרת נגישות עם פרטי קשר לפניות</span></label></li><li><label><input type="checkbox" data-k="c64"><span>פטור קיים רק לעוסק פטור או למחזור שנתי ממוצע של עד 100,000 ₪</span></label></li></ul></div><div class="cgroup"><h4>פרטיות ודיוור</h4><ul class="todo"><li><label><input type="checkbox" data-k="c65"><span>ליד הטופס: למה אוספים, מי אחראי, למי מעבירים, ושהמסירה וולונטרית</span></label></li><li><label><input type="checkbox" data-k="c66"><span>תיבת הסכמה לדיוור, לא מסומנת מראש</span></label></li><li><label><input type="checkbox" data-k="c67"><span>בכל דיוור: "פרסומת" בכותרת, פרטי העסק ודרך פשוטה להסיר</span></label></li></ul></div><div class="cgroup"><h4>אם מוכרים באתר</h4><ul class="todo"><li><label><input type="checkbox" data-k="c68"><span>פרטי העסק, מחיר כולל, מועד אספקה ואחריות</span></label></li><li><label><input type="checkbox" data-k="c69"><span>זכות ביטול בתוך 14 יום, ודמי ביטול של לכל היותר 5% או 100 ₪, הנמוך מביניהם</span></label></li></ul></div><div class="cgroup"><h4>לאוויר</h4><ul class="todo"><li><label><input type="checkbox" data-k="c70"><span>הקוד שמור ב-<span class="ltr">GitHub</span></span></label></li><li><label><input type="checkbox" data-k="c71"><span>האתר עלה לאוויר בכתובת</span></label></li><li><label><input type="checkbox" data-k="c72"><span>דומיין משלי מחובר</span></label></li><li><label><input type="checkbox" data-k="c73"><span>גיבוי לפני כל שינוי גדול</span></label></li></ul></div><div class="cgroup"><h4>אם עברתי מאתר קיים</h4><ul class="todo"><li><label><input type="checkbox" data-k="c74"><span>רשימת כל הכתובות הישנות</span></label></li><li><label><input type="checkbox" data-k="c75"><span>הפניה 301 מכל כתובת ישנה, לפחות לשנה</span></label></li><li><label><input type="checkbox" data-k="c76"><span>האתר הישן כבוי רק אחרי שהכל עובד</span></label></li></ul></div>
+    <p class="tip"><b>מידע כללי ובסיסי, נכון ל-22.10.2026. לא ייעוץ משפטי.</b> מקורות: תקנות נגישות השירות (תקנות 35א–35ו), חוק הגנת הפרטיות (סעיף 11, תיקון 13), חוק התקשורת (סעיף 30א), חוק הגנת הצרכן (סעיפים 14ג, 14ה).</p>
+  </div>
+</section>
+
+<section id="prompts">
+  <h2>ספריית הפרומפטים<small>כל הפרומפטים מהוובינר, לפי שלב. לוחצים "העתקה" ומדביקים בקלוד.</small></h2>
+  <h4>תכנון</h4><div class="prompt"><span class="lbl">הבריף: התבנית שלכם</span>אני רוצה אתר ל[שם העסק]: [מה העסק עושה, במשפט אחד].
+מגיעים אליי בעיקר [מי הלקוחות, ומה הם רוצים].
+באתר הם צריכים [מה הגולש צריך לעשות: להבין מה מתאים לו, להשאיר פרטים, לקבוע פגישה, לשלם].
+חשוב לי [איך זה צריך להרגיש], ושיעבוד מצוין בטלפון.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">הבריף: הדוגמה מהוובינר</span>אני רוצה אתר לסטודיו הפילאטיס שלי, &quot;סטודיו מרכז&quot;: שיעורי מזרן ומכשירים בקבוצות של עד 8.
+מגיעות אליי בעיקר נשים שרוצות גב חזק יותר, רובן בלי ניסיון.
+באתר הן צריכות להבין איזה שיעור מתאים להן, להשאיר פרטים, לקבוע שיעור ניסיון ולשלם על כרטיסייה.
+חשוב לי שייראה חם ואישי, לא כמו תבנית, ושיעבוד מצוין בטלפון.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">המשפט שמוסיפים לכל פרויקט</span>תשאל אותי כל מה שאתה צריך כדי לבצע את המשימה ברמת דיוק והצלחה של לפחות 95%.<button class="copy" type="button">העתקה</button></div><h4>בנייה ומובייל</h4><div class="prompt"><span class="lbl">תיקונים בשפה פשוטה (דוגמאות)</span>הכפתור לא בולט. אני רוצה שיראו אותו ראשון.
+זה נראה כמו תבנית. תן לזה אופי חם ואישי.
+הכותרת לא אומרת כלום. מה הלקוחה מקבלת?<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">מובייל</span>תבדוק איך האתר נראה בטלפון, ותתקן כל מה שלא נוח לקרוא או ללחוץ.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">סוכני משנה בודקים</span>תשלח שני סוכני משנה במקביל:
+הראשון יעבור על כל האתר ויבדוק שהכל עובד: כפתורים, קישורים והטופס.
+השני יבדוק את העיצוב: יישור בעברית, קריאות, ואיך זה נראה בטלפון.
+שיחזרו עם רשימת בעיות לפי חשיבות, ובלי לתקן כלום עד שאאשר.<button class="copy" type="button">העתקה</button></div><h4>מעבר מאתר קיים</h4><div class="prompt"><span class="lbl">המעבר מאתר קיים</span>יש לי אתר ישן בבונה אתרים, ואני רוצה לבנות אותו מחדש כאתר שלי.
+מצרפת צילומי מסך של כל העמודים ואת רשימת הכתובות:
+[הדביקו כאן את רשימת הכתובות, למשל: /about · /prices · /contact]
+• כל התוכן נשאר
+• מכל כתובת ישנה, הפניה קבועה לכתובת החדשה
+• עיצוב עדכני שעובד מצוין בטלפון
+תשאל אותי כל מה שאתה צריך, ואז תציג לי תכנית.<button class="copy" type="button">העתקה</button></div><h4>חיבורים</h4><div class="prompt"><span class="lbl">טופס לידים</span>תוסיף לאתר טופס השארת פרטים. כשמישהי שולחת, אני רוצה לקבל מייל.
+חשוב לי שתהיה הגנה מספאם, תיבה לאישור דיוור שלא מסומנת מראש, והודעה קצרה ליד הטופס: למה אוספים את הפרטים, מי אחראי עליהם ולמי הם מועברים.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">יומן לקביעת פגישות</span>יצרתי דף הזמנת פגישות ב-Google Calendar. הנה הקישור.
+תטמיע אותו באתר בקטע &quot;קביעת שיעור ניסיון&quot;, שייראה חלק מהאתר ויעבוד טוב בטלפון.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">כפתור תשלום</span>יצרתי לינק לתשלום ב-Cardcom. הנה הקישור.
+תוסיף לאתר כפתור &quot;[לרכישה]&quot; שמוביל אליו, במקום בולט ליד המחיר.<button class="copy" type="button">העתקה</button></div><h4><span class="ltr">GEO</span></h4><div class="prompt"><span class="lbl">GEO: נתונים מובנים</span>תוסיף לאתר נתונים מובנים לעסק מקומי, ותסביר לי במשפט מה כל אחד עושה.<button class="copy" type="button">העתקה</button></div><h4>אבטחה וחוק</h4><div class="prompt"><span class="lbl">דפי נגישות, פרטיות ותקנון (טיוטה לבדיקה)</span>תכין לאתר טיוטה של הצהרת נגישות, מדיניות פרטיות ותקנון ביטולים, לפי מה שהאתר באמת עושה: אילו פרטים הטופס אוסף, לאן הם נשלחים, ומה מוכרים באתר.
+תסמן לי כל מקום שבו חסר לך פרט, ואל תמציא. אני אבדוק את הנוסח מול עורך דין.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">הפרומפט שבודק את הכל</span>עבור על האתר כבודק אבטחה וכבודק נגישות:
+ודא שאין סודות או פרטים אישיים בקוד, שהטופס כולל הודעת פרטיות ותיבת הסכמה לדיוור שלא מסומנת מראש,
+שיש הצהרת נגישות, ושהאתר עומד בת&quot;י 5568 ברמה AA.
+תן לי רשימה לפי חשיבות, ואל תתקן עד שאאשר.<button class="copy" type="button">העתקה</button></div><h4>לאוויר ודומיין</h4><div class="prompt"><span class="lbl">מחברים לעולם</span>אני רוצה להעלות את האתר הזה לאוויר. מה שחשוב לי:
+• שהקוד יישמר במקום שאפשר לחזור ממנו אחורה
+• שהפניות שלקוחות ימלאו יישמרו ולא ייעלמו
+• ושתהיה כתובת שאפשר לשלוח ללקוח
+תגיד לי אילו שירותים צריך בשביל זה ולמה כל אחד, ואז תדריך אותי צעד-צעד, כולל פתיחת החשבונות.
+תעצור בכל שלב שדורש ממני פעולה, ותסביר לי מה אני עושה ולמה.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">דומיין משלכם</span>קניתי דומיין. תחבר אותו לאתר ותדריך אותי צעד-צעד, כולל HTTPS. תעצור בכל שלב שדורש ממני פעולה.<button class="copy" type="button">העתקה</button></div>
+</section>
+
+<section id="costs">
+  <h2>כמה זה עולה</h2>
+  <div class="scroll"><table class="tbl">
+<tr><th>מה</th><th>כמה</th><th>הערה</th></tr>
+<tr><td><span class="ltr">Claude Code</span></td><td>מ-<span class="ltr">$20</span> לחודש</td><td>כלול ב-<span class="ltr">Claude Pro</span></td></tr>
+<tr><td>אתר לניסוי או אתר אישי</td><td>חינם</td><td><span class="ltr">Vercel Hobby</span></td></tr>
+<tr><td>אתר עסקי</td><td><span class="ltr">$20</span> לחודש</td><td><span class="ltr">Vercel Pro</span>. בתכנית החינמית אסור שימוש מסחרי</td></tr>
+<tr><td>רשימת לידים</td><td>חינם בהתחלה</td><td><span class="ltr">Supabase</span>: עד <span class="ltr">500MB</span>. פרויקט חינמי נכנס להשהיה אחרי שבוע בלי פעילות</td></tr>
+<tr><td>טופס למייל</td><td>חינם</td><td><span class="ltr">FormSubmit</span></td></tr>
+<tr><td>דומיין <span class="ltr">co.il</span></td><td>כ-100 ₪ לשנה</td><td>אצל רשם דומיינים</td></tr>
+<tr><td>סליקה</td><td>לפי הצעה</td><td><span class="ltr">Cardcom</span> לא מפרסמת מחיר</td></tr>
+</table></div>
+<p class="note">המחירים נבדקו ב-22.10.2026 ומשתנים מדי פעם. כדאי לבדוק באתר של כל שירות.</p>
+</section>
+
+<section id="twin" class="offer">
+  <h2>התאומה <span>הדיגיטלית</span></h2>
+  <p>מפגש זום של שעתיים: בונים אווטאר שמדבר בשבילכם</p>
+  <div class="when">רביעי 11.11.2026 · <span class="ltr">11:00</span> · בזום</div>
+  <div class="price"><s>199 ₪</s>149<span class="cur">₪</span></div>
+  <p>למשתתפי הוובינר בלבד, עד שלישי 27.10 בשעה <span class="ltr">13:00</span></p>
+  
+</section>
+
+<section id="links" class="links">
+  <h2>נמשיך לדבר</h2>
+  <a class="btn wa" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">💬 הקהילה בוואטסאפ</a>
+<a class="btn yt" href="https://youtube.com/@mornissim" target="_blank" rel="noopener">▶️ הערוץ ביוטיוב</a>
+<a class="btn ig" href="https://www.instagram.com/mornissim_" target="_blank" rel="noopener">📸 אינסטגרם</a>
+</section>
+
+<footer>© כל הזכויות שמורות למור נסים ולחברת פלואו מ.נ. בע״מ</footer>
+</div>
+
+<script>
+/* copy buttons */
+document.querySelectorAll('.prompt').forEach(box => {
+  const btn = box.querySelector('.copy');
+  btn.addEventListener('click', async () => {
+    const clone = box.cloneNode(true);
+    clone.querySelectorAll('.copy,.lbl').forEach(n => n.remove());
+    const text = clone.textContent.trim();
+    try { await navigator.clipboard.writeText(text); }
+    catch (e) {
+      const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (_) {} ta.remove();
+    }
+    btn.textContent = 'הועתק ✓'; btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = 'העתקה'; btn.classList.remove('ok'); }, 1800);
+  });
+});
+
+/* checkboxes: remembered in this browser only */
+const KEY = 'idea-to-website-checks';
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+const boxes = [...document.querySelectorAll('#workbook input[type=checkbox]')];
+const all = [...document.querySelectorAll('input[data-k]')];
+function progress(){ document.getElementById('prog').textContent = boxes.filter(b => b.checked).length; }
+document.getElementById('total').textContent = boxes.length;
+all.forEach(b => {
+  b.checked = !!saved[b.dataset.k];
+  b.addEventListener('change', () => {
+    saved[b.dataset.k] = b.checked;
+    try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    progress();
+  });
+});
+document.getElementById('reset').onclick = () => {
+  all.forEach(b => b.checked = false); saved = {};
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  progress();
+};
+progress();
+</script>
+</body>
+</html>
