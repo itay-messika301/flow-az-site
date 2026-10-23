@@ -57,6 +57,25 @@ ul.todo input:checked + span{color:var(--dim);text-decoration:line-through}
 .tip{margin-top:14px;font-size:15px;color:var(--muted);border-right:3px solid var(--pink);padding:4px 14px 4px 0}
 .tip b{color:var(--text)}
 .cgroup{break-inside:avoid}
+.gen{display:grid;gap:14px}
+.gen label{display:grid;gap:5px;font-size:15px;font-weight:700}
+.gen input:not([type=checkbox]){font:inherit;font-size:16px;font-weight:400;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--text);width:100%}
+.gen input:focus{outline:2px solid var(--pink);outline-offset:1px}
+.grid2{display:grid;gap:14px}
+@media (min-width:640px){.grid2{grid-template-columns:1fr 1fr}}
+.gen fieldset{border:0;display:flex;flex-wrap:wrap;gap:8px}
+.gen legend{font-size:15px;font-weight:700;margin-bottom:6px}
+.gen .opt{display:flex;align-items:center;gap:6px;font-weight:500;background:var(--bg);border-radius:999px;padding:6px 14px;cursor:pointer}
+.gen .opt input{width:18px;height:18px;accent-color:var(--pink)}
+.gen .cond{display:none}
+.gen .cond.show{display:grid}
+.genout .prompt[hidden]{display:none}
+.week{list-style:none;display:grid;gap:10px}
+.week label{display:grid;grid-template-columns:28px 1fr;gap:8px;cursor:pointer;align-items:start;font-size:15.5px}
+.week input{width:22px;height:22px;margin-top:3px;accent-color:var(--pink)}
+.week b{display:block;font-size:17px}
+.week a{font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.week input:checked + span{color:var(--dim)}
 .sum{list-style:none;display:grid;gap:10px;margin-top:12px}
 .sum li{display:grid;grid-template-columns:30px 1fr;gap:6px;font-size:16.5px}
 .sum li::before{content:"✦";color:var(--pink);font-weight:900}
@@ -103,7 +122,7 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 </header>
 
 <nav class="toc" aria-label="תוכן העניינים">
-  <a href="#summary">בקצרה</a><a href="#workbook">חוברת עבודה</a><a href="#checklist">צ'קליסט</a><a href="#prompts">פרומפטים</a><a href="#costs">עלויות</a><a href="#twin">התאומה הדיגיטלית</a><a href="#links">קהילה</a>
+  <a href="#summary">בקצרה</a><a href="#brief">הבריף שלכם</a><a href="#week">7 ימים</a><a href="#workbook">חוברת עבודה</a><a href="#checklist">צ'קליסט</a><a href="#prompts">פרומפטים</a><a href="#costs">עלויות</a><a href="#twin">התאומה הדיגיטלית</a><a href="#links">קהילה</a>
 </nav>
 
 <section id="summary">
@@ -120,6 +139,39 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
       <li><span><b>"תעצור בכל שלב שדורש ממני פעולה."</b> פתיחת חשבונות והרשאות הם שלכם.</span></li>
     </ul>
   </div>
+</section>
+
+<section id="brief">
+  <h2>הבריף שלכם, בשתי דקות<small>ממלאים חמישה שדות, ומקבלים את הפרומפטים של העסק שלכם, מוכנים להדבקה.</small></h2>
+  <div class="card gen">
+  <div class="grid2">
+    <label>שם העסק<input data-g="name" placeholder="למשל: סטודיו מרכז"></label>
+    <label>מה העסק עושה, במשפט<input data-g="what" placeholder="למשל: שיעורי פילאטיס בקבוצות קטנות"></label>
+  </div>
+  <label>מי הלקוחות, ומה הם רוצים<input data-g="who" placeholder="למשל: נשים שרוצות גב חזק יותר, רובן בלי ניסיון"></label>
+  <fieldset><legend>מה הגולש צריך לעשות באתר?</legend>
+    <label class="opt"><input type="checkbox" data-a="understand" checked> להבין מה מתאים לו</label>
+    <label class="opt"><input type="checkbox" data-a="leads" checked> להשאיר פרטים</label>
+    <label class="opt"><input type="checkbox" data-a="meet"> לקבוע פגישה</label>
+    <label class="opt"><input type="checkbox" data-a="pay"> לשלם</label>
+  </fieldset>
+  <label class="cond" data-if="meet">איך קוראים לפגישה?<input data-g="meeting" placeholder="למשל: שיחת היכרות"></label>
+  <label class="cond" data-if="pay">מה קונים באתר?<input data-g="product" placeholder="למשל: כרטיסייה"></label>
+  <label>איך האתר צריך להרגיש<input data-g="feel" placeholder="למשל: חם ואישי, לא כמו תבנית"></label>
+</div>
+<p class="note">מה שאתם כותבים נשאר רק בדפדפן שלכם.</p>
+<div class="genout">
+  <div class="prompt" id="g-brief"><span class="lbl">1 · הבריף שלכם</span><span class="body"></span><button class="copy" type="button">העתקה</button></div>
+  <div class="prompt" id="g-form"><span class="lbl">2 · טופס לידים</span><span class="body"></span><button class="copy" type="button">העתקה</button></div>
+  <div class="prompt" id="g-meet"><span class="lbl">3 · יומן לקביעת פגישות</span><span class="body"></span><button class="copy" type="button">העתקה</button></div>
+  <div class="prompt" id="g-pay"><span class="lbl">4 · כפתור תשלום</span><span class="body"></span><button class="copy" type="button">העתקה</button></div>
+</div>
+<p class="tip">את שאר הפרומפטים (מובייל, בדיקות, אבטחה ועלייה לאוויר) לוקחים מ<a href="#prompts">ספריית הפרומפטים</a>. הם מתאימים לכל עסק כמו שהם.</p>
+</section>
+
+<section id="week">
+  <h2>7 ימים לאתר שלכם<small>בערך חצי שעה ביום. מסמנים ✓, והסימון נשמר בדפדפן.</small></h2>
+  <div class="card"><ol class="week"><li><label><input type="checkbox" data-k="w1"><span><b>יום 1 · בריף ותכנית</b>כותבים את הבריף (במחולל למעלה), מדביקים ב-<span class="ltr">Plan Mode</span>, עונים על השאלות ומאשרים תכנית <a href="#ch1">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w2"><span><b>יום 2 · טיוטה ותיקונים</b>קלוד בונה, ואתם מתקנים בשפה פשוטה. צילום מסך עם חץ עוזר <a href="#ch2">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w3"><span><b>יום 3 · מובייל ובדיקות</b>בודקים בטלפון, ושולחים סוכני משנה לבדוק פונקציונליות ועיצוב <a href="#ch2">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w4"><span><b>יום 4 · טופס ויומן</b>טופס שמגיע למייל, ודף הזמנת פגישות ב-<span class="ltr">Google Calendar</span> <a href="#ch4">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w5"><span><b>יום 5 · תשלום ו-<span class="ltr">GEO</span></b>כפתור תשלום (אם מוכרים באתר), ונתונים מובנים לעסק <a href="#ch4">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w6"><span><b>יום 6 · אבטחה וחוק</b>הצהרת נגישות, הודעת פרטיות, ופרומפט הבדיקה <a href="#ch6">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w7"><span><b>יום 7 · לאוויר!</b>מעלים, מחברים דומיין, ושולחים את הקישור ללקוח הראשון <a href="#ch7">לפרק ←</a></span></label></li></ol></div>
 </section>
 
 <section id="workbook">
@@ -282,6 +334,46 @@ document.querySelectorAll('.prompt').forEach(box => {
     setTimeout(() => { btn.textContent = 'העתקה'; btn.classList.remove('ok'); }, 1800);
   });
 });
+
+/* brief generator: fills the prompts from five fields, remembered in this browser only */
+const GKEY = 'idea-to-website-brief';
+let g = {};
+try { g = JSON.parse(localStorage.getItem(GKEY) || '{}'); } catch (e) {}
+const fields = [...document.querySelectorAll('[data-g]')], acts = [...document.querySelectorAll('[data-a]')];
+fields.forEach(f => { if (g[f.dataset.g] != null) f.value = g[f.dataset.g]; });
+acts.forEach(a => { if (g['a_' + a.dataset.a] != null) a.checked = g['a_' + a.dataset.a]; });
+const v = (k, ph) => (g[k] || '').trim() || ph;
+function joinHe(list) { return list.length < 2 ? (list[0] || '') : list.slice(0, -1).join(', ') + ' ו' + list[list.length - 1]; }
+function renderGen() {
+  fields.forEach(f => g[f.dataset.g] = f.value);
+  acts.forEach(a => g['a_' + a.dataset.a] = a.checked);
+  try { localStorage.setItem(GKEY, JSON.stringify(g)); } catch (e) {}
+  const on = k => g['a_' + k];
+  document.querySelectorAll('.cond').forEach(c => c.classList.toggle('show', !!on(c.dataset.if)));
+  const meeting = v('meeting', '[שם הפגישה]'), product = v('product', '[מה קונים]');
+  const doList = [];
+  if (on('understand')) doList.push('להבין מה מתאים להם');
+  if (on('leads')) doList.push('להשאיר פרטים');
+  if (on('meet')) doList.push('לקבוע ' + meeting);
+  if (on('pay')) doList.push('לשלם על ' + product);
+  const brief = 'אני רוצה אתר ל' + v('name', '[שם העסק]') + ': ' + v('what', '[מה העסק עושה]') + '.\n'
+    + 'מגיעים אליי בעיקר ' + v('who', '[מי הלקוחות, ומה הם רוצים]') + '.\n'
+    + 'באתר הם צריכים ' + (doList.length ? joinHe(doList) : '[מה הגולש צריך לעשות]') + '.\n'
+    + 'חשוב לי שייראה ' + v('feel', '[איך זה צריך להרגיש]') + ', ושיעבוד מצוין בטלפון.\n\n'
+    + 'תשאל אותי כל מה שאתה צריך כדי לבצע את המשימה ברמת דיוק והצלחה של לפחות 95%.';
+  const set = (id, show, text) => { const el = document.getElementById(id); el.hidden = !show; el.querySelector('.body').textContent = text; };
+  set('g-brief', true, brief);
+  set('g-form', on('leads'), 'תוסיף לאתר טופס השארת פרטים. כשמישהו שולח, אני רוצה לקבל מייל.\n'
+    + 'חשוב לי שתהיה הגנה מספאם, תיבה לאישור דיוור שלא מסומנת מראש, והודעה קצרה ליד הטופס: למה אוספים את הפרטים, מי אחראי עליהם ולמי הם מועברים.');
+  set('g-meet', on('meet'), 'יצרתי דף הזמנת פגישות ב-Google Calendar. הנה הקישור.\n'
+    + 'תטמיע אותו באתר בקטע "קביעת ' + meeting + '", שייראה חלק מהאתר ויעבוד טוב בטלפון.');
+  set('g-pay', on('pay'), 'יצרתי לינק לתשלום ב-Cardcom. הנה הקישור.\n'
+    + 'תוסיף לאתר כפתור "לרכישת ' + product + '" שמוביל אליו, במקום בולט ליד המחיר.');
+  let n = 1; ['g-brief', 'g-form', 'g-meet', 'g-pay'].forEach(id => { const el = document.getElementById(id); if (!el.hidden) { const l = el.querySelector('.lbl'); l.textContent = l.textContent.replace(/^\d+/, n++); } });
+}
+fields.forEach(f => f.addEventListener('input', renderGen));
+acts.forEach(a => a.addEventListener('change', renderGen));
+renderGen();
 
 /* checkboxes: remembered in this browser only */
 const KEY = 'idea-to-website-checks';
