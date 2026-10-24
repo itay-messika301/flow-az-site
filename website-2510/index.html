@@ -103,6 +103,66 @@ ul.todo input:checked + span{color:var(--dim);text-decoration:line-through}
 .btn.yt,.btn.ig{background:var(--card);color:var(--text);border:1.5px solid var(--line)}
 footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 @media (min-width:640px){.card,.chap{padding:24px}}
+
+:root{--ink:#1b1536;--ink2:#2a2350;--pink:#e0457f;--pink-d:#c42f69;--soft:#fff0f5;--gray:#9a94b4;--bg:#fff;--card:#fff;--line:rgba(27,21,54,.09);--text:#1b1536;--muted:#6a6487;--dim:#b3aec7;
+  --shadow:0 30px 60px -34px rgba(27,21,54,.28),0 2px 6px rgba(27,21,54,.04)}
+body{background:#fff;background-image:none}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:
+  linear-gradient(90deg,transparent calc(50% - 390.5px),rgba(27,21,54,.05) calc(50% - 390.5px),rgba(27,21,54,.05) calc(50% - 389.5px),transparent calc(50% - 389.5px)),
+  linear-gradient(90deg,transparent calc(50% + 389.5px),rgba(27,21,54,.05) calc(50% + 389.5px),rgba(27,21,54,.05) calc(50% + 390.5px),transparent calc(50% + 390.5px))}
+@keyframes floaty{to{transform:translateY(-10px) rotate(6deg)}}
+.hero{position:relative;overflow:hidden;margin:0 -16px;padding:0 16px;isolation:isolate}
+.hero::after{content:"";position:absolute;left:-120px;bottom:-90px;width:900px;height:830px;pointer-events:none;z-index:-1;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201300%201200%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22rg%22%20x1%3D%220%22%20y1%3D%221%22%20x2%3D%221%22%20y2%3D%220%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238b5cff%22/%3E%3Cstop%20offset%3D%22.35%22%20stop-color%3D%22%23ff5c9a%22/%3E%3Cstop%20offset%3D%22.7%22%20stop-color%3D%22%23ff8f5e%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffc83d%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23rg%29%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.85%22%3E%3Cpath%20d%3D%22M-160%201060%20C%20160%20900%2C%20380%201120%2C%20700%20820%20S%201000%20380%2C%201060%20120%22/%3E%3Cpath%20d%3D%22M-160%201071%20C%20160%20911%2C%20380%201129%2C%20700%20830%20S%201000%20393%2C%201060%20134%22/%3E%3Cpath%20d%3D%22M-160%201082%20C%20160%20922%2C%20380%201138%2C%20700%20840%20S%201000%20406%2C%201060%20148%22/%3E%3Cpath%20d%3D%22M-160%201093%20C%20160%20933%2C%20380%201147%2C%20700%20850%20S%201000%20419%2C%201060%20162%22/%3E%3Cpath%20d%3D%22M-160%201104%20C%20160%20944%2C%20380%201156%2C%20700%20860%20S%201000%20432%2C%201060%20176%22/%3E%3Cpath%20d%3D%22M-160%201115%20C%20160%20955%2C%20380%201165%2C%20700%20870%20S%201000%20445%2C%201060%20190%22/%3E%3Cpath%20d%3D%22M-160%201126%20C%20160%20966%2C%20380%201174%2C%20700%20880%20S%201000%20458%2C%201060%20204%22/%3E%3Cpath%20d%3D%22M-160%201137%20C%20160%20977%2C%20380%201183%2C%20700%20890%20S%201000%20471%2C%201060%20218%22/%3E%3Cpath%20d%3D%22M-160%201148%20C%20160%20988%2C%20380%201192%2C%20700%20900%20S%201000%20484%2C%201060%20232%22/%3E%3Cpath%20d%3D%22M-160%201159%20C%20160%20999%2C%20380%201201%2C%20700%20910%20S%201000%20497%2C%201060%20246%22/%3E%3Cpath%20d%3D%22M-160%201170%20C%20160%201010%2C%20380%201210%2C%20700%20920%20S%201000%20510%2C%201060%20260%22/%3E%3Cpath%20d%3D%22M-160%201181%20C%20160%201021%2C%20380%201219%2C%20700%20930%20S%201000%20523%2C%201060%20274%22/%3E%3Cpath%20d%3D%22M-160%201192%20C%20160%201032%2C%20380%201228%2C%20700%20940%20S%201000%20536%2C%201060%20288%22/%3E%3Cpath%20d%3D%22M-160%201203%20C%20160%201043%2C%20380%201237%2C%20700%20950%20S%201000%20549%2C%201060%20302%22/%3E%3Cpath%20d%3D%22M-160%201214%20C%20160%201054%2C%20380%201246%2C%20700%20960%20S%201000%20562%2C%201060%20316%22/%3E%3Cpath%20d%3D%22M-160%201225%20C%20160%201065%2C%20380%201255%2C%20700%20970%20S%201000%20575%2C%201060%20330%22/%3E%3Cpath%20d%3D%22M-160%201236%20C%20160%201076%2C%20380%201264%2C%20700%20980%20S%201000%20588%2C%201060%20344%22/%3E%3Cpath%20d%3D%22M-160%201247%20C%20160%201087%2C%20380%201273%2C%20700%20990%20S%201000%20601%2C%201060%20358%22/%3E%3Cpath%20d%3D%22M-160%201258%20C%20160%201098%2C%20380%201282%2C%20700%201000%20S%201000%20614%2C%201060%20372%22/%3E%3Cpath%20d%3D%22M-160%201269%20C%20160%201109%2C%20380%201291%2C%20700%201010%20S%201000%20627%2C%201060%20386%22/%3E%3Cpath%20d%3D%22M-160%201280%20C%20160%201120%2C%20380%201300%2C%20700%201020%20S%201000%20640%2C%201060%20400%22/%3E%3Cpath%20d%3D%22M-160%201291%20C%20160%201131%2C%20380%201309%2C%20700%201030%20S%201000%20653%2C%201060%20414%22/%3E%3Cpath%20d%3D%22M-160%201302%20C%20160%201142%2C%20380%201318%2C%20700%201040%20S%201000%20666%2C%201060%20428%22/%3E%3Cpath%20d%3D%22M-160%201313%20C%20160%201153%2C%20380%201327%2C%20700%201050%20S%201000%20679%2C%201060%20442%22/%3E%3Cpath%20d%3D%22M-160%201324%20C%20160%201164%2C%20380%201336%2C%20700%201060%20S%201000%20692%2C%201060%20456%22/%3E%3Cpath%20d%3D%22M-160%201335%20C%20160%201175%2C%20380%201345%2C%20700%201070%20S%201000%20705%2C%201060%20470%22/%3E%3Cpath%20d%3D%22M-160%201346%20C%20160%201186%2C%20380%201354%2C%20700%201080%20S%201000%20718%2C%201060%20484%22/%3E%3Cpath%20d%3D%22M-160%201357%20C%20160%201197%2C%20380%201363%2C%20700%201090%20S%201000%20731%2C%201060%20498%22/%3E%3Cpath%20d%3D%22M-160%201368%20C%20160%201208%2C%20380%201372%2C%20700%201100%20S%201000%20744%2C%201060%20512%22/%3E%3Cpath%20d%3D%22M-160%201379%20C%20160%201219%2C%20380%201381%2C%20700%201110%20S%201000%20757%2C%201060%20526%22/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 0/100% 100%;opacity:.5;
+  -webkit-mask-image:linear-gradient(90deg,#000 20%,transparent 55%);mask-image:linear-gradient(90deg,#000 20%,transparent 55%)}
+@media (min-width:640px){.hero::after{left:-40px;bottom:-40px;opacity:.55;-webkit-mask-image:linear-gradient(90deg,#000 15%,transparent 40%);mask-image:linear-gradient(90deg,#000 15%,transparent 40%)}}
+.blob{position:absolute;border-radius:50%;animation:floaty 6s ease-in-out infinite alternate;z-index:0;pointer-events:none}
+header{position:relative;z-index:1}
+.blob.b1{left:14px;top:26px;width:44px;height:44px;background:radial-gradient(circle at 32% 30%,#ffd1e2,#ff5c9a 45%,#c42f69 100%);box-shadow:0 16px 26px -10px rgba(196,47,105,.6)}
+.blob.b2{left:96px;bottom:34px;width:34px;height:34px;border-radius:12px;background:radial-gradient(circle at 30% 25%,#fff3b0,#ffc83d 50%,#e09a00 100%);box-shadow:0 14px 22px -10px rgba(224,154,0,.6);animation-delay:-2s}
+header{padding:56px 0 64px}
+.kicker{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--pink)}
+.kicker::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 5px rgba(224,69,127,.15)}
+h1{letter-spacing:-.03em;margin:12px 0 14px}
+h1 span{color:var(--pink)}
+.me{box-shadow:0 0 0 4px #fff,0 0 0 5px var(--line),0 20px 40px -18px rgba(27,21,54,.45)}
+nav.toc{background:linear-gradient(#fff 78%,rgba(255,255,255,0))}
+nav.toc a{border:1px solid var(--line);box-shadow:0 8px 20px -14px rgba(27,21,54,.35);font-weight:700}
+nav.toc a:hover{color:var(--pink)}
+h2{letter-spacing:-.02em;font-size:32px}
+h2 .g{color:var(--gray)}
+h2 small{color:var(--muted)}
+h2::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 5px rgba(224,69,127,.15);margin:0 2px 18px}
+.offer h2::before,.links h2::before{display:none}
+h4{color:var(--ink)}
+.num{background:var(--soft);color:var(--pink);border-radius:10px}
+.card,.chap{border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.order li{background:var(--soft)}
+.prompt{background:#faf9fc;border:1px solid var(--line);border-right:1px solid var(--line);border-radius:18px}
+.prompt .lbl{color:var(--pink);letter-spacing:.01em}
+.copy{border-radius:999px;background:var(--ink)}
+.tip{border-right:0;padding:12px 16px;background:var(--soft);border-radius:14px;color:var(--muted)}
+.tip b{color:var(--ink)}
+.gen input:not([type=checkbox]){border:1px solid var(--line);border-radius:12px}
+.gen .opt{background:var(--soft)}
+.sum li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pink);margin-top:10px;box-shadow:0 0 0 4px rgba(224,69,127,.15)}
+.scroll{border:1px solid var(--line);box-shadow:var(--shadow)}
+.tbl th{background:var(--soft);color:var(--pink-d)}
+.offer{position:relative;overflow:hidden;background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow);padding:36px 22px}
+.offer::after{content:"";position:absolute;left:-120px;bottom:-90px;width:900px;height:830px;pointer-events:none;z-index:0;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201300%201200%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22rg%22%20x1%3D%220%22%20y1%3D%221%22%20x2%3D%221%22%20y2%3D%220%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238b5cff%22/%3E%3Cstop%20offset%3D%22.35%22%20stop-color%3D%22%23ff5c9a%22/%3E%3Cstop%20offset%3D%22.7%22%20stop-color%3D%22%23ff8f5e%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffc83d%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23rg%29%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.85%22%3E%3Cpath%20d%3D%22M-160%201060%20C%20160%20900%2C%20380%201120%2C%20700%20820%20S%201000%20380%2C%201060%20120%22/%3E%3Cpath%20d%3D%22M-160%201071%20C%20160%20911%2C%20380%201129%2C%20700%20830%20S%201000%20393%2C%201060%20134%22/%3E%3Cpath%20d%3D%22M-160%201082%20C%20160%20922%2C%20380%201138%2C%20700%20840%20S%201000%20406%2C%201060%20148%22/%3E%3Cpath%20d%3D%22M-160%201093%20C%20160%20933%2C%20380%201147%2C%20700%20850%20S%201000%20419%2C%201060%20162%22/%3E%3Cpath%20d%3D%22M-160%201104%20C%20160%20944%2C%20380%201156%2C%20700%20860%20S%201000%20432%2C%201060%20176%22/%3E%3Cpath%20d%3D%22M-160%201115%20C%20160%20955%2C%20380%201165%2C%20700%20870%20S%201000%20445%2C%201060%20190%22/%3E%3Cpath%20d%3D%22M-160%201126%20C%20160%20966%2C%20380%201174%2C%20700%20880%20S%201000%20458%2C%201060%20204%22/%3E%3Cpath%20d%3D%22M-160%201137%20C%20160%20977%2C%20380%201183%2C%20700%20890%20S%201000%20471%2C%201060%20218%22/%3E%3Cpath%20d%3D%22M-160%201148%20C%20160%20988%2C%20380%201192%2C%20700%20900%20S%201000%20484%2C%201060%20232%22/%3E%3Cpath%20d%3D%22M-160%201159%20C%20160%20999%2C%20380%201201%2C%20700%20910%20S%201000%20497%2C%201060%20246%22/%3E%3Cpath%20d%3D%22M-160%201170%20C%20160%201010%2C%20380%201210%2C%20700%20920%20S%201000%20510%2C%201060%20260%22/%3E%3Cpath%20d%3D%22M-160%201181%20C%20160%201021%2C%20380%201219%2C%20700%20930%20S%201000%20523%2C%201060%20274%22/%3E%3Cpath%20d%3D%22M-160%201192%20C%20160%201032%2C%20380%201228%2C%20700%20940%20S%201000%20536%2C%201060%20288%22/%3E%3Cpath%20d%3D%22M-160%201203%20C%20160%201043%2C%20380%201237%2C%20700%20950%20S%201000%20549%2C%201060%20302%22/%3E%3Cpath%20d%3D%22M-160%201214%20C%20160%201054%2C%20380%201246%2C%20700%20960%20S%201000%20562%2C%201060%20316%22/%3E%3Cpath%20d%3D%22M-160%201225%20C%20160%201065%2C%20380%201255%2C%20700%20970%20S%201000%20575%2C%201060%20330%22/%3E%3Cpath%20d%3D%22M-160%201236%20C%20160%201076%2C%20380%201264%2C%20700%20980%20S%201000%20588%2C%201060%20344%22/%3E%3Cpath%20d%3D%22M-160%201247%20C%20160%201087%2C%20380%201273%2C%20700%20990%20S%201000%20601%2C%201060%20358%22/%3E%3Cpath%20d%3D%22M-160%201258%20C%20160%201098%2C%20380%201282%2C%20700%201000%20S%201000%20614%2C%201060%20372%22/%3E%3Cpath%20d%3D%22M-160%201269%20C%20160%201109%2C%20380%201291%2C%20700%201010%20S%201000%20627%2C%201060%20386%22/%3E%3Cpath%20d%3D%22M-160%201280%20C%20160%201120%2C%20380%201300%2C%20700%201020%20S%201000%20640%2C%201060%20400%22/%3E%3Cpath%20d%3D%22M-160%201291%20C%20160%201131%2C%20380%201309%2C%20700%201030%20S%201000%20653%2C%201060%20414%22/%3E%3Cpath%20d%3D%22M-160%201302%20C%20160%201142%2C%20380%201318%2C%20700%201040%20S%201000%20666%2C%201060%20428%22/%3E%3Cpath%20d%3D%22M-160%201313%20C%20160%201153%2C%20380%201327%2C%20700%201050%20S%201000%20679%2C%201060%20442%22/%3E%3Cpath%20d%3D%22M-160%201324%20C%20160%201164%2C%20380%201336%2C%20700%201060%20S%201000%20692%2C%201060%20456%22/%3E%3Cpath%20d%3D%22M-160%201335%20C%20160%201175%2C%20380%201345%2C%20700%201070%20S%201000%20705%2C%201060%20470%22/%3E%3Cpath%20d%3D%22M-160%201346%20C%20160%201186%2C%20380%201354%2C%20700%201080%20S%201000%20718%2C%201060%20484%22/%3E%3Cpath%20d%3D%22M-160%201357%20C%20160%201197%2C%20380%201363%2C%20700%201090%20S%201000%20731%2C%201060%20498%22/%3E%3Cpath%20d%3D%22M-160%201368%20C%20160%201208%2C%20380%201372%2C%20700%201100%20S%201000%20744%2C%201060%20512%22/%3E%3Cpath%20d%3D%22M-160%201379%20C%20160%201219%2C%20380%201381%2C%20700%201110%20S%201000%20757%2C%201060%20526%22/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 0/100% 100%;opacity:.45;
+  -webkit-mask-image:linear-gradient(90deg,#000 15%,transparent 45%);mask-image:linear-gradient(90deg,#000 15%,transparent 45%)}
+.offer > *{position:relative;z-index:1}
+.offer h2 span{color:var(--gray)}
+.offer p{color:var(--muted)}
+.offer .when{background:var(--soft);color:var(--pink-d)}
+.offer .price{color:var(--ink)}
+.offer .price s{color:var(--dim)}
+.btn{border-radius:999px}
+.btn.buy{background:var(--ink);color:#fff;box-shadow:0 16px 30px -14px rgba(27,21,54,.6)}
+.btn.wa{background:var(--pink);color:#fff}
+.btn.yt,.btn.ig{border:1px solid var(--line);box-shadow:0 10px 24px -16px rgba(27,21,54,.35)}
+@media print{body::before,.hero::after,.blob,.offer::after{display:none}}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}}
+
 @media print{
   body{background:#fff} nav.toc,.copy,.reset{display:none}
   .prompt{padding-bottom:16px;break-inside:avoid} .chap{break-inside:avoid-page;box-shadow:none}
@@ -112,6 +172,7 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 </head>
 <body>
 <div class="wrap">
+<div class="hero"><i class="blob b1"></i><i class="blob b2"></i>
 <header>
   <div class="txt">
     <div class="kicker">מהוובינר "מרעיון לאתר בשעה וחצי" · 25.10.2026</div>
@@ -120,6 +181,7 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
   </div>
   <img class="me" src="mor.jpg" alt="מור נסים">
 </header>
+</div>
 
 <nav class="toc" aria-label="תוכן העניינים">
   <a href="#summary">בקצרה</a><a href="#brief">הבריף שלכם</a><a href="#week">7 ימים</a><a href="#workbook">חוברת עבודה</a><a href="#checklist">צ'קליסט</a><a href="#prompts">פרומפטים</a><a href="#costs">עלויות</a><a href="#twin">התאומה הדיגיטלית</a><a href="#links">קהילה</a>
@@ -142,7 +204,7 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 </section>
 
 <section id="brief">
-  <h2>הבריף שלכם, בשתי דקות<small>ממלאים חמישה שדות, ומקבלים את הפרומפטים של העסק שלכם, מוכנים להדבקה.</small></h2>
+  <h2>הבריף שלכם, <span class="g">בשתי דקות</span><small>ממלאים חמישה שדות, ומקבלים את הפרומפטים של העסק שלכם, מוכנים להדבקה.</small></h2>
   <div class="card gen">
   <div class="grid2">
     <label>שם העסק<input data-g="name" placeholder="למשל: סטודיו מרכז"></label>
@@ -170,12 +232,12 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 </section>
 
 <section id="week">
-  <h2>7 ימים לאתר שלכם<small>בערך חצי שעה ביום. מסמנים ✓, והסימון נשמר בדפדפן.</small></h2>
+  <h2>7 ימים <span class="g">לאתר שלכם</span><small>בערך חצי שעה ביום. מסמנים ✓, והסימון נשמר בדפדפן.</small></h2>
   <div class="card"><ol class="week"><li><label><input type="checkbox" data-k="w1"><span><b>יום 1 · בריף ותכנית</b>כותבים את הבריף (במחולל למעלה), מדביקים ב-<span class="ltr">Plan Mode</span>, עונים על השאלות ומאשרים תכנית <a href="#ch1">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w2"><span><b>יום 2 · טיוטה ותיקונים</b>קלוד בונה, ואתם מתקנים בשפה פשוטה. צילום מסך עם חץ עוזר <a href="#ch2">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w3"><span><b>יום 3 · מובייל ובדיקות</b>בודקים בטלפון, ושולחים סוכני משנה לבדוק פונקציונליות ועיצוב <a href="#ch2">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w4"><span><b>יום 4 · טופס ויומן</b>טופס שמגיע למייל, ודף הזמנת פגישות ב-<span class="ltr">Google Calendar</span> <a href="#ch4">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w5"><span><b>יום 5 · תשלום ו-<span class="ltr">GEO</span></b>כפתור תשלום (אם מוכרים באתר), ונתונים מובנים לעסק <a href="#ch7">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w6"><span><b>יום 6 · אבטחה וחוק</b>הצהרת נגישות, הודעת פרטיות, ופרומפט הבדיקה <a href="#ch6">לפרק ←</a></span></label></li><li><label><input type="checkbox" data-k="w7"><span><b>יום 7 · לאוויר!</b>מעלים, מחברים דומיין, ושולחים את הקישור ללקוח הראשון <a href="#ch5">לפרק ←</a></span></label></li></ol></div>
 </section>
 
 <section id="workbook">
-  <h2>חוברת עבודה<small>פרק לכל נושא בוובינר. מסמנים ✓, והסימון נשמר בדפדפן שלכם.</small></h2>
+  <h2>חוברת <span class="g">עבודה</span><small>פרק לכל נושא בוובינר. מסמנים ✓, והסימון נשמר בדפדפן שלכם.</small></h2>
   <div class="progress"><span id="prog">0</span> מתוך <span id="total">0</span> צעדים הושלמו <button class="reset" type="button" id="reset">איפוס</button></div>
   <article class="chap" id="ch0"><h3><span class="num">0</span>לפני שמתחילים</h3>
   <p>מה צריך: אפליקציית <span class="ltr">Claude Desktop</span> ותכנית בתשלום של <span class="ltr">Claude</span> (מ-<span class="ltr">$20</span> לחודש. <span class="ltr">Claude Code</span> כלול בכל התכניות בתשלום).</p>
@@ -198,7 +260,7 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 הראשון יעבור על כל האתר ויבדוק שהכל עובד: כפתורים, קישורים והטופס.
 השני יבדוק את העיצוב: יישור בעברית, קריאות, ואיך זה נראה בטלפון.
 שיחזרו עם רשימת בעיות לפי חשיבות, ובלי לתקן כלום עד שאאשר.<button class="copy" type="button">העתקה</button></div>
-  <p class="tip"><b>סוכן משנה</b> = עוד עותק של קלוד שבודק בעיניים טריות. הוא לא "יודע" מה אמור לעבוד, ולכן מוצא את מה שאנחנו כבר לא רואים.</p>
+  <p class="tip"><b>סוכן משנה</b> = עוזר שקלוד שולח למשימה אחת. הוא עובד בשיחה נפרדת משלו, בלי ההיסטוריה של השיחה שלכם, ומחזיר לקלוד רק את השורה התחתונה. כי הוא לא מכיר את מה שכבר הוחלט, הוא מוצא את מה שאתם כבר לא רואים.</p>
   <p class="tip"><b>למה מובייל:</b> מאז יולי 2024 גוגל סורקת אתרים רק כמו טלפון. תוכן שלא נגיש בנייד לא נכנס לגוגל.</p></article><article class="chap" id="ch3"><h3><span class="num">3</span>מסלול ב': מאתר קיים</h3>
   <ul class="todo"><li><label><input type="checkbox" data-k="c14"><span>אוספים טקסטים מכל עמוד, ותמונות בקובץ המקורי</span></label></li><li><label><input type="checkbox" data-k="c15"><span>רושמים את כל העמודים, ומה מקשר לאן</span></label></li><li><label><input type="checkbox" data-k="c16"><span><span class="ltr">WordPress</span>: כלים ← ייצוא, ושומרים את הקובץ</span></label></li><li><label><input type="checkbox" data-k="c17"><span><span class="ltr">Wix</span>: מייצאים אנשי קשר ומוצרים לקובץ. את הבלוג מעתיקים ידנית, כי אי אפשר לייצא אותו</span></label></li><li><label><input type="checkbox" data-k="c18"><span>בודקים לאן הטפסים שולחים היום, ואיפה רשום הדומיין</span></label></li><li><label><input type="checkbox" data-k="c19"><span>בוחרים אחת משלוש הדרכים (לינק, קבצים או צילומי מסך), ומדביקים את הפרומפט המתאים ב-<span class="ltr">Plan Mode</span></span></label></li><li><label><input type="checkbox" data-k="c20"><span>בודקים שכל הקישורים בין הדפים עובדים באתר החדש</span></label></li><li><label><input type="checkbox" data-k="c21"><span>מחברים את הדומיין לאתר החדש, ורק אז מכבים את הישן</span></label></li></ul>
   <div class="prompt"><span class="lbl">מעבר מאתר קיים · יש לי לינק</span>יש לי אתר קיים בכתובת [הלינק].
@@ -231,7 +293,7 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 • ושתהיה כתובת שאפשר לשלוח ללקוח
 תגיד לי אילו שירותים צריך בשביל זה ולמה כל אחד, ואז תדריך אותי צעד-צעד, כולל פתיחת החשבונות.
 תעצור בכל שלב שדורש ממני פעולה, ותסביר לי מה אני עושה ולמה.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">דומיין משלכם</span>קניתי דומיין. תחבר אותו לאתר ותדריך אותי צעד-צעד, כולל HTTPS. תעצור בכל שלב שדורש ממני פעולה.<button class="copy" type="button">העתקה</button></div>
-  <p class="tip"><b>המשפט שאסור לדלג עליו:</b> "תעצור בכל שלב שדורש ממני פעולה". פתיחת חשבון ואישור הרשאות הם שלכם.</p></article><article class="chap" id="ch6"><h3><span class="num">6</span>לפני ששיתפים: בדיקות וחוק</h3>
+  <p class="tip"><b>המשפט שאסור לדלג עליו:</b> "תעצור בכל שלב שדורש ממני פעולה". פתיחת חשבון ואישור הרשאות הם שלכם.</p></article><article class="chap" id="ch6"><h3><span class="num">6</span>לפני שמשתפים: בדיקות וחוק</h3>
   <ul class="todo"><li><label><input type="checkbox" data-k="c34"><span>אין סיסמאות או מפתחות בקבצי האתר</span></label></li><li><label><input type="checkbox" data-k="c35"><span>ברור לאן נשלחים הפרטים מהטופס, ומי רואה אותם</span></label></li><li><label><input type="checkbox" data-k="c36"><span>התיקייה ב-<span class="ltr">GitHub</span> מוגדרת כפרטית</span></label></li><li><label><input type="checkbox" data-k="c37"><span>האתר מוצפן (<span class="ltr">HTTPS</span>)</span></label></li><li><label><input type="checkbox" data-k="c38"><span>יש הצהרת נגישות, ליד הטופס יש הודעת פרטיות, ותיבת הדיוור לא מסומנת מראש</span></label></li><li><label><input type="checkbox" data-k="c39"><span>אם מוכרים באתר: יש תקנון עם מחיר כולל, אספקה, אחריות וזכות ביטול</span></label></li><li><label><input type="checkbox" data-k="c40"><span>מריצים את פרומפט הבדיקה, ומאשרים תיקונים</span></label></li></ul>
   <div class="prompt"><span class="lbl">דפי נגישות, פרטיות ותקנון (טיוטה לבדיקה)</span>תכין לאתר טיוטה של הצהרת נגישות, מדיניות פרטיות ותקנון ביטולים, לפי מה שהאתר באמת עושה: אילו פרטים הטופס אוסף, לאן הם נשלחים, ומה מוכרים באתר.
 תסמן לי כל מקום שבו חסר לך פרט, ואל תמציא. אני אבדוק את הנוסח מול עורך דין.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">הפרומפט שבודק את הכל</span>עבור על האתר כבודק אבטחה וכבודק נגישות:
@@ -246,14 +308,14 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 </section>
 
 <section id="checklist">
-  <h2>צ'קליסט: מרעיון ועד אתר באוויר<small>עוברים עליו לפני שמשתפים את הקישור.</small></h2>
+  <h2>צ'קליסט: <span class="g">מרעיון ועד אתר באוויר</span><small>עוברים עליו לפני שמשתפים את הקישור.</small></h2>
   <div class="card"><div class="cgroup"><h4>תכנון</h4><ul class="todo"><li><label><input type="checkbox" data-k="c45"><span>בריף: מה העסק עושה, למי, ומה הגולש צריך לעשות</span></label></li><li><label><input type="checkbox" data-k="c46"><span>תכנית ב-<span class="ltr">Plan Mode</span>, שקראתי ואישרתי</span></label></li></ul></div><div class="cgroup"><h4>בנייה</h4><ul class="todo"><li><label><input type="checkbox" data-k="c47"><span>טיוטה במחשב</span></label></li><li><label><input type="checkbox" data-k="c48"><span>תיקונים בשפה פשוטה</span></label></li><li><label><input type="checkbox" data-k="c49"><span>סוכני משנה בדקו פונקציונליות ועיצוב</span></label></li></ul></div><div class="cgroup"><h4>מובייל</h4><ul class="todo"><li><label><input type="checkbox" data-k="c50"><span>כל העמודים נוחים לקריאה וללחיצה בטלפון</span></label></li><li><label><input type="checkbox" data-k="c51"><span>בדקתי בטלפון אמיתי</span></label></li></ul></div><div class="cgroup"><h4>חיבורים</h4><ul class="todo"><li><label><input type="checkbox" data-k="c52"><span>טופס לידים שמגיע למייל, ונבדק בשליחה אמיתית</span></label></li><li><label><input type="checkbox" data-k="c53"><span>יומן לקביעת פגישות</span></label></li><li><label><input type="checkbox" data-k="c54"><span>תשלום: נבדק קודם במסוף בדיקות</span></label></li></ul></div><div class="cgroup"><h4><span class="ltr">GEO</span></h4><ul class="todo"><li><label><input type="checkbox" data-k="c55"><span>טקסט ברור עם עובדות</span></label></li><li><label><input type="checkbox" data-k="c56"><span>נתונים מובנים לעסק מקומי</span></label></li><li><label><input type="checkbox" data-k="c57"><span>מנועי ה-<span class="ltr">AI</span> מורשים לקרוא את האתר</span></label></li></ul></div><div class="cgroup"><h4>אבטחה</h4><ul class="todo"><li><label><input type="checkbox" data-k="c58"><span>אין סיסמאות או מפתחות בקוד</span></label></li><li><label><input type="checkbox" data-k="c59"><span>התיקייה ב-<span class="ltr">GitHub</span> פרטית</span></label></li><li><label><input type="checkbox" data-k="c60"><span><span class="ltr">HTTPS</span></span></label></li><li><label><input type="checkbox" data-k="c61"><span>הגנה מספאם בטופס</span></label></li></ul></div><div class="cgroup"><h4>נגישות</h4><ul class="todo"><li><label><input type="checkbox" data-k="c62"><span>האתר עומד בת"י 5568 ברמה <span class="ltr">AA</span> (החובה היא לעמוד בתקן, לא להתקין תוסף)</span></label></li><li><label><input type="checkbox" data-k="c63"><span>הצהרת נגישות עם פרטי קשר לפניות</span></label></li><li><label><input type="checkbox" data-k="c64"><span>פטור קיים רק לעוסק פטור או למחזור שנתי ממוצע של עד 100,000 ₪</span></label></li></ul></div><div class="cgroup"><h4>פרטיות ודיוור</h4><ul class="todo"><li><label><input type="checkbox" data-k="c65"><span>ליד הטופס: למה אוספים, מי אחראי, למי מעבירים, ושהמסירה וולונטרית</span></label></li><li><label><input type="checkbox" data-k="c66"><span>תיבת הסכמה לדיוור, לא מסומנת מראש</span></label></li><li><label><input type="checkbox" data-k="c67"><span>בכל דיוור: "פרסומת" בכותרת, פרטי העסק ודרך פשוטה להסיר</span></label></li></ul></div><div class="cgroup"><h4>אם מוכרים באתר</h4><ul class="todo"><li><label><input type="checkbox" data-k="c68"><span>פרטי העסק, מחיר כולל, מועד אספקה ואחריות</span></label></li><li><label><input type="checkbox" data-k="c69"><span>זכות ביטול בתוך 14 יום, ודמי ביטול של לכל היותר 5% או 100 ₪, הנמוך מביניהם</span></label></li></ul></div><div class="cgroup"><h4>לאוויר</h4><ul class="todo"><li><label><input type="checkbox" data-k="c70"><span>הקוד שמור ב-<span class="ltr">GitHub</span></span></label></li><li><label><input type="checkbox" data-k="c71"><span>האתר עלה לאוויר בכתובת</span></label></li><li><label><input type="checkbox" data-k="c72"><span>דומיין משלי מחובר</span></label></li><li><label><input type="checkbox" data-k="c73"><span>גיבוי לפני כל שינוי גדול</span></label></li></ul></div><div class="cgroup"><h4>אם עברתי מאתר קיים</h4><ul class="todo"><li><label><input type="checkbox" data-k="c74"><span>כל התוכן עבר: טקסטים, תמונות ופוסטים</span></label></li><li><label><input type="checkbox" data-k="c75"><span>הקישורים בין הדפים עובדים באתר החדש</span></label></li><li><label><input type="checkbox" data-k="c76"><span>הדומיין מחובר לאתר החדש, ורק אז האתר הישן כבוי</span></label></li></ul></div>
     <p class="tip"><b>מידע כללי ובסיסי, נכון ל-22.10.2026. לא ייעוץ משפטי.</b> מקורות: תקנות נגישות השירות (תקנות 35א–35ו), חוק הגנת הפרטיות (סעיף 11, תיקון 13), חוק התקשורת (סעיף 30א), חוק הגנת הצרכן (סעיפים 14ג, 14ה).</p>
   </div>
 </section>
 
 <section id="prompts">
-  <h2>ספריית הפרומפטים<small>כל הפרומפטים מהוובינר, לפי שלב. לוחצים "העתקה" ומדביקים בקלוד.</small></h2>
+  <h2>ספריית <span class="g">הפרומפטים</span><small>כל הפרומפטים מהוובינר, לפי שלב. לוחצים "העתקה" ומדביקים בקלוד.</small></h2>
   <h4>תכנון</h4><div class="prompt"><span class="lbl">הבריף: התבנית שלכם</span>אני רוצה אתר ל[שם העסק]: [מה העסק עושה, במשפט אחד].
 מגיעים אליי בעיקר [מי הלקוחות, ומה הם רוצים].
 באתר הם צריכים [מה הגולש צריך לעשות: להבין מה מתאים לו, להשאיר פרטים, לקבוע פגישה, לשלם].
@@ -287,7 +349,7 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 </section>
 
 <section id="costs">
-  <h2>כמה זה עולה</h2>
+  <h2>כמה זה <span class="g">עולה</span></h2>
   <div class="scroll"><table class="tbl">
 <tr><th>מה</th><th>כמה</th><th>הערה</th></tr>
 <tr><td><span class="ltr">Claude Code</span></td><td>מ-<span class="ltr">$20</span> לחודש</td><td>כלול ב-<span class="ltr">Claude Pro</span></td></tr>
@@ -311,7 +373,7 @@ footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
 </section>
 
 <section id="links" class="links">
-  <h2>נמשיך לדבר</h2>
+  <h2>נמשיך <span class="g">לדבר</span></h2>
   <a class="btn wa" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">💬 הקהילה בוואטסאפ</a>
 <a class="btn yt" href="https://youtube.com/@mornissim" target="_blank" rel="noopener">▶️ הערוץ ביוטיוב</a>
 <a class="btn ig" href="https://www.instagram.com/mornissim_" target="_blank" rel="noopener">📸 אינסטגרם</a>
