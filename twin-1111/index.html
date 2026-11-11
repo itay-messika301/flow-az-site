@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>החומרים · התאומה הדיגיטלית · מור נסים</title>
+<meta name="description" content="חוברת הקמה, תיקייה מוכנה, פרומפטים ורעיונות לסרטונים מהלייב התאומה הדיגיטלית">
+<meta property="og:title" content="התאומה הדיגיטלית · החומרים">
+<meta property="og:description" content="כל מה שצריך כדי לבנות תאומה דיגיטלית ומנגנון סרטונים, צעד אחר צעד">
+<meta property="og:url" content="https://flow-az.com/twin-1111/">
+<meta property="og:image" content="https://flow-az.com/twin-1111/mor.jpg">
+<style>
+@font-face{font-family:Heebo;font-weight:400;src:url(fonts/heebo-hebrew-400.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:700;src:url(fonts/heebo-hebrew-700.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:900;src:url(fonts/heebo-hebrew-900.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:400;src:url(fonts/heebo-latin-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:Heebo;font-weight:700;src:url(fonts/heebo-latin-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+@font-face{font-family:Heebo;font-weight:900;src:url(fonts/heebo-latin-900.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2190-2199}
+:root{--ink:#2b2350;--ink2:#41377a;--pink:#d6437f;--pink-d:#b12f66;--soft:rgba(214,67,127,.10);--bg:#fbeef3;--card:#fff;--line:#ecdbe4;--text:#2b2350;--muted:#5f587c;--dim:#948dae}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Heebo,system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(900px 600px at 100% -10%,rgba(214,67,127,.16),transparent 60%)}
+.wrap{max-width:780px;margin:0 auto;padding:0 16px 70px}
+a{color:var(--pink-d)}
+.ltr{direction:ltr;unicode-bidi:isolate}
+header{padding:38px 0 24px;display:flex;gap:18px;align-items:flex-start}
+header .txt{flex:1;min-width:0}
+.me{flex:none;width:104px;height:104px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px #fff,0 0 0 7px var(--pink),0 12px 30px rgba(43,35,80,.18);margin-top:6px}
+@media (min-width:640px){.me{width:140px;height:140px}}
+.kicker{font-size:14px;font-weight:700;color:var(--pink-d)}
+h1{font-size:clamp(32px,8vw,50px);font-weight:900;line-height:1.08;margin:8px 0 12px}
+h1 span{color:var(--pink)}
+.intro{font-size:18px;color:var(--muted)}
+nav.toc{display:flex;gap:8px;overflow-x:auto;padding:12px 0 16px;position:sticky;top:0;background:linear-gradient(var(--bg) 78%,transparent);z-index:5;scrollbar-width:none}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{flex:none;font-size:14px;font-weight:700;color:var(--text);text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:7px 15px;background:var(--card)}
+section{margin-top:44px;scroll-margin-top:70px}
+h2{font-size:30px;font-weight:900;line-height:1.2}
+h2 small{display:block;font-size:16px;font-weight:400;color:var(--muted);margin-top:6px}
+h3{font-size:23px;font-weight:900;line-height:1.3;display:flex;align-items:center;gap:10px}
+h4{font-size:18px;font-weight:900;margin:22px 0 4px;color:var(--ink2)}
+.num{flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--pink);color:#fff;font-weight:900;font-size:16px}
+.card,.chap{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:20px;margin-top:16px;box-shadow:0 6px 24px rgba(43,35,80,.05)}
+.chap > p{margin-top:12px;font-size:16.5px}
+.order{list-style:none;counter-reset:o;display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.order li{counter-increment:o;background:var(--bg);border-radius:999px;padding:6px 14px;font-size:15px}
+.order li::before{content:counter(o) ". ";color:var(--pink);font-weight:900}
+.prompt{position:relative;background:#f7f2fb;border:1.5px solid var(--line);border-right:5px solid var(--pink);border-radius:16px;padding:16px 18px 62px;margin-top:14px;font-size:16.5px;line-height:1.7;white-space:pre-wrap}
+.prompt .lbl{display:block;font-size:12.5px;font-weight:900;color:var(--pink-d);margin-bottom:4px;white-space:normal}
+.copy{position:absolute;bottom:12px;left:12px;font:inherit;font-size:15px;font-weight:900;border:0;border-radius:12px;padding:9px 18px;background:var(--ink);color:#fff;cursor:pointer}
+.copy.ok{background:#1f8a4c}
+ul.todo{list-style:none;margin-top:12px;display:grid;gap:8px}
+ul.todo label{display:grid;grid-template-columns:28px 1fr;gap:8px;font-size:16px;cursor:pointer;align-items:start}
+ul.todo input{width:22px;height:22px;margin-top:3px;accent-color:var(--pink);cursor:pointer}
+ul.todo input:checked + span{color:var(--dim);text-decoration:line-through}
+.tip{margin-top:14px;font-size:15px;color:var(--muted);border-right:3px solid var(--pink);padding:4px 14px 4px 0}
+.tip b{color:var(--text)}
+.cgroup{break-inside:avoid}
+.gen{display:grid;gap:14px}
+.gen label{display:grid;gap:5px;font-size:15px;font-weight:700}
+.gen input:not([type=checkbox]){font:inherit;font-size:16px;font-weight:400;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--text);width:100%}
+.gen input:focus{outline:2px solid var(--pink);outline-offset:1px}
+.grid2{display:grid;gap:14px}
+@media (min-width:640px){.grid2{grid-template-columns:1fr 1fr}}
+.gen fieldset{border:0;display:flex;flex-wrap:wrap;gap:8px}
+.gen legend{font-size:15px;font-weight:700;margin-bottom:6px}
+.gen .opt{display:flex;align-items:center;gap:6px;font-weight:500;background:var(--bg);border-radius:999px;padding:6px 14px;cursor:pointer}
+.gen .opt input{width:18px;height:18px;accent-color:var(--pink)}
+.gen .cond{display:none}
+.gen .cond.show{display:grid}
+.genout .prompt[hidden]{display:none}
+.week{list-style:none;display:grid;gap:10px}
+.week label{display:grid;grid-template-columns:28px 1fr;gap:8px;cursor:pointer;align-items:start;font-size:15.5px}
+.week input{width:22px;height:22px;margin-top:3px;accent-color:var(--pink)}
+.week b{display:block;font-size:17px}
+.week a{font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.week input:checked + span{color:var(--dim)}
+.sum{list-style:none;display:grid;gap:10px;margin-top:12px}
+.sum li{display:grid;grid-template-columns:30px 1fr;gap:6px;font-size:16.5px}
+.sum li::before{content:"✦";color:var(--pink);font-weight:900}
+.scroll{overflow-x:auto;border-radius:16px;border:1.5px solid var(--line);margin-top:14px}
+.tbl{width:100%;min-width:520px;border-collapse:collapse;font-size:14.5px;background:var(--card)}
+.tbl th,.tbl td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:13.5px;color:var(--pink-d);background:var(--soft)}
+.tbl td:first-child{font-weight:700}
+.tbl tr:last-child td{border-bottom:0}
+.note{font-size:13.5px;color:var(--dim);margin-top:8px}
+.progress{font-size:14px;font-weight:700;color:var(--muted);margin-top:8px}
+.reset{font:inherit;font-size:13px;color:var(--muted);background:none;border:1.5px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer;margin-right:8px}
+.offer{margin-top:44px;color:#fff;background:linear-gradient(160deg,var(--ink2),var(--ink));border-radius:24px;padding:28px 22px;text-align:center}
+.offer h2{font-size:30px}
+.offer h2 span{color:#f07aa9}
+.offer p{color:rgba(255,255,255,.85);margin:8px 0}
+.offer .price{font-size:44px;font-weight:900;margin:12px 0 2px}
+.offer .price .cur{font-size:28px;margin-right:6px}
+.offer .price s{font-size:24px;color:rgba(255,255,255,.55);margin-left:12px}
+.offer .when{display:inline-block;background:rgba(255,255,255,.1);border-radius:10px;padding:4px 12px;font-weight:700;color:#f07aa9}
+.btn{display:block;text-decoration:none;font-weight:900;font-size:17px;border-radius:14px;padding:14px;margin-top:10px;text-align:center}
+.btn.buy{background:var(--pink);color:#fff}
+.links{margin-top:44px}
+.btn.wa{background:var(--ink);color:#fff}
+.btn.yt,.btn.ig{background:var(--card);color:var(--text);border:1.5px solid var(--line)}
+footer{margin-top:34px;text-align:center;color:var(--dim);font-size:13.5px}
+@media (min-width:640px){.card,.chap{padding:24px}}
+
+:root{--ink:#1b1536;--ink2:#2a2350;--pink:#e0457f;--pink-d:#c42f69;--soft:#fff0f5;--gray:#9a94b4;--bg:#fff;--card:#fff;--line:rgba(27,21,54,.09);--text:#1b1536;--muted:#6a6487;--dim:#b3aec7;
+  --shadow:0 30px 60px -34px rgba(27,21,54,.28),0 2px 6px rgba(27,21,54,.04)}
+body{background:#fff;background-image:none}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:
+  linear-gradient(90deg,transparent calc(50% - 390.5px),rgba(27,21,54,.05) calc(50% - 390.5px),rgba(27,21,54,.05) calc(50% - 389.5px),transparent calc(50% - 389.5px)),
+  linear-gradient(90deg,transparent calc(50% + 389.5px),rgba(27,21,54,.05) calc(50% + 389.5px),rgba(27,21,54,.05) calc(50% + 390.5px),transparent calc(50% + 390.5px))}
+@keyframes floaty{to{transform:translateY(-10px) rotate(6deg)}}
+.hero{position:relative;overflow:hidden;margin:0 -16px;padding:0 16px;isolation:isolate}
+.hero::after{content:"";position:absolute;left:-120px;bottom:-90px;width:900px;height:830px;pointer-events:none;z-index:-1;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201300%201200%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22rg%22%20x1%3D%220%22%20y1%3D%221%22%20x2%3D%221%22%20y2%3D%220%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238b5cff%22/%3E%3Cstop%20offset%3D%22.35%22%20stop-color%3D%22%23ff5c9a%22/%3E%3Cstop%20offset%3D%22.7%22%20stop-color%3D%22%23ff8f5e%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffc83d%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23rg%29%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.85%22%3E%3Cpath%20d%3D%22M-160%201060%20C%20160%20900%2C%20380%201120%2C%20700%20820%20S%201000%20380%2C%201060%20120%22/%3E%3Cpath%20d%3D%22M-160%201071%20C%20160%20911%2C%20380%201129%2C%20700%20830%20S%201000%20393%2C%201060%20134%22/%3E%3Cpath%20d%3D%22M-160%201082%20C%20160%20922%2C%20380%201138%2C%20700%20840%20S%201000%20406%2C%201060%20148%22/%3E%3Cpath%20d%3D%22M-160%201093%20C%20160%20933%2C%20380%201147%2C%20700%20850%20S%201000%20419%2C%201060%20162%22/%3E%3Cpath%20d%3D%22M-160%201104%20C%20160%20944%2C%20380%201156%2C%20700%20860%20S%201000%20432%2C%201060%20176%22/%3E%3Cpath%20d%3D%22M-160%201115%20C%20160%20955%2C%20380%201165%2C%20700%20870%20S%201000%20445%2C%201060%20190%22/%3E%3Cpath%20d%3D%22M-160%201126%20C%20160%20966%2C%20380%201174%2C%20700%20880%20S%201000%20458%2C%201060%20204%22/%3E%3Cpath%20d%3D%22M-160%201137%20C%20160%20977%2C%20380%201183%2C%20700%20890%20S%201000%20471%2C%201060%20218%22/%3E%3Cpath%20d%3D%22M-160%201148%20C%20160%20988%2C%20380%201192%2C%20700%20900%20S%201000%20484%2C%201060%20232%22/%3E%3Cpath%20d%3D%22M-160%201159%20C%20160%20999%2C%20380%201201%2C%20700%20910%20S%201000%20497%2C%201060%20246%22/%3E%3Cpath%20d%3D%22M-160%201170%20C%20160%201010%2C%20380%201210%2C%20700%20920%20S%201000%20510%2C%201060%20260%22/%3E%3Cpath%20d%3D%22M-160%201181%20C%20160%201021%2C%20380%201219%2C%20700%20930%20S%201000%20523%2C%201060%20274%22/%3E%3Cpath%20d%3D%22M-160%201192%20C%20160%201032%2C%20380%201228%2C%20700%20940%20S%201000%20536%2C%201060%20288%22/%3E%3Cpath%20d%3D%22M-160%201203%20C%20160%201043%2C%20380%201237%2C%20700%20950%20S%201000%20549%2C%201060%20302%22/%3E%3Cpath%20d%3D%22M-160%201214%20C%20160%201054%2C%20380%201246%2C%20700%20960%20S%201000%20562%2C%201060%20316%22/%3E%3Cpath%20d%3D%22M-160%201225%20C%20160%201065%2C%20380%201255%2C%20700%20970%20S%201000%20575%2C%201060%20330%22/%3E%3Cpath%20d%3D%22M-160%201236%20C%20160%201076%2C%20380%201264%2C%20700%20980%20S%201000%20588%2C%201060%20344%22/%3E%3Cpath%20d%3D%22M-160%201247%20C%20160%201087%2C%20380%201273%2C%20700%20990%20S%201000%20601%2C%201060%20358%22/%3E%3Cpath%20d%3D%22M-160%201258%20C%20160%201098%2C%20380%201282%2C%20700%201000%20S%201000%20614%2C%201060%20372%22/%3E%3Cpath%20d%3D%22M-160%201269%20C%20160%201109%2C%20380%201291%2C%20700%201010%20S%201000%20627%2C%201060%20386%22/%3E%3Cpath%20d%3D%22M-160%201280%20C%20160%201120%2C%20380%201300%2C%20700%201020%20S%201000%20640%2C%201060%20400%22/%3E%3Cpath%20d%3D%22M-160%201291%20C%20160%201131%2C%20380%201309%2C%20700%201030%20S%201000%20653%2C%201060%20414%22/%3E%3Cpath%20d%3D%22M-160%201302%20C%20160%201142%2C%20380%201318%2C%20700%201040%20S%201000%20666%2C%201060%20428%22/%3E%3Cpath%20d%3D%22M-160%201313%20C%20160%201153%2C%20380%201327%2C%20700%201050%20S%201000%20679%2C%201060%20442%22/%3E%3Cpath%20d%3D%22M-160%201324%20C%20160%201164%2C%20380%201336%2C%20700%201060%20S%201000%20692%2C%201060%20456%22/%3E%3Cpath%20d%3D%22M-160%201335%20C%20160%201175%2C%20380%201345%2C%20700%201070%20S%201000%20705%2C%201060%20470%22/%3E%3Cpath%20d%3D%22M-160%201346%20C%20160%201186%2C%20380%201354%2C%20700%201080%20S%201000%20718%2C%201060%20484%22/%3E%3Cpath%20d%3D%22M-160%201357%20C%20160%201197%2C%20380%201363%2C%20700%201090%20S%201000%20731%2C%201060%20498%22/%3E%3Cpath%20d%3D%22M-160%201368%20C%20160%201208%2C%20380%201372%2C%20700%201100%20S%201000%20744%2C%201060%20512%22/%3E%3Cpath%20d%3D%22M-160%201379%20C%20160%201219%2C%20380%201381%2C%20700%201110%20S%201000%20757%2C%201060%20526%22/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 0/100% 100%;opacity:.5;
+  -webkit-mask-image:linear-gradient(90deg,#000 20%,transparent 55%);mask-image:linear-gradient(90deg,#000 20%,transparent 55%)}
+@media (min-width:640px){.hero::after{left:-40px;bottom:-40px;opacity:.55;-webkit-mask-image:linear-gradient(90deg,#000 15%,transparent 40%);mask-image:linear-gradient(90deg,#000 15%,transparent 40%)}}
+.blob{position:absolute;border-radius:50%;animation:floaty 6s ease-in-out infinite alternate;z-index:0;pointer-events:none}
+header{position:relative;z-index:1}
+.blob.b1{left:14px;top:26px;width:44px;height:44px;background:radial-gradient(circle at 32% 30%,#ffd1e2,#ff5c9a 45%,#c42f69 100%);box-shadow:0 16px 26px -10px rgba(196,47,105,.6)}
+.blob.b2{left:96px;bottom:34px;width:34px;height:34px;border-radius:12px;background:radial-gradient(circle at 30% 25%,#fff3b0,#ffc83d 50%,#e09a00 100%);box-shadow:0 14px 22px -10px rgba(224,154,0,.6);animation-delay:-2s}
+header{padding:56px 0 64px}
+.kicker{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--pink)}
+.kicker::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 5px rgba(224,69,127,.15)}
+h1{letter-spacing:-.03em;margin:12px 0 14px}
+h1 span{color:var(--pink)}
+.me{box-shadow:0 0 0 4px #fff,0 0 0 5px var(--line),0 20px 40px -18px rgba(27,21,54,.45)}
+nav.toc{background:linear-gradient(#fff 78%,rgba(255,255,255,0))}
+nav.toc a{border:1px solid var(--line);box-shadow:0 8px 20px -14px rgba(27,21,54,.35);font-weight:700}
+nav.toc a:hover{color:var(--pink)}
+h2{letter-spacing:-.02em;font-size:32px}
+h2 .g{color:var(--gray)}
+h2 small{color:var(--muted)}
+h2::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 5px rgba(224,69,127,.15);margin:0 2px 18px}
+.offer h2::before,.links h2::before{display:none}
+h4{color:var(--ink)}
+.num{background:var(--soft);color:var(--pink);border-radius:10px}
+.card,.chap{border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.order li{background:var(--soft)}
+.prompt{background:#faf9fc;border:1px solid var(--line);border-right:1px solid var(--line);border-radius:18px}
+.prompt .lbl{color:var(--pink);letter-spacing:.01em}
+.copy{border-radius:999px;background:var(--ink)}
+.tip{border-right:0;padding:12px 16px;background:var(--soft);border-radius:14px;color:var(--muted)}
+.tip b{color:var(--ink)}
+.gen input:not([type=checkbox]){border:1px solid var(--line);border-radius:12px}
+.gen .opt{background:var(--soft)}
+.sum li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pink);margin-top:10px;box-shadow:0 0 0 4px rgba(224,69,127,.15)}
+.scroll{border:1px solid var(--line);box-shadow:var(--shadow)}
+.tbl th{background:var(--soft);color:var(--pink-d)}
+.offer{position:relative;overflow:hidden;background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow);padding:36px 22px}
+.offer::after{content:"";position:absolute;left:-120px;bottom:-90px;width:900px;height:830px;pointer-events:none;z-index:0;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201300%201200%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22rg%22%20x1%3D%220%22%20y1%3D%221%22%20x2%3D%221%22%20y2%3D%220%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238b5cff%22/%3E%3Cstop%20offset%3D%22.35%22%20stop-color%3D%22%23ff5c9a%22/%3E%3Cstop%20offset%3D%22.7%22%20stop-color%3D%22%23ff8f5e%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffc83d%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22url%28%23rg%29%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.85%22%3E%3Cpath%20d%3D%22M-160%201060%20C%20160%20900%2C%20380%201120%2C%20700%20820%20S%201000%20380%2C%201060%20120%22/%3E%3Cpath%20d%3D%22M-160%201071%20C%20160%20911%2C%20380%201129%2C%20700%20830%20S%201000%20393%2C%201060%20134%22/%3E%3Cpath%20d%3D%22M-160%201082%20C%20160%20922%2C%20380%201138%2C%20700%20840%20S%201000%20406%2C%201060%20148%22/%3E%3Cpath%20d%3D%22M-160%201093%20C%20160%20933%2C%20380%201147%2C%20700%20850%20S%201000%20419%2C%201060%20162%22/%3E%3Cpath%20d%3D%22M-160%201104%20C%20160%20944%2C%20380%201156%2C%20700%20860%20S%201000%20432%2C%201060%20176%22/%3E%3Cpath%20d%3D%22M-160%201115%20C%20160%20955%2C%20380%201165%2C%20700%20870%20S%201000%20445%2C%201060%20190%22/%3E%3Cpath%20d%3D%22M-160%201126%20C%20160%20966%2C%20380%201174%2C%20700%20880%20S%201000%20458%2C%201060%20204%22/%3E%3Cpath%20d%3D%22M-160%201137%20C%20160%20977%2C%20380%201183%2C%20700%20890%20S%201000%20471%2C%201060%20218%22/%3E%3Cpath%20d%3D%22M-160%201148%20C%20160%20988%2C%20380%201192%2C%20700%20900%20S%201000%20484%2C%201060%20232%22/%3E%3Cpath%20d%3D%22M-160%201159%20C%20160%20999%2C%20380%201201%2C%20700%20910%20S%201000%20497%2C%201060%20246%22/%3E%3Cpath%20d%3D%22M-160%201170%20C%20160%201010%2C%20380%201210%2C%20700%20920%20S%201000%20510%2C%201060%20260%22/%3E%3Cpath%20d%3D%22M-160%201181%20C%20160%201021%2C%20380%201219%2C%20700%20930%20S%201000%20523%2C%201060%20274%22/%3E%3Cpath%20d%3D%22M-160%201192%20C%20160%201032%2C%20380%201228%2C%20700%20940%20S%201000%20536%2C%201060%20288%22/%3E%3Cpath%20d%3D%22M-160%201203%20C%20160%201043%2C%20380%201237%2C%20700%20950%20S%201000%20549%2C%201060%20302%22/%3E%3Cpath%20d%3D%22M-160%201214%20C%20160%201054%2C%20380%201246%2C%20700%20960%20S%201000%20562%2C%201060%20316%22/%3E%3Cpath%20d%3D%22M-160%201225%20C%20160%201065%2C%20380%201255%2C%20700%20970%20S%201000%20575%2C%201060%20330%22/%3E%3Cpath%20d%3D%22M-160%201236%20C%20160%201076%2C%20380%201264%2C%20700%20980%20S%201000%20588%2C%201060%20344%22/%3E%3Cpath%20d%3D%22M-160%201247%20C%20160%201087%2C%20380%201273%2C%20700%20990%20S%201000%20601%2C%201060%20358%22/%3E%3Cpath%20d%3D%22M-160%201258%20C%20160%201098%2C%20380%201282%2C%20700%201000%20S%201000%20614%2C%201060%20372%22/%3E%3Cpath%20d%3D%22M-160%201269%20C%20160%201109%2C%20380%201291%2C%20700%201010%20S%201000%20627%2C%201060%20386%22/%3E%3Cpath%20d%3D%22M-160%201280%20C%20160%201120%2C%20380%201300%2C%20700%201020%20S%201000%20640%2C%201060%20400%22/%3E%3Cpath%20d%3D%22M-160%201291%20C%20160%201131%2C%20380%201309%2C%20700%201030%20S%201000%20653%2C%201060%20414%22/%3E%3Cpath%20d%3D%22M-160%201302%20C%20160%201142%2C%20380%201318%2C%20700%201040%20S%201000%20666%2C%201060%20428%22/%3E%3Cpath%20d%3D%22M-160%201313%20C%20160%201153%2C%20380%201327%2C%20700%201050%20S%201000%20679%2C%201060%20442%22/%3E%3Cpath%20d%3D%22M-160%201324%20C%20160%201164%2C%20380%201336%2C%20700%201060%20S%201000%20692%2C%201060%20456%22/%3E%3Cpath%20d%3D%22M-160%201335%20C%20160%201175%2C%20380%201345%2C%20700%201070%20S%201000%20705%2C%201060%20470%22/%3E%3Cpath%20d%3D%22M-160%201346%20C%20160%201186%2C%20380%201354%2C%20700%201080%20S%201000%20718%2C%201060%20484%22/%3E%3Cpath%20d%3D%22M-160%201357%20C%20160%201197%2C%20380%201363%2C%20700%201090%20S%201000%20731%2C%201060%20498%22/%3E%3Cpath%20d%3D%22M-160%201368%20C%20160%201208%2C%20380%201372%2C%20700%201100%20S%201000%20744%2C%201060%20512%22/%3E%3Cpath%20d%3D%22M-160%201379%20C%20160%201219%2C%20380%201381%2C%20700%201110%20S%201000%20757%2C%201060%20526%22/%3E%3C/g%3E%3C/svg%3E") no-repeat 0 0/100% 100%;opacity:.45;
+  -webkit-mask-image:linear-gradient(90deg,#000 15%,transparent 45%);mask-image:linear-gradient(90deg,#000 15%,transparent 45%)}
+.offer > *{position:relative;z-index:1}
+.offer h2 span{color:var(--gray)}
+.offer p{color:var(--muted)}
+.offer .when{background:var(--soft);color:var(--pink-d)}
+.offer .price{color:var(--ink)}
+.offer .price s{color:var(--dim)}
+.btn{border-radius:999px}
+.btn.buy{background:var(--ink);color:#fff;box-shadow:0 16px 30px -14px rgba(27,21,54,.6)}
+.btn.wa{background:var(--pink);color:#fff}
+.btn.yt,.btn.ig{border:1px solid var(--line);box-shadow:0 10px 24px -16px rgba(27,21,54,.35)}
+@media print{body::before,.hero::after,.blob,.offer::after{display:none}}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}}
+
+@media print{
+  body{background:#fff} nav.toc,.copy,.reset{display:none}
+  .prompt{padding-bottom:16px;break-inside:avoid} .chap{break-inside:avoid-page;box-shadow:none}
+  section{margin-top:24px} a{color:var(--text)}
+}
+</style>
+</head>
+
+<body>
+<style>
+details.ex{margin:10px 0 16px;border:1.5px solid var(--line);border-radius:16px;background:#fff;padding:12px 16px}
+details.ex summary{cursor:pointer;font-weight:700;color:var(--pink-d)}
+details.ex pre{white-space:pre-wrap;font-family:inherit;font-size:15px;line-height:1.75;margin-top:12px;color:var(--text)}
+.path{font-weight:700;color:var(--pink-d)}
+.ideas{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:640px){.ideas{grid-template-columns:1fr 1fr}}
+.idea{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:16px 18px}
+.idea h4{margin:0 0 8px;font-size:17px}
+.idea ul{margin:0;padding-right:18px;font-size:15px;line-height:1.6;color:var(--muted)}
+.starter{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:12px}
+.weeks4{list-style:none;display:grid;gap:10px}
+.weeks4 li{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:12px 16px}
+.weeks4 b{color:var(--pink-d);margin-left:6px}
+.offer .soon{opacity:.85;font-size:14px;margin-top:8px}
+</style>
+<div class="wrap">
+<div class="hero"><i class="blob b1"></i><i class="blob b2"></i>
+<header>
+  <div class="txt">
+    <div class="kicker">מהלייב "התאומה הדיגיטלית" · 11.11.2026</div>
+    <h1>התאומה שלכם, <span>צעד אחר צעד</span></h1>
+    <p class="intro">כל מה שראיתם בלייב, בדף אחד. עובדים יחד עם ההקלטה: עוצרים, מעתיקים פרומפט, מסמנים ✓ וממשיכים.</p>
+  </div>
+  <img class="me" src="mor.jpg" alt="מור נסים">
+</header>
+</div>
+
+<nav class="toc" aria-label="תוכן העניינים">
+  <a href="#summary">בקצרה</a><a href="#workbook">חוברת הקמה</a><a href="#starter">תיקייה מוכנה</a><a href="#checklist">צ'קליסט</a><a href="#ideas">30 רעיונות</a><a href="#prompts">פרומפטים</a><a href="#costs">עלויות</a><a href="#weeks">4 שבועות</a><a href="#service">תאומה כשירות</a><a href="#links">קהילה</a>
+</nav>
+
+<section id="summary">
+  <h2>בקצרה<small>אם יש לכם רק דקה</small></h2>
+  <div class="card">
+    <ul class="sum">
+      <li><span><b>מנגנון, לא אווטאר.</b> בונים פעם אחת את הפנים (<span class="ltr">HeyGen</span>) ואת הקול (<span class="ltr">ElevenLabs</span>), ומשם כל סרטון הוא טקסט וקליק.</span></li>
+      <li><span><b>שלוש דרכים:</b> ידני, חצי אוטומטי, או המנגנון המלא. בוחרים לפי כמה אוטומטי רוצים, ואפשר לעבור ביניהן בכל רגע.</span></li>
+      <li><span><b>המנוי באתר ≠ ה-<span class="ltr">API</span>.</b> ב-<span class="ltr">HeyGen</span> ה-<span class="ltr">API</span> הוא ארנק נפרד. צריך אותו רק לדרך 3.</span></li>
+      <li><span><b>הסוד בקול הוא הטקסט:</b> 5 דקות שכתובות בשבילכם, בכמה טונים, ומוקראות כמו ברילס.</span></li>
+      <li><span><b>מאשרים תסריט לפני שמייצרים.</b> מכאן מתחילים לשלם על קרדיטים.</span></li>
+      <li><span><b>מקשיבים לכל סרטון לפני שמעלים,</b> ומסמנים שזה <span class="ltr">AI</span>.</span></li>
+      <li><span><b>רק הפנים והקול שלכם,</b> או של מי שאישר לכם בכתב.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="workbook">
+  <h2>חוברת <span class="g">הקמה</span><small>פרק לכל שלב. מסמנים ✓, והסימון נשמר בדפדפן שלכם.</small></h2>
+  <div class="progress"><span id="prog">0</span> מתוך <span id="total">0</span> צעדים הושלמו <button class="reset" type="button" id="reset">איפוס</button></div>
+  <article class="chap" id="ch0"><h3><span class="num">0</span>לפני שמתחילים: בוחרים דרך</h3>
+<p>יש שלוש דרכים להפיק סרטון מהתאומה. כולן מתחילות באותם שני צעדים: הקול (פרק 1) והפנים (פרק 2). ההבדל הוא רק כמה אוטומטי זה אחר כך.</p>
+<div class="scroll"><table class="tbl">
+<tr><th>דרך</th><th>מה אתם עושים בכל סרטון</th><th>מה צריך</th></tr>
+<tr><td><b>1 · ידני</b></td><td>קלוד כותב תסריט בצ'אט ← מדביקים ב-<span class="ltr">ElevenLabs</span> ← מעלים את הקול ל-<span class="ltr">HeyGen</span></td><td><span class="ltr">HeyGen</span> + <span class="ltr">ElevenLabs</span></td></tr>
+<tr><td><b>2 · חצי אוטומטי</b></td><td>כותבים "סרטון על…" ← מאשרים ← מעלים קובץ קול אחד ל-<span class="ltr">HeyGen</span></td><td>+ <span class="ltr">Claude Pro</span></td></tr>
+<tr><td><b>3 · המנגנון המלא</b></td><td>כותבים "סרטון על…" ← מאשרים ← הסרטון מחכה בתיקייה</td><td>+ יתרת <span class="ltr">API</span> ב-<span class="ltr">HeyGen</span></td></tr>
+</table></div>
+<p class="tip">ההמלצה של מור: מתחילים בדרך 2, ועוברים ל-3 כשמרגישים בנוח. אפשר לעבור בכל רגע.</p>
+<ul class="todo"><li><label><input type="checkbox" data-k="c1"><span>פתחתי מנוי ב-<span class="ltr">HeyGen</span> (תכנית <span class="ltr">Creator</span>)</span></label></li><li><label><input type="checkbox" data-k="c2"><span>פתחתי מנוי ב-<span class="ltr">ElevenLabs</span> (תכנית <span class="ltr">Starter</span>)</span></label></li><li><label><input type="checkbox" data-k="c3"><span>לדרכים 2–3: יש לי <span class="ltr">Claude Pro</span>, ואפליקציית <span class="ltr">Claude</span> מותקנת במחשב</span></label></li><li><label><input type="checkbox" data-k="c4"><span>החלטתי באיזו דרך אני מתחיל/ה</span></label></li></ul>
+</article><article class="chap" id="ch1"><h3><span class="num">1</span>הקול</h3>
+<p><b>מה עושים:</b> מקליטים כמה דקות של קול נקי, ומעלים ל-<span class="ltr">ElevenLabs</span>. פעם אחת.</p>
+<h4>א. הטקסט להקלטה</h4>
+<p>הסוד הוא טקסט שכתוב בשבילכם: עם המילים שאתם אומרים כל יום, ובכמה טונים, כדי שהקול המשובט ידע להתלהב, להסביר ולשאול. מבקשים מקלוד:</p>
+<div class="prompt"><span class="lbl">טקסט להקלטת הקול</span>אני ב-ElevenLabs. תכתוב לי טקסט של 5 דקות שמתאים ל[מה אני עושה ולמי], כדי שאוכל להקליט אותו ולשבט את הקול שלי בצורה מדהימה לסרטונים עתידיים.
+תחלק אותו לטונים שונים: נלהב, רגוע ואישי, מסביר, שאלות ותשובות, וקריאה לפעולה.
+שים לב למילים שאני משתמשת בהן הרבה: [3–5 מילים מהעסק שלכם].<button class="copy" type="button">העתקה</button></div>
+<details class="ex"><summary>הטקסט של מור, כדוגמה (כ-5 דקות)</summary><pre>(אנרגטי, כמו פתיחה של רילס)
+היי, אני מור נסים!
+ואם את עדיין עושה את כל העבודה לבד, ידנית, אחד אחד, אז את חייבת לשמוע את זה.
+רגע, אל תגללי הלאה. זה ייקח לך שלושים שניות, ואני מבטיחה שזה ישנה לך את השבוע.
+יש כלי אחד, שאם תכירי אותו, את חוסכת לעצמך לפחות חמש שעות עבודה. כל שבוע!
+אז בואי נתחיל.
+
+(רגוע ואישי, כמו סיפור)
+אני רוצה לספר לך משהו שלא סיפרתי כמעט לאף אחד.
+לפני כמה שנים, הייתי יושבת מול המחשב עד שתיים בלילה. עונה למיילים, מעדכנת טבלאות, שולחת הודעות ללקוחות. כל יום אותו דבר.
+והרגשתי שאני לא מתקדמת. שאני עסוקה כל הזמן, אבל לא באמת בונה משהו.
+ואז, יום אחד, שאלתי את עצמי שאלה פשוטה: מה מכל הדברים האלה, באמת חייב להיות אני?
+והתשובה הפתיעה אותי. כמעט כלום.
+מאז, אני מלמדת אנשים בדיוק את זה. איך לתת לטכנולוגיה לעשות את העבודה השחורה, כדי שלך יישאר זמן לדברים שבאמת חשובים.
+
+(מקצועי וברור, כמו סרטון יוטיוב)
+אז מה זה בעצם אוטומציה?
+אוטומציה, במילים הכי פשוטות, זה כשמשהו קורה לבד, בלי שאת צריכה ללחוץ על כפתור.
+לדוגמה: לקוחה ממלאת טופס באתר. באותו רגע, הפרטים שלה נכנסים לטבלה, היא מקבלת מייל תודה, ואת מקבלת הודעה בוואטסאפ. הכול בתוך שנייה.
+ועכשיו, עם כלים כמו Claude ו-Gemini, אפשר לעשות דברים שלפני שנה נשמעו כמו מדע בדיוני.
+אפשר לכתוב פוסט, לסכם פגישה, לבנות מצגת, ואפילו לבנות אתר שלם. רק מתוך שיחה.
+הסוד הוא לא בכלי. הסוד הוא באיך שאת מדברת איתו.
+וזה מה שנקרא פרומפט. פרומפט טוב זה כמו בריף טוב לעובדת חדשה: ברור, מפורט, ועם דוגמה.
+
+(שאלות ותשובות, קליל)
+שואלים אותי הרבה: מור, אני צריכה לדעת לתכנת?
+ממש, ממש לא.
+ועוד שאלה: זה לא יקר?
+רוב הכלים שאני משתמשת בהם עולים פחות מארוחת צהריים בחודש. חלקם אפילו בחינם.
+ומה אם אני לא טכנולוגית?
+אז את בדיוק בשבילי. כי אני מסבירה הכול צעד אחרי צעד, בשפה של בני אדם.
+
+(נלהב, רשימה)
+שלושה דברים שאת יכולה להתחיל איתם כבר היום:
+אחת, תני ל-AI לסכם לך כל פגישה. פשוט מקליטים, מעלים, ומקבלים סיכום עם משימות.
+שתיים, תבני תבנית אחת למיילים שחוזרים על עצמם. תעשי את זה פעם אחת, ותשתמשי בה מאה פעמים.
+שלוש, תבקשי ממנו רעיונות לתוכן. עשרה רעיונות לרילס, בעשר שניות.
+נכון שזה נשמע פשוט? כי זה באמת פשוט.
+
+(חם ומעודד)
+אני יודעת שזה יכול להרגיש מבלבל. כל יום יוצא כלי חדש, וכולם מדברים על זה, ונדמה שכולם כבר יודעים ורק את נשארת מאחור.
+אבל תקשיבי לי רגע. אף אחד לא יודע הכול. גם אני לומדת משהו חדש כל שבוע.
+מה שחשוב זה להתחיל. צעד קטן אחד. היום.
+
+(קריאה לפעולה, אנרגטי)
+אז אם זה דיבר אלייך, תשמרי את הסרטון הזה, כדי שתוכלי לחזור אליו.
+תשלחי אותו לחברה אחת שצריכה לשמוע את זה.
+ואם את רוצה ללמוד איתי לעומק, יש לי וובינר חינמי ביום שלישי הקרוב, בשמונה בערב. הלינק בביו.
+ועוד דבר קטן: תכתבי לי בתגובות מה הדבר הכי מעצבן שאת עושה ידנית בעסק שלך. אני קוראת הכול, ואולי הסרטון הבא יהיה בדיוק עלייך.
+
+(סגירה רגועה)
+תודה שהקשבת עד הסוף. זה ממש לא מובן מאליו.
+אני מור נסים, מ-Flow. ואני כאן כדי שהטכנולוגיה תעבוד בשבילך, ולא להפך.
+נתראה בסרטון הבא. ביי!</pre></details>
+<h4>ב. מקליטים</h4>
+<ul class="todo"><li><label><input type="checkbox" data-k="c5"><span>חדר שקט, בלי מזגן או מוזיקה ברקע</span></label></li><li><label><input type="checkbox" data-k="c6"><span>הטלפון במרחק כף יד מהפה, ולא זזים ממנו</span></label></li><li><label><input type="checkbox" data-k="c7"><span>מקריאים כמו ברילס, לא כמו בהקראה. ה-AI מחקה את האנרגיה שנותנים לו</span></label></li><li><label><input type="checkbox" data-k="c8"><span>את מה שבסוגריים לא קוראים. אלה רק הנחיות לטון</span></label></li><li><label><input type="checkbox" data-k="c9"><span>טעיתם? עוצרים שנייה ומתחילים את המשפט מחדש</span></label></li></ul>
+<h4>ג. מעלים ל-<span class="ltr">ElevenLabs</span></h4>
+<ul class="todo"><li><label><input type="checkbox" data-k="c10"><span>נכנסים ל-<span class="ltr path">Voice Creation</span> ובוחרים <span class="ltr path">Instant Voice Clone</span></span></label></li><li><label><input type="checkbox" data-k="c11"><span>מעלים את ההקלטה, או מקליטים ישירות באתר עם לחצן ההקלטה. ואז מאשרים שזה הקול שלכם</span></label></li><li><label><input type="checkbox" data-k="c12"><span>נותנים לקול שם (למשל: "השם שלי · עברית")</span></label></li><li><label><input type="checkbox" data-k="c13"><span>בודקים: מקלידים משפט עם שאלה, עם מספר ועם שם, ומקשיבים. מודל: <span class="ltr">Eleven v4</span></span></label></li></ul>
+<p class="tip">מילה נשמעת לא נכון? לא מתקנים את הקול. משנים את הכתיב בטקסט, או מוסיפים ניקוד. ופסיק אומר לקול לעצור.</p>
+</article><article class="chap" id="ch2"><h3><span class="num">2</span>הפנים</h3>
+<p><b>מה עושים:</b> מעלים ל-<span class="ltr">HeyGen</span> תמונה אחת שלכם ומקליטים סרטון קצר. בגרסה החדשה שלהם צריך את שניהם. מרגע שהכל עלה, תוך פחות מ-10 דקות התאומה מוכנה.</p>
+<h4>א. התמונה: איך התאומה תיראה</h4>
+<ul class="todo"><li><label><input type="checkbox" data-k="c14"><span>מבט ישר למצלמה, שתי העיניים נראות, הסנטר ישר</span></label></li><li><label><input type="checkbox" data-k="c15"><span>בלי משקפי שמש ובלי כובע</span></label></li><li><label><input type="checkbox" data-k="c16"><span>אור טוב על הפנים (מול חלון, לא עם הגב אליו), רקע נקי</span></label></li></ul>
+<h4>ב. הסרטון: איך התאומה זזה ומדברת</h4>
+<ul class="todo"><li><label><input type="checkbox" data-k="c17"><span>לאורך, עם מבט למצלמה</span></label></li><li><label><input type="checkbox" data-k="c18"><span>מדברים בטבעיות, עם תנועות ידיים קטנות. על מה? על העסק, כמו בשיחה עם לקוח</span></label></li><li><label><input type="checkbox" data-k="c19"><span>מקריאים את המילים באנגלית ש-<span class="ltr">HeyGen</span> מבקשים, כדי לוודא שזה באמת אתם ולבדוק הגייה</span></label></li></ul>
+<p class="tip">הלבוש לא סופי: אפשר להוסיף לתאומה לוקים אחר כך (פרק 6).</p>
+<h4>ג. ב-<span class="ltr">HeyGen</span></h4>
+<ul class="todo"><li><label><input type="checkbox" data-k="c20"><span>נכנסים ל-<span class="ltr path">Avatar ← New Avatar</span> (הכפתור הכחול למעלה)</span></label></li><li><label><input type="checkbox" data-k="c21"><span>בוחרים <span class="ltr path">Myself</span>: אווטאר שנראה, זז ונשמע כמוכם</span></label></li><li><label><input type="checkbox" data-k="c22"><span><span class="ltr path">Appearance</span>: מעלים תמונה. מבט ישר למצלמה, שתי העיניים, בלי משקפי שמש</span></label></li><li><label><input type="checkbox" data-k="c23"><span><span class="ltr path">Motion</span> ו-<span class="ltr path">Voice</span>: מקליטים סרטון קצר, כולל כמה מילים באנגלית</span></label></li></ul>
+<p class="tip"><span class="ltr">HeyGen</span> מייצרים בסוף סרטון הדגמה באנגלית לרוחב ("<span class="ltr">Meet your avatar</span>"). הוא לא הסרטון שלכם, אפשר לדלג עליו.</p>
+</article><article class="chap" id="ch3"><h3><span class="num">3</span>סרטון ראשון, בדרך הידנית (דרך 1)</h3>
+<p>אין צורך בשום דבר טכני. 10 דקות, וזה הסרטון הראשון שלכם.</p>
+<div class="prompt"><span class="lbl">תסריט לסרטון (דרך 1, בצ&#x27;אט רגיל)</span>תכתוב לי תסריט לסרטון של 30–60 שניות על [נושא], בשבילי: [מה העסק עושה ולמי].
+פתיחה שתופסת בשתי השניות הראשונות, מסר אחד, וסיום עם [מה רוצים שיעשו: יכתבו בתגובות / ייכנסו לקישור / ישאירו פרטים].
+משפטים קצרים, בעברית מדוברת, ופסיקים במקום שצריך לעצור. בלי אימוג&#x27;י ובלי כותרות, רק הטקסט שאומרים.<button class="copy" type="button">העתקה</button></div>
+<ul class="todo"><li><label><input type="checkbox" data-k="c24"><span>ב-<span class="ltr">ElevenLabs</span>: מדביקים את התסריט, בוחרים את הקול שלכם ומודל <span class="ltr">Eleven v4</span>, ומורידים קובץ קול</span></label></li><li><label><input type="checkbox" data-k="c25"><span>ב-<span class="ltr">HeyGen</span>: סרטון חדש, לאורך (9:16), עם התאומה שלכם</span></label></li><li><label><input type="checkbox" data-k="c26"><span>במקום להקליד טקסט, מעלים את קובץ הקול</span></label></li><li><label><input type="checkbox" data-k="c27"><span>מכבים כתוביות, מוזיקה ועריכה אוטומטית</span></label></li><li><label><input type="checkbox" data-k="c28"><span>יוצרים, מורידים, ומקשיבים לכל הסרטון לפני שמעלים</span></label></li></ul>
+</article><article class="chap" id="ch4"><h3><span class="num">4</span>המנגנון (דרכים 2–3)</h3>
+<p><b><span class="ltr">Claude Code</span></b> הוא קלוד שעובד בתוך תיקייה במחשב שלכם, ויכול להפעיל בשבילכם כלים אחרים. הוא נמצא באפליקציית <span class="ltr">Claude</span>, בלשונית <span class="ltr">Code</span>.</p>
+<p><b>מפתח <span class="ltr">API</span></b> הוא קוד שנותנים לקלוד כדי שיוכל להפעיל את <span class="ltr">ElevenLabs</span> ואת <span class="ltr">HeyGen</span> בשמכם. כמו מפתח לדירה שנותנים לשכנה שמשקה את העציצים. שומרים אותו כמו כרטיס אשראי.</p>
+<h4>הדרך המהירה: התיקייה המוכנה</h4>
+<ul class="todo"><li><label><input type="checkbox" data-k="c29"><span>מורידים את <a href="#starter">התיקייה המוכנה</a>, פותחים את הקובץ ושומרים את התיקייה על שולחן העבודה</span></label></li><li><label><input type="checkbox" data-k="c30"><span>פותחים את <span class="ltr">Claude</span> ← לשונית <span class="ltr">Code</span> ← בוחרים את התיקייה</span></label></li><li><label><input type="checkbox" data-k="c31"><span>כותבים: בוא נתחיל</span></label></li><li><label><input type="checkbox" data-k="c32"><span>קלוד פותח לכם קובץ למפתחות. מדביקים בו את המפתחות ושומרים (הוא לא רואה אותם)</span></label></li><li><label><input type="checkbox" data-k="c33"><span>עונים על חמש שאלות על הסגנון שלכם</span></label></li><li><label><input type="checkbox" data-k="c34"><span>סרטון ראשון!</span></label></li></ul>
+<div class="prompt"><span class="lbl">הקמה, עם התיקייה המוכנה</span>בוא נתחיל<button class="copy" type="button">העתקה</button></div>
+<p class="tip">איפה מוצאים את המפתחות? ב-<span class="ltr">ElevenLabs</span>: <span class="ltr path">Developers ← API Keys</span>. ב-<span class="ltr">HeyGen</span>: בהגדרות, בחלק של ה-<span class="ltr">API</span>. המפתח מוצג פעם אחת כשיוצרים אותו, אז מעתיקים אותו מיד. אין יתרת <span class="ltr">API</span> ב-<span class="ltr">HeyGen</span>? משאירים את השורה שלו ריקה, וקלוד יעבוד בדרך 2.</p>
+<h4>או: בונים בעצמכם עם פרומפט אחד</h4>
+<div class="prompt"><span class="lbl">בונים את המנגנון בעצמכם (במקום התיקייה)</span>אני רוצה ליצור סרטונים עם אווטאר שמדבר בקול שלי. יש לי ב-HeyGen תאום דיגיטלי, וב-ElevenLabs קול משובט.
+תבנה איתי בתיקייה הזו מנגנון שבו אני רק כותבת על מה הסרטון: אתה כותב תסריט קצר בסגנון שלי ומחכה לאישור שלי, מייצר את הקול ואת הסרטון, ושומר לי את הסרטון המוכן בתיקייה.
+תדריך אותי איפה לשמור את המפתחות כך שאתה לא רואה אותם, ותעצור בכל שלב שדורש ממני פעולה.
+בסוף, תשמור את התהליך כסקיל, כדי שבפעם הבאה יספיק לי לכתוב &quot;סרטון על…&quot;.<button class="copy" type="button">העתקה</button></div>
+</article><article class="chap" id="ch5"><h3><span class="num">5</span>מכאן, כל שבוע</h3>
+<div class="prompt"><span class="lbl">כל סרטון חדש</span>סרטון על [נושא].<button class="copy" type="button">העתקה</button></div>
+<ul class="todo"><li><label><input type="checkbox" data-k="c35"><span>קלוד כותב תסריט, ואני קורא/ת אותו</span></label></li><li><label><input type="checkbox" data-k="c36"><span>מבקש/ת תיקון במילים פשוטות, אם צריך</span></label></li><li><label><input type="checkbox" data-k="c37"><span>מאשר/ת. מכאן מתחילים לשלם על קרדיטים</span></label></li><li><label><input type="checkbox" data-k="c38"><span>מקשיב/ה לכל הסרטון לפני שמעלים. קלוד לא שומע</span></label></li><li><label><input type="checkbox" data-k="c39"><span>מסמנ/ת שזה <span class="ltr">AI</span> (באינסטגרם: <span class="ltr">AI info</span>)</span></label></li></ul>
+<div class="prompt"><span class="lbl">תיקונים בתסריט (דוגמאות)</span>תקצר ל-30 שניות.
+יותר חם, כאילו אני מדברת עם לקוחה.
+תפתח בשאלה שהקהל שלי שואל את עצמו.<button class="copy" type="button">העתקה</button></div>
+<div class="prompt"><span class="lbl">שהמנגנון יזכור</span>תזכור את זה לכל הסרטונים הבאים.<button class="copy" type="button">העתקה</button></div>
+<div class="prompt"><span class="lbl">אותו מסר, לכל האפיקים</span>קח את התסריט של הסרטון האחרון, ותכין ממנו שלוש גרסאות:
+ריל של 30 שניות לאינסטגרם, סרטון של דקה לניוזלטר, וסרטון קצר ללידים חדשים שמתחיל ב&quot;היי [שם]&quot;.
+תראה לי את שלושתן לפני שאתה מייצר משהו.<button class="copy" type="button">העתקה</button></div>
+<div class="prompt"><span class="lbl">אותו סרטון, באנגלית</span>תתרגם את התסריט האחרון לאנגלית טבעית, ותראה לי לפני שאתה מייצר את הסרטון.<button class="copy" type="button">העתקה</button></div>
+</article><article class="chap" id="ch6"><h3><span class="num">6</span>התאומה מתחדשת: לוק חדש</h3>
+<p>אותה תאומה יכולה להופיע בלבוש אחר. ב-<span class="ltr">HeyGen</span> כל גרסה כזו נקראת <b>לוק</b> (Look). לא צריך לבנות תאומה חדשה. נכנסים לעמוד התאומה ב-<span class="ltr">HeyGen</span>, ללשונית <span class="ltr path">Looks</span>, ולוחצים <span class="ltr path">New look</span>. יש שלוש דרכים:</p>
+<div class="scroll"><table class="tbl">
+<tr><th>דרך</th><th>מה עושים</th><th>למה לבחור בה</th></tr>
+<tr><td><b>בוחרים לוק מוכן</b></td><td>בוחרים לבוש או סגנון מתוך מה ש-<span class="ltr">HeyGen</span> כבר מציעים, ומחילים על התאומה</td><td>הכי מהיר</td></tr>
+<tr><td><b>מעלים תמונות</b></td><td>כמה תמונות שלכם בלבוש אחר: תקריב וגוף מלא, מכמה זוויות. הן הופכות ללוק נוסף</td><td>הכי נאמן למציאות</td></tr>
+<tr><td><b>מייצרים מתיאור</b></td><td>קלוד כותב תיאור מדויק של הלוק, ו-<span class="ltr">HeyGen</span> מייצר אותו</td><td>הכי גמיש</td></tr>
+</table></div>
+<div class="prompt"><span class="lbl">תיאור ללוק חדש</span>תכתוב לי תיאור מדויק ללוק חדש של התאומה שלי ב-HeyGen: [למשל: בגדי ספורט באולפן אימונים מואר]. תאר לבוש, צבעים, תאורה ורקע, בשורה אחת שאפשר להדביק.<button class="copy" type="button">העתקה</button></div>
+<p class="tip">לפי <span class="ltr">HeyGen</span>, לוק שנוצר מתמונות לא עובד עם הדגם החדש שלהם (<span class="ltr">Avatar V</span>). לדגם הזה צריך לוק מסרטון.</p>
+<h4>ובמנגנון</h4>
+<p>כשיש כמה לוקים, אומרים לקלוד באיזה לוק להשתמש:</p>
+<div class="prompt"><span class="lbl">סרטון בלוק מסוים</span>סרטון על [נושא], בלוק [שם הלוק].<button class="copy" type="button">העתקה</button></div>
+</article><article class="chap" id="ch7"><h3><span class="num">7</span>ואם נתקעים</h3>
+<div class="scroll"><table class="tbl">
+<tr><th>מה רואים</th><th>מה זה אומר</th><th>מה עושים</th></tr>
+<tr><td>"המפתח לא תקין" (<span class="ltr">401</span>)</td><td>הודבק מזהה המפתח, או מפתח ישן</td><td>יוצרים מפתח חדש ומדביקים בקובץ</td></tr>
+<tr><td>"אין מספיק קרדיטים" ב-<span class="ltr">HeyGen</span></td><td>נגמרה יתרת ה-<span class="ltr">API</span>, שנפרדת מהמנוי באתר</td><td>טוענים יתרה, או עוברים לדרך 2</td></tr>
+<tr><td>הקול לא נשמע עברית טבעית</td><td>מודל לא נכון, או מילה בכתיב מבלבל</td><td>מבקשים מקלוד לוודא <span class="ltr">Eleven v4</span>, ומשנים כתיב</td></tr>
+<tr><td>הסרטון יצא לרוחב</td><td>התאום צולם לרוחב, או לא ביקשו 9:16</td><td>"אני צריכה 9:16, לאורך"</td></tr>
+</table></div>
+<div class="prompt"><span class="lbl">כשמשהו נתקע</span>קיבלתי את השגיאה הזו: [מדביקים כאן את השגיאה]. מה זה אומר, ומה עושים? תסביר לי בעברית פשוטה.<button class="copy" type="button">העתקה</button></div>
+</article>
+</section>
+
+<section id="starter">
+  <h2>התיקייה <span class="g">המוכנה</span><small>פלאג אנד פליי: פותחים ב-<span class="ltr">Claude Code</span>, כותבים "בוא נתחיל", וקלוד מדריך.</small></h2>
+  <div class="card">
+    <p>בתיקייה: ההוראות לקלוד (איך להקים, איך לכתוב תסריט, מתי לעצור ולשאול), החיבור ל-<span class="ltr">ElevenLabs</span> ול-<span class="ltr">HeyGen</span>, קובץ לסגנון שלכם, וקובץ שבו נשמר כל מה שלמדתם יחד.</p>
+    <div class="starter"><a class="btn buy" href="twin-starter.zip" download>⬇️ הורדת התיקייה</a></div>
+    <p class="tip">אחרי ההורדה: לוחצים פעמיים על הקובץ כדי לפתוח אותו, ושומרים את התיקייה על שולחן העבודה. המפתחות שלכם לא נשמרים בתיקייה, אלא בקובץ נפרד במחשב, כך שאפשר לשתף את התיקייה בלי לחשוש.</p>
+  </div>
+</section>
+
+<section id="checklist">
+  <h2>צ'קליסט <span class="g">לפני שמצלמים ומקליטים</span><small>עמוד אחד. אפשר להדפיס ולשים ליד הטלפון.</small></h2>
+  <div class="card">
+    <div class="cgroup"><h4>התמונה והסרטון ל-<span class="ltr">HeyGen</span></h4><ul class="todo"><li><label><input type="checkbox" data-k="c40"><span>תמונה: מבט ישר, שתי העיניים, בלי משקפי שמש ובלי כובע</span></label></li><li><label><input type="checkbox" data-k="c41"><span>אור על הפנים, מול חלון, ורקע נקי</span></label></li><li><label><input type="checkbox" data-k="c42"><span>סרטון: לאורך, מדברים בטבעיות עם מבט למצלמה</span></label></li><li><label><input type="checkbox" data-k="c43"><span>מקריאים את המילים באנגלית שמופיעות על המסך</span></label></li></ul></div>
+    <div class="cgroup"><h4>ההקלטה (כ-5 דקות)</h4><ul class="todo"><li><label><input type="checkbox" data-k="c44"><span>חדר שקט</span></label></li><li><label><input type="checkbox" data-k="c45"><span>הטלפון במרחק כף יד, בלי לזוז</span></label></li><li><label><input type="checkbox" data-k="c46"><span>טקסט של כ-5 דקות, בכמה טונים</span></label></li><li><label><input type="checkbox" data-k="c47"><span>מקריאים כמו ברילס, לא כמו בהקראה</span></label></li></ul></div>
+    <div class="cgroup"><h4>הכללים</h4><ul class="todo"><li><label><input type="checkbox" data-k="c48"><span>רק הפנים והקול שלי, או של מי שאישר לי בכתב</span></label></li><li><label><input type="checkbox" data-k="c49"><span>מסמנים שזה <span class="ltr">AI</span></span></label></li><li><label><input type="checkbox" data-k="c50"><span>מקשיבים לכל סרטון לפני שמעלים</span></label></li><li><label><input type="checkbox" data-k="c51"><span>מפתח <span class="ltr">API</span> = כרטיס אשראי. לא בצ'אט ולא בתיקייה משותפת</span></label></li></ul></div>
+  </div>
+</section>
+
+<section id="ideas">
+  <h2>30 רעיונות <span class="g">לסרטונים</span><small>לפי סוג העסק. בוחרים אחד, וכותבים לקלוד "סרטון על…".</small></h2>
+  <div class="ideas"><div class="idea"><h4>💅 קוסמטיקה וטיפוח</h4><ul><li>"ברוכה הבאה" אישי לכל לקוחה חדשה, עם הוראות לפני הטיפול</li><li>3 טעויות שעושות בבית אחרי טיפול פנים</li><li>תזכורת לתור, בקול שלכם</li><li>הסבר קצר על כל טיפול באתר</li><li>תודה אחרי טיפול, עם בקשה להמלצה</li></ul></div><div class="idea"><h4>🏠 נדל"ן ומשכנתאות</h4><ul><li>10 השאלות שכולם שואלים, סרטון לכל שאלה</li><li>"מה קורה בשוק החודש" בדקה</li><li>סרטון אישי לכל ליד שהשאיר פרטים</li><li>סיור קולי בנכס חדש, על תמונות</li><li>מה להביא לפגישה הראשונה</li></ul></div><div class="idea"><h4>📚 הוראה והדרכה</h4><ul><li>סיכום שיעור של דקה לכל תלמיד</li><li>תרגיל השבוע, בסרטון</li><li>עדכון להורים</li><li>שיעור קצר בקורס דיגיטלי</li><li>"איך להתכונן למבחן" ב-60 שניות</li></ul></div><div class="idea"><h4>🏋️ כושר ובריאות</h4><ul><li>תכנית האימונים השבועית</li><li>טיפ תזונה יומי לסטורי</li><li>ברכה ללקוח שהגיע ליעד</li><li>הסבר על תרגיל לפני שמבצעים</li><li>תזכורת מוטיבציה לקבוצה</li></ul></div><div class="idea"><h4>⚖️ שירותים מקצועיים</h4><ul><li>"3 דברים לבדוק לפני שחותמים"</li><li>עדכון חוק או רגולציה, בשפה פשוטה</li><li>הסבר על השירות בעמוד הבית</li><li>סיכום אחרי פגישה עם לקוח</li><li>מענה לשאלה נפוצה באתר</li></ul></div><div class="idea"><h4>🏢 ארגונים וצוותים</h4><ul><li>עדכון חודשי מהמנהל, בעברית ובאנגלית</li><li>קליטת עובד חדש: "ברוכים הבאים"</li><li>הדרכה קצרה על נוהל חדש</li><li>תודה לצוות בסוף רבעון</li><li>הזמנה לאירוע חברה</li></ul></div></div>
+</section>
+
+<section id="prompts">
+  <h2>ספריית <span class="g">הפרומפטים</span><small>כל הפרומפטים מהלייב. לוחצים "העתקה" ומדביקים בקלוד.</small></h2>
+  <h4>הקמה</h4><div class="prompt"><span class="lbl">טקסט להקלטת הקול</span>אני ב-ElevenLabs. תכתוב לי טקסט של 5 דקות שמתאים ל[מה אני עושה ולמי], כדי שאוכל להקליט אותו ולשבט את הקול שלי בצורה מדהימה לסרטונים עתידיים.
+תחלק אותו לטונים שונים: נלהב, רגוע ואישי, מסביר, שאלות ותשובות, וקריאה לפעולה.
+שים לב למילים שאני משתמשת בהן הרבה: [3–5 מילים מהעסק שלכם].<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">תסריט לסרטון (דרך 1, בצ&#x27;אט רגיל)</span>תכתוב לי תסריט לסרטון של 30–60 שניות על [נושא], בשבילי: [מה העסק עושה ולמי].
+פתיחה שתופסת בשתי השניות הראשונות, מסר אחד, וסיום עם [מה רוצים שיעשו: יכתבו בתגובות / ייכנסו לקישור / ישאירו פרטים].
+משפטים קצרים, בעברית מדוברת, ופסיקים במקום שצריך לעצור. בלי אימוג&#x27;י ובלי כותרות, רק הטקסט שאומרים.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">הקמה, עם התיקייה המוכנה</span>בוא נתחיל<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">בונים את המנגנון בעצמכם (במקום התיקייה)</span>אני רוצה ליצור סרטונים עם אווטאר שמדבר בקול שלי. יש לי ב-HeyGen תאום דיגיטלי, וב-ElevenLabs קול משובט.
+תבנה איתי בתיקייה הזו מנגנון שבו אני רק כותבת על מה הסרטון: אתה כותב תסריט קצר בסגנון שלי ומחכה לאישור שלי, מייצר את הקול ואת הסרטון, ושומר לי את הסרטון המוכן בתיקייה.
+תדריך אותי איפה לשמור את המפתחות כך שאתה לא רואה אותם, ותעצור בכל שלב שדורש ממני פעולה.
+בסוף, תשמור את התהליך כסקיל, כדי שבפעם הבאה יספיק לי לכתוב &quot;סרטון על…&quot;.<button class="copy" type="button">העתקה</button></div><h4>כל סרטון</h4><div class="prompt"><span class="lbl">כל סרטון חדש</span>סרטון על [נושא].<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">תיקונים בתסריט (דוגמאות)</span>תקצר ל-30 שניות.
+יותר חם, כאילו אני מדברת עם לקוחה.
+תפתח בשאלה שהקהל שלי שואל את עצמו.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">שהמנגנון יזכור</span>תזכור את זה לכל הסרטונים הבאים.<button class="copy" type="button">העתקה</button></div><h4>לוק חדש</h4><div class="prompt"><span class="lbl">תיאור ללוק חדש</span>תכתוב לי תיאור מדויק ללוק חדש של התאומה שלי ב-HeyGen: [למשל: בגדי ספורט באולפן אימונים מואר]. תאר לבוש, צבעים, תאורה ורקע, בשורה אחת שאפשר להדביק.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">סרטון בלוק מסוים</span>סרטון על [נושא], בלוק [שם הלוק].<button class="copy" type="button">העתקה</button></div><h4>יותר מסרטון אחד</h4><div class="prompt"><span class="lbl">אותו מסר, לכל האפיקים</span>קח את התסריט של הסרטון האחרון, ותכין ממנו שלוש גרסאות:
+ריל של 30 שניות לאינסטגרם, סרטון של דקה לניוזלטר, וסרטון קצר ללידים חדשים שמתחיל ב&quot;היי [שם]&quot;.
+תראה לי את שלושתן לפני שאתה מייצר משהו.<button class="copy" type="button">העתקה</button></div><div class="prompt"><span class="lbl">אותו סרטון, באנגלית</span>תתרגם את התסריט האחרון לאנגלית טבעית, ותראה לי לפני שאתה מייצר את הסרטון.<button class="copy" type="button">העתקה</button></div><h4>תקלות</h4><div class="prompt"><span class="lbl">כשמשהו נתקע</span>קיבלתי את השגיאה הזו: [מדביקים כאן את השגיאה]. מה זה אומר, ומה עושים? תסביר לי בעברית פשוטה.<button class="copy" type="button">העתקה</button></div>
+</section>
+
+<section id="costs">
+  <h2>כמה זה <span class="g">עולה</span></h2>
+  <div class="scroll"><table class="tbl">
+<tr><th>מה</th><th>כמה</th><th>הערה</th></tr>
+<tr><td><span class="ltr">HeyGen Creator</span> · הפנים</td><td><span class="ltr">$29</span> לחודש</td><td><span class="ltr">$24</span> לחודש בתשלום שנתי</td></tr>
+<tr><td><span class="ltr">ElevenLabs Starter</span> · הקול</td><td><span class="ltr">$6</span> לחודש</td><td><span class="ltr">$1</span> בחודש הראשון. כולל שיבוט קול ורישיון מסחרי</td></tr>
+<tr><td><span class="ltr">Claude Pro</span> · המוח</td><td><span class="ltr">$20</span> לחודש</td><td><span class="ltr">$17</span> לחודש בתשלום שנתי. <span class="ltr">Claude Code</span> כלול. נדרש לדרכים 2–3</td></tr>
+<tr><td><span class="ltr">HeyGen API</span> · אוטומציה מלאה</td><td>מ-<span class="ltr">$5</span></td><td>יתרה נפרדת מהמנוי, לפי שימוש. רק לדרך 3</td></tr>
+</table></div>
+<p class="note">המחירים נבדקו ב-10.11.2026 באתרים הרשמיים, בדולרים ולפני מע"מ. הם משתנים מדי פעם, אז כדאי לבדוק לפני שנרשמים.</p>
+</section>
+
+<section id="weeks">
+  <h2>4 שבועות, <span class="g">סרטון בשבוע</span></h2>
+  <div class="card"><ol class="weeks4"><li><label><input type="checkbox" data-k="w1"><span><b>שבוע 1 · קול ופנים</b>מקליטים 5 דקות קול, מכינים תמונה וסרטון קצר, ויוצרים סרטון ראשון באתר (פרקים 1–3)</span></label></li><li><label><input type="checkbox" data-k="w2"><span><b>שבוע 2 · המנגנון</b>התיקייה המוכנה או הפרומפט, וסרטון ראשון מטקסט (פרק 4)</span></label></li><li><label><input type="checkbox" data-k="w3"><span><b>שבוע 3 · כל האפיקים</b>אותו מסר: ריל, סטורי וסרטון לניוזלטר</span></label></li><li><label><input type="checkbox" data-k="w4"><span><b>שבוע 4 · סרטון אמיתי</b>ללקוח, לליד או לעובדים. משהו שבאמת יוצא לעולם, ושולחים לי בקהילה</span></label></li></ol></div>
+</section>
+
+<section id="service" class="offer">
+  <h2>תאומה <span>כשירות</span></h2>
+  <p>למי שרוצה להפוך את זה לעסק: כמה לגבות, שלוש חבילות מוכנות, תבנית להצעת מחיר, נוסח לדוגמה לאישור שימוש בפנים ובקול, ואיך משיגים לקוח ראשון.</p>
+    <p>מעוניינים? כתבו לי בקהילה בוואטסאפ "אני", או השאירו את המייל שלכם, ואחזור אליכם.</p>
+</section>
+
+<section id="links" class="links">
+  <h2>נמשיך <span class="g">לדבר</span><small>שלחו לי את הסרטון הראשון שלכם בקהילה, ונעבור עליו יחד.</small></h2>
+  <a class="btn wa" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">💬 הקהילה בוואטסאפ</a>
+  <a class="btn yt" href="https://youtube.com/@mornissim" target="_blank" rel="noopener">▶️ הערוץ ביוטיוב</a>
+  <a class="btn ig" href="https://www.instagram.com/mornissim_" target="_blank" rel="noopener">📸 אינסטגרם</a>
+</section>
+
+<footer>© כל הזכויות שמורות למור נסים ולחברת פלואו מ.נ. בע״מ</footer>
+</div>
+
+<script>
+document.querySelectorAll('.prompt').forEach(box => {
+  const btn = box.querySelector('.copy');
+  btn.addEventListener('click', async () => {
+    const clone = box.cloneNode(true);
+    clone.querySelectorAll('.copy,.lbl').forEach(n => n.remove());
+    const text = clone.textContent.trim();
+    try { await navigator.clipboard.writeText(text); }
+    catch (e) {
+      const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (_) {} ta.remove();
+    }
+    btn.textContent = 'הועתק ✓'; btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = 'העתקה'; btn.classList.remove('ok'); }, 1800);
+  });
+});
+const KEY = 'twin-1111-checks';
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+const boxes = [...document.querySelectorAll('#workbook input[type=checkbox]')];
+const all = [...document.querySelectorAll('input[data-k]')];
+function progress(){ document.getElementById('prog').textContent = boxes.filter(b => b.checked).length; }
+document.getElementById('total').textContent = boxes.length;
+all.forEach(b => {
+  b.checked = !!saved[b.dataset.k];
+  b.addEventListener('change', () => {
+    saved[b.dataset.k] = b.checked;
+    try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {}
+    progress();
+  });
+});
+document.getElementById('reset').onclick = () => {
+  all.forEach(b => b.checked = false); saved = {};
+  try { localStorage.removeItem(KEY); } catch (e) {}
+  progress();
+};
+progress();
+</script>
+</body>
+</html>
