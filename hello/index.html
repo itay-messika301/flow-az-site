@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>היי, כיף שאתם כאן :) — Mor Nissim</title>
+<meta name="description" content="יצירת קשר עם מור נסים — הזמנת סדנאות והרצאות, הצעות שת״פ ופניות עסקיות."/>
+<meta property="og:title" content="היי, כיף שאתם כאן :)"/>
+<meta property="og:description" content="הזמנת סדנאות והרצאות, הצעות שת״פ ופניות עסקיות — מור נסים, Flow."/>
+<meta property="og:image" content="https://flow-az.com/images/mor-profile.jpg"/>
+<meta property="og:url" content="https://flow-az.com/hello/"/>
+<meta name="robots" content="noindex"/>
+<meta name="theme-color" content="#0E46D4"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"/>
+<link rel="icon" type="image/png" href="/images/favicon.png"/>
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://api.fontshare.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0E46D4;--blue-hi:#0538B9;--gold:#FFB400;
+  --ink:#0b1220;--muted:#64748b;--line:#d9e1ee;
+  --bg:#f5f8fc;--card:#ffffff;--chip:#eaf0fb;--err:#d4380e;
+}
+html{background:var(--bg)}
+body{
+  font-family:'Heebo',system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(900px 480px at 50% -220px,rgba(14,70,212,.12),transparent 70%),
+    var(--bg);
+  color:var(--ink);min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:48px 20px 40px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center}
+.avatar{
+  width:104px;height:104px;border-radius:50%;padding:4px;background:var(--card);
+  box-shadow:0 0 0 3px var(--blue),0 12px 32px rgba(14,70,212,.18);
+  position:relative;
+}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.avatar::after{
+  content:"";position:absolute;right:5px;bottom:5px;width:18px;height:18px;border-radius:50%;
+  background:var(--gold);border:3px solid var(--card);
+}
+h1{
+  font-weight:800;font-size:1.7rem;letter-spacing:-.01em;color:var(--ink);
+  margin-top:18px;text-align:center;
+}
+.intro{
+  width:100%;margin-top:20px;background:var(--chip);border:1.5px solid var(--line);
+  border-radius:16px;padding:16px 18px;font-size:.95rem;line-height:1.65;color:var(--ink);
+}
+.intro a{color:var(--blue);font-weight:700;text-decoration:none;border-bottom:2px solid rgba(14,70,212,.25)}
+.intro a:hover{border-bottom-color:var(--blue)}
+form{width:100%;margin-top:24px;display:flex;flex-direction:column;gap:20px}
+.field label,.field .q{display:block;font-weight:700;font-size:1rem;margin-bottom:8px}
+.req{color:var(--blue)}
+.field input[type=text],.field input[type=tel],.field input[type=email],
+.field input[type=date],.field input[type=number]{
+  width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:14px;
+  background:var(--card);font:inherit;font-size:1rem;color:var(--ink);
+  box-shadow:0 2px 10px rgba(11,18,32,.04);
+  transition:border-color .15s ease,box-shadow .15s ease;
+  -webkit-appearance:none;appearance:none;
+}
+.field input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(14,70,212,.14)}
+.choices{display:flex;flex-direction:column;gap:10px}
+.choice{position:relative;display:block;cursor:pointer}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice span{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:14px 16px;font-weight:600;font-size:.98rem;line-height:1.35;
+  box-shadow:0 2px 10px rgba(11,18,32,.04);
+  transition:border-color .15s ease,box-shadow .15s ease,background .15s ease;
+}
+.choice span::before{
+  content:"";flex:0 0 20px;width:20px;height:20px;border-radius:50%;
+  border:2px solid var(--line);background:var(--card);
+  transition:border-color .15s ease,background .15s ease,box-shadow .15s ease;
+}
+.choice:hover span{border-color:var(--blue)}
+.choice input:focus-visible+span{border-color:var(--blue);box-shadow:0 0 0 3px rgba(14,70,212,.14)}
+.choice input:checked+span{border-color:var(--blue);background:var(--chip)}
+.choice input:checked+span::before{
+  border-color:var(--blue);background:var(--blue);
+  box-shadow:inset 0 0 0 4px var(--card);
+}
+.extra{
+  display:none;flex-direction:column;gap:16px;
+  background:var(--card);border:1.5px dashed var(--line);border-radius:16px;padding:16px;
+}
+.extra.show{display:flex}
+.extra .hint{font-size:.85rem;color:var(--muted);line-height:1.5}
+.extra .field label{font-size:.92rem;margin-bottom:6px}
+.hp{position:absolute;right:-9999px;top:-9999px;height:0;width:0;overflow:hidden}
+button[type=submit]{
+  width:100%;padding:16px;border:0;border-radius:999px;
+  background:var(--blue);color:#fff;font:inherit;font-weight:700;font-size:1.1rem;cursor:pointer;
+  box-shadow:0 10px 26px rgba(14,70,212,.25);
+  transition:background .15s ease,transform .15s ease;
+}
+button[type=submit]:hover{background:var(--blue-hi);transform:translateY(-1px)}
+button[type=submit]:active{transform:translateY(0)}
+button[type=submit]:disabled{opacity:.6;cursor:default;transform:none}
+.msg{display:none;font-size:.92rem;font-weight:600;color:var(--err);text-align:center;line-height:1.5}
+.msg.show{display:block}
+.done{
+  display:none;width:100%;margin-top:28px;text-align:center;
+  background:var(--card);border:1.5px solid var(--line);border-radius:20px;
+  padding:36px 24px;box-shadow:0 10px 26px rgba(14,70,212,.1);
+}
+.done.show{display:block}
+.done .tick{
+  width:64px;height:64px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 16px;
+}
+.done .tick svg{width:32px;height:32px;color:#fff}
+.done h2{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.done p{color:var(--muted);line-height:1.6}
+.done a{display:inline-block;margin-top:18px;color:var(--blue);font-weight:700;text-decoration:none}
+footer{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:10px}
+footer a{display:block;opacity:.85;transition:opacity .15s}
+footer a:hover{opacity:1}
+footer img{height:22px;width:auto;display:block}
+footer span{font-size:.78rem;color:var(--muted);direction:ltr}
+@media (max-width:380px){
+  body{padding-top:40px}
+  h1{font-size:1.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .choice span,button[type=submit]{transition:none}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="avatar"><img src="/images/mor-profile.jpg" alt="מור נסים" width="104" height="104"/></div>
+  <h1>היי, כיף שאתם כאן :)</h1>
+
+  <p class="intro">
+    לפניות בנושא קורסים דיגיטליים בחינם ו/או בתשלום מוזמנים להציץ
+    <a href="https://flow-az.com/online-courses/">באתר כאן</a>
+    או <a href="https://www.youtube.com/@MorNissim/videos" target="_blank" rel="noopener">בערוץ היוטיוב של מור כאן</a>.
+    לכל שאר הפניות — מלאו את הטופס הקצר ואחזור אליכם בהקדם 💙
+  </p>
+
+  <form id="lead-form" novalidate>
+    <div class="field">
+      <label for="f-name">איך קוראים לך? <span class="req">*</span></label>
+      <input id="f-name" name="name" type="text" maxlength="255" autocomplete="name" required/>
+    </div>
+
+    <fieldset class="field" style="border:0">
+      <legend class="q">מהי מטרת הפנייה? <span class="req">*</span></legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="purpose" value="שתפ" required/><span>הצעת שת״פ עם מור</span></label>
+        <label class="choice"><input type="radio" name="purpose" value="הרצאה"/><span>מעוניינים להזמין את מור לסדנה / הרצאה</span></label>
+        <label class="choice"><input type="radio" name="purpose" value="אחר"/><span>אחר (שאינו קורסים דיגיטליים — עליהם יש פרטים בלינק מעלה)</span></label>
+      </div>
+    </fieldset>
+
+    <div class="extra" id="lecture-extra">
+      <p class="hint">כמה פרטים שיעזרו לי להתכונן לשיחה — הכל רשות 🙂</p>
+      <div class="field">
+        <label for="f-date">תאריך משוער לאירוע</label>
+        <input id="f-date" name="event_date" type="date"/>
+      </div>
+      <div class="field">
+        <label for="f-participants">מספר משתתפים משוער</label>
+        <input id="f-participants" name="participants" type="number" min="1" inputmode="numeric"/>
+      </div>
+      <div class="field">
+        <label for="f-topic">נושא / כותרת מבוקשת</label>
+        <input id="f-topic" name="topic" type="text" maxlength="255"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="f-phone">טלפון נייד לחזרה <span class="req">*</span></label>
+      <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" dir="ltr" style="text-align:right" required/>
+    </div>
+
+    <div class="field">
+      <label for="f-email">מייל <span class="req">*</span></label>
+      <input id="f-email" name="email" type="email" autocomplete="email" dir="ltr" style="text-align:right" required/>
+    </div>
+
+    <div class="hp" aria-hidden="true">
+      <label>אל תמלאו את השדה הזה<input type="text" name="_honey" tabindex="-1" autocomplete="off"/></label>
+    </div>
+
+    <p class="msg" id="form-msg"></p>
+    <button type="submit" id="submit-btn">סיימתי :)</button>
+  </form>
+
+  <section class="done" id="done" aria-live="polite">
+    <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg></div>
+    <h2>הפנייה התקבלה!</h2>
+    <p>תודה רבה 🙏 הפרטים אצלי ואחזור אליכם בהקדם.</p>
+    <a href="/links/">&rarr; חזרה לכל הלינקים</a>
+  </section>
+
+  <footer>
+    <a href="https://flow-az.com/" aria-label="Flow"><img src="/images/flow-logo.png" alt="Flow"/></a>
+    <span>© Flow</span>
+  </footer>
+</main>
+
+<script src="/js/leads.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('lead-form');
+  var msg = document.getElementById('form-msg');
+  var btn = document.getElementById('submit-btn');
+  var extra = document.getElementById('lecture-extra');
+
+  var FORM_BY_PURPOSE = {
+    'שתפ': 'אינסטגרם — שת״פ',
+    'הרצאה': 'אינסטגרם — הרצאה/סדנה',
+    'אחר': 'אינסטגרם — אחר'
+  };
+
+  form.addEventListener('change', function (e) {
+    if (e.target.name === 'purpose') {
+      extra.classList.toggle('show', e.target.value === 'הרצאה');
+    }
+  });
+
+  function fail(text) {
+    msg.textContent = text;
+    msg.classList.add('show');
+    btn.disabled = false;
+    btn.textContent = 'סיימתי :)';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.classList.remove('show');
+
+    var name = form.name.value.trim();
+    var purpose = (form.querySelector('input[name=purpose]:checked') || {}).value;
+    var phone = form.phone.value.trim();
+    var email = form.email.value.trim();
+
+    if (!name) return fail('רק רגע — חסר לי השם שלך 🙂');
+    if (!purpose) return fail('רק רגע — צריך לבחור את מטרת הפנייה 🙂');
+    if (!/^[\d\s+()-]{8,}$/.test(phone)) return fail('מספר הטלפון נראה חסר — אפשר לבדוק אותו?');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('כתובת המייל נראית חסרה — אפשר לבדוק אותה?');
+
+    var fields = {
+      'שם': name,
+      'טלפון': phone,
+      'אימייל': email,
+      '_honey': form._honey.value
+    };
+    if (purpose === 'הרצאה') {
+      fields['תאריך האירוע'] = form.event_date.value;
+      fields['מספר משתתפים'] = form.participants.value;
+      fields['נושא'] = form.topic.value.trim();
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'שולח…';
+
+    Promise.resolve(window.sendFlowLead(FORM_BY_PURPOSE[purpose], fields)).then(function () {
+      form.style.display = 'none';
+      document.getElementById('done').classList.add('show');
+      window.scrollTo({ top: 0 });
+    }).catch(function () {
+      fail('משהו השתבש בשליחה… אפשר לנסות שוב, או לכתוב לי במייל office@flow-az.com');
+    });
+  });
+})();
+</script>
+</body>
+</html>
