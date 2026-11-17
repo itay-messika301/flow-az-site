@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mor Nissim — לינקים</title>
 <meta name="description" content="מור נסים — Flow. אתר, אינסטגרם, וואצאפ, טלפון ומייל במקום אחד."/>
 <meta property="og:title" content="Mor Nissim"/>
 <meta property="og:description" content="אתר, אינסטגרם, וואצאפ, טלפון ומייל במקום אחד."/>
@@ -13,6 +12,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"/>
 <link rel="icon" type="image/png" href="/images/favicon.png"/>
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png"/>
+<title>Mor Nissim — לינקים</title>
 <link rel="preconnect" href="https://api.fontshare.com"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -28,152 +28,97 @@
 html{background:var(--bg)}
 body{
   font-family:'Heebo',system-ui,-apple-system,sans-serif;
-  background:
-    radial-gradient(900px 480px at 50% -220px,rgba(14,70,212,.12),transparent 70%),
-    var(--bg);
+  background:radial-gradient(900px 480px at 50% -220px,rgba(14,70,212,.12),transparent 70%),var(--bg);
   color:var(--ink);min-height:100vh;
   display:flex;flex-direction:column;align-items:center;
-  padding:56px 20px 40px;
-  -webkit-font-smoothing:antialiased;
+  padding:40px 20px 32px;-webkit-font-smoothing:antialiased;
 }
-.wrap{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center}
-.avatar{
-  width:120px;height:120px;border-radius:50%;padding:4px;background:var(--card);
-  box-shadow:0 0 0 3px var(--blue),0 12px 32px rgba(14,70,212,.18);
-  position:relative;
-}
+.wrap{width:100%;max-width:430px;display:flex;flex-direction:column;align-items:center}
+.avatar{width:92px;height:92px;border-radius:50%;padding:3px;background:var(--card);
+  box-shadow:0 0 0 3px var(--blue),0 10px 28px rgba(14,70,212,.16)}
 .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
-h1{
-  font-family:'Cabinet Grotesk','Heebo','Helvetica Neue',sans-serif;
-  font-weight:800;font-size:2.1rem;letter-spacing:-.01em;color:var(--ink);
-  margin-top:20px;direction:ltr;
-}
-.socials{display:flex;gap:12px;margin-top:16px}
-.socials a{
-  width:44px;height:44px;border-radius:50%;
-  background:var(--card);border:1.5px solid var(--line);color:var(--blue);
+h1{font-family:'Cabinet Grotesk','Heebo',sans-serif;font-weight:800;font-size:1.8rem;
+  letter-spacing:-.01em;margin-top:14px;direction:ltr}
+.tag{margin-top:4px;color:var(--muted);font-size:.95rem;font-weight:500}
+.socials{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;justify-content:center}
+.socials a{width:40px;height:40px;border-radius:50%;background:var(--card);
+  border:1.5px solid var(--line);color:var(--blue);
   display:flex;align-items:center;justify-content:center;
   box-shadow:0 2px 10px rgba(11,18,32,.04);
-  transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease;
-}
-.socials a svg{width:21px;height:21px;display:block}
-.socials a:hover,.socials a:focus-visible{
-  background:var(--blue);border-color:var(--blue);color:#fff;
-  transform:translateY(-2px);outline:none;
-}
-.links{width:100%;display:flex;flex-direction:column;gap:14px;margin-top:32px}
-.btn{
-  display:flex;align-items:center;gap:16px;
-  background:var(--card);border:1.5px solid var(--line);border-radius:18px;
-  padding:14px 16px;text-decoration:none;color:var(--ink);
+  transition:transform .15s,background .15s,color .15s,border-color .15s}
+.socials a svg{width:20px;height:20px;display:block}
+.socials a:hover,.socials a:focus-visible{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-2px);outline:none}
+.actions{width:100%;display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--blue);color:#fff;border-radius:999px;padding:16px 20px;
+  text-decoration:none;font-weight:700;font-size:1.05rem;
+  box-shadow:0 10px 26px rgba(14,70,212,.28);
+  transition:background .15s,transform .15s}
+.cta:hover{background:var(--blue-hi);transform:translateY(-2px)}
+.cta svg{width:20px;height:20px}
+.act{display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--card);border:1.5px solid var(--line);border-radius:999px;
+  padding:14px 20px;text-decoration:none;color:var(--ink);font-weight:700;font-size:1rem;
   box-shadow:0 2px 10px rgba(11,18,32,.04);
-  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;
-}
-.btn:hover,.btn:focus-visible{
-  transform:translateY(-2px);border-color:var(--blue);
-  box-shadow:0 10px 26px rgba(14,70,212,.16);outline:none;
-}
-.btn:active{transform:translateY(0)}
-.ic{
-  flex:0 0 48px;width:48px;height:48px;border-radius:14px;
-  background:var(--chip);color:var(--blue);
-  display:flex;align-items:center;justify-content:center;
-  transition:background .15s ease,color .15s ease;
-}
-.btn:hover .ic{background:var(--blue);color:#fff}
-.ic svg{width:24px;height:24px;display:block}
-.txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
-.lbl{font-weight:700;font-size:1.08rem;line-height:1.2}
-.sub{font-size:.86rem;color:var(--muted);direction:ltr;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.arrow{flex:0 0 auto;color:#b6c2d6;transition:color .15s ease,transform .15s ease}
-.arrow svg{width:18px;height:18px;display:block}
-.btn:hover .arrow{color:var(--blue);transform:translateX(-3px)}
-.more{width:100%;margin-top:36px}
-.more h2{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.more h2::after{content:"";flex:1;height:1px;background:var(--line)}
-.cards{display:flex;flex-direction:column;gap:10px}
-.card{
-  display:flex;align-items:center;gap:14px;
-  background:var(--card);border:1.5px solid var(--line);border-radius:14px;
-  padding:14px 16px;text-decoration:none;color:var(--ink);
-  font-weight:600;font-size:.98rem;line-height:1.35;
-  box-shadow:0 2px 10px rgba(11,18,32,.04);
-  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;
-}
-.card::before{content:"";flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
-.card>span:not(.arrow){flex:1}
-.card:hover,.card:focus-visible{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 10px 26px rgba(14,70,212,.16);outline:none}
-.card:hover .arrow{color:var(--blue);transform:translateX(-3px)}
-footer{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:10px}
-footer a{display:block;opacity:.85;transition:opacity .15s}
-footer a:hover{opacity:1}
-footer img{height:22px;width:auto;display:block}
-footer span{font-size:.78rem;color:var(--muted);direction:ltr}
-@media (max-width:380px){
-  body{padding-top:44px}
-  .avatar{width:104px;height:104px}
-  h1{font-size:1.85rem}
-  .lbl{font-size:1rem}
-}
-@media (prefers-reduced-motion:reduce){
-  .btn,.card,.ic,.arrow{transition:none}
-  .btn:hover,.card:hover{transform:none}
-}
+  transition:transform .15s,border-color .15s,box-shadow .15s}
+.act:hover{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 10px 26px rgba(14,70,212,.14)}
+.act svg{width:19px;height:19px;color:var(--blue)}
+.recs{width:100%;margin-top:30px}
+.recs h2{font-size:.82rem;font-weight:600;color:var(--muted);text-align:center;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rec{background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+  padding:12px 14px;text-decoration:none;color:var(--ink);
+  font-weight:600;font-size:.84rem;line-height:1.4;text-align:center;
+  display:flex;align-items:center;justify-content:center;min-height:62px;
+  transition:transform .15s,border-color .15s}
+.rec:hover{transform:translateY(-2px);border-color:var(--blue)}
+footer{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:8px}
+footer img{height:20px;width:auto;display:block;opacity:.85}
+footer span{font-size:.75rem;color:var(--muted);direction:ltr}
 </style>
 </head>
 <body>
 <main class="wrap">
-  <div class="avatar"><img src="/images/mor-profile.jpg" alt="מור נסים" width="120" height="120"/></div>
+  <div class="avatar"><img src="/images/mor-profile.jpg" alt="מור נסים"/></div>
   <h1>Mor Nissim</h1>
+  <p class="tag">אוטומציות ובינה מלאכותית · Flow</p>
 
   <div class="socials" aria-label="רשתות חברתיות">
+    <a href="https://www.instagram.com/mornissim_" target="_blank" rel="noopener" aria-label="אינסטגרם"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
     <a href="https://www.tiktok.com/@mornissim" target="_blank" rel="noopener" aria-label="טיקטוק"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-    <a href="https://www.youtube.com/@MorNissim" target="_blank" rel="noopener" aria-label="יוטיוב"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill-rule="evenodd"/></svg></a>
+    <a href="https://www.youtube.com/@MorNissim" target="_blank" rel="noopener" aria-label="יוטיוב"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
     <a href="https://www.linkedin.com/in/mor-nissim-3498b01b4/" target="_blank" rel="noopener" aria-label="לינקדאין"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+    <a href="https://wa.me/972557210724" target="_blank" rel="noopener" aria-label="וואצאפ"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.9-1.3A9.5 9.5 0 1 0 12 2.5zm0 1.8a7.7 7.7 0 1 1-3.9 14.3l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 0 1 12 4.3zm-3 3.9c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3l-1.9-.9c-.3-.1-.5-.2-.7.2l-.8 1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5L9.8 8.6c-.2-.4-.4-.4-.6-.4H9z"/></svg></a>
+    <a href="mailto:office@flow-az.com" aria-label="מייל"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7.5 12 13l8.5-5.5"/></svg></a>
+    <a href="tel:+972557210724" aria-label="טלפון"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.5h3l1.6 4-2 1.3a11 11 0 0 0 5.6 5.6l1.3-2 4 1.6v3a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 3.5 5.6a2 2 0 0 1 2-2.1z"/></svg></a>
   </div>
 
-  <nav class="links" aria-label="קישורים">
-    <a class="btn" href="https://flow-az.com/">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg></span>
-      <span class="txt"><span class="lbl">האתר שלי</span><span class="sub">flow-az.com</span></span>
-      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
+  <nav class="actions" aria-label="פעולות עיקריות">
+    <a class="cta" href="/hello/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.9-.9L3 20l1-4.9a8.3 8.3 0 0 1-1-4A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/></svg>
+      דברו איתי — הרצאות, סדנאות ושת״פים
     </a>
-
-    <a class="btn" href="https://www.instagram.com/mornissim_" target="_blank" rel="noopener">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></span>
-      <span class="txt"><span class="lbl">אינסטגרם</span><span class="sub">@mornissim_</span></span>
-      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
+    <a class="act" href="/online-courses/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2 9l10 5 10-5-10-5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>
+      הקורסים והסדנאות הדיגיטליים שלי
     </a>
-
-    <a class="btn" href="https://wa.me/972557210724" target="_blank" rel="noopener">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.9-1.3A9.5 9.5 0 1 0 12 2.5zm0 1.8a7.7 7.7 0 1 1-3.9 14.3l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 0 1 12 4.3zm-3 3.9c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3l-1.9-.9c-.3-.1-.5-.2-.7.2l-.8 1c-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5.3-.5c.1-.2 0-.4 0-.5L9.8 8.6c-.2-.4-.4-.4-.6-.4H9z"/></svg></span>
-      <span class="txt"><span class="lbl">וואצאפ</span><span class="sub">שלחו לי הודעה</span></span>
-      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
+    <a class="act" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="16.8" cy="9" r="2.6"/><path d="M15.2 14.6a5 5 0 0 1 5.3 4.4"/></svg>
+      קהילת טכנו-Tips בוואצאפ
     </a>
-
-    <a class="btn" href="tel:+972557210724">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 3.5h3l1.6 4-2 1.3a11 11 0 0 0 5.6 5.6l1.3-2 4 1.6v3a2 2 0 0 1-2.1 2A16.5 16.5 0 0 1 3.5 5.6a2 2 0 0 1 2-2.1z"/></svg></span>
-      <span class="txt"><span class="lbl">טלפון</span><span class="sub">055-7210724</span></span>
-      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
-    </a>
-
-    <a class="btn" href="mailto:office@flow-az.com">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7.5 12 13l8.5-5.5"/></svg></span>
-      <span class="txt"><span class="lbl">מייל</span><span class="sub">office@flow-az.com</span></span>
-      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>
+    <a class="act" href="https://flow-az.com/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg>
+      האתר המלא — flow-az.com
     </a>
   </nav>
 
-  <section class="more" aria-labelledby="more-h">
-    <h2 id="more-h">עוד ממני</h2>
-    <div class="cards">
-      <a class="card" href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener"><span>🤖 טכנו-Tips 🤖 – קבוצת הוואצאפ השקטה ה-7</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
-      <a class="card" href="/hello/"><span>ליצירת קשר בנושא הזמנת סדנאות, למידה ביחד איתי והצעות עסקיות</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
-      <a class="card" href="https://flow-az.com/online-courses/"><span>בואו ללמוד איתי – לכל הסדנאות והקורסים הדיגיטליים</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
-      <a class="card" href="https://www.timeless.day/?via=mor" target="_blank" rel="noopener"><span>סוכן בינה מלאכותית שיתמלל, יסכם ויבצע משימות מהמחשב שלכם</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
-      <a class="card" href="https://manychat.partnerlinks.io/ym2u421bkigu" target="_blank" rel="noopener"><span>יצירת בוט לוואצאפ ואוטומציות לרשתות החברתיות – קוד למאניצ׳אט</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
-      <a class="card" href="https://try.monday.com/rcthkics2k6x" target="_blank" rel="noopener"><span>משתמש פרו ל-14 יום חינם במערכת מאנדיי (ניהול משימות, פרויקטים <span style="white-space:nowrap">ו-CRM</span>)</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
-      <a class="card" href="https://account.smoove.io/%D7%A4%D7%AA%D7%99%D7%97%D7%AA-%D7%97%D7%A9%D7%91%D7%95%D7%9F.aspx?af=Mornissim" target="_blank" rel="noopener"><span>קוד הנחה לסמוב 25%</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span></a>
+  <section class="recs" aria-labelledby="recs-h">
+    <h2 id="recs-h">כלים שאני עובדת איתם וממליצה עליהם</h2>
+    <div class="grid">
+      <a class="rec" href="https://www.timeless.day/?via=mor" target="_blank" rel="noopener">Timeless — סוכן AI שמתמלל ומסכם</a>
+      <a class="rec" href="https://manychat.partnerlinks.io/ym2u421bkigu" target="_blank" rel="noopener">ManyChat — בוטים ואוטומציות לסושיאל</a>
+      <a class="rec" href="https://try.monday.com/rcthkics2k6x" target="_blank" rel="noopener">Monday — פרו חינם ל-14 יום</a>
+      <a class="rec" href="https://account.smoove.io/%D7%A4%D7%AA%D7%99%D7%97%D7%AA-%D7%97%D7%A9%D7%91%D7%95%D7%9F.aspx?af=Mornissim" target="_blank" rel="noopener">Smoove — ‏25% הנחה בדיוור</a>
     </div>
   </section>
 
