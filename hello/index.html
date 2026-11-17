@@ -44,10 +44,6 @@ body{
   position:relative;
 }
 .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
-.avatar::after{
-  content:"";position:absolute;right:5px;bottom:5px;width:18px;height:18px;border-radius:50%;
-  background:var(--gold);border:3px solid var(--card);
-}
 h1{
   font-weight:800;font-size:1.7rem;letter-spacing:-.01em;color:var(--ink);
   margin-top:18px;text-align:center;
@@ -61,15 +57,16 @@ h1{
 form{width:100%;margin-top:24px;display:flex;flex-direction:column;gap:20px}
 .field label,.field .q{display:block;font-weight:700;font-size:1rem;margin-bottom:8px}
 .req{color:var(--blue)}
+.field textarea{resize:vertical;min-height:110px}
 .field input[type=text],.field input[type=tel],.field input[type=email],
-.field input[type=date],.field input[type=number]{
+.field input[type=date],.field input[type=number],.field textarea{
   width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:14px;
   background:var(--card);font:inherit;font-size:1rem;color:var(--ink);
   box-shadow:0 2px 10px rgba(11,18,32,.04);
   transition:border-color .15s ease,box-shadow .15s ease;
   -webkit-appearance:none;appearance:none;
 }
-.field input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(14,70,212,.14)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(14,70,212,.14)}
 .choices{display:flex;flex-direction:column;gap:10px}
 .choice{position:relative;display:block;cursor:pointer}
 .choice input{position:absolute;opacity:0;pointer-events:none}
@@ -166,8 +163,7 @@ footer span{font-size:.78rem;color:var(--muted);direction:ltr}
       </div>
     </fieldset>
 
-    <div class="extra" id="lecture-extra">
-      <p class="hint">כמה פרטים שיעזרו לי להתכונן לשיחה — הכל רשות 🙂</p>
+    <div class="extra" id="extra-lecture">
       <div class="field">
         <label for="f-date">תאריך משוער לאירוע</label>
         <input id="f-date" name="event_date" type="date"/>
@@ -177,8 +173,15 @@ footer span{font-size:.78rem;color:var(--muted);direction:ltr}
         <input id="f-participants" name="participants" type="number" min="1" inputmode="numeric"/>
       </div>
       <div class="field">
-        <label for="f-topic">נושא / כותרת מבוקשת</label>
-        <input id="f-topic" name="topic" type="text" maxlength="255"/>
+        <label for="f-request">פירוט בקשה <span class="req">*</span></label>
+        <textarea id="f-request" name="request_details" rows="4" maxlength="2000"></textarea>
+      </div>
+    </div>
+
+    <div class="extra" id="extra-text">
+      <div class="field">
+        <label for="f-details" id="f-details-label">פירוט <span class="req">*</span></label>
+        <textarea id="f-details" name="details" rows="4" maxlength="2000"></textarea>
       </div>
     </div>
 
@@ -219,17 +222,32 @@ footer span{font-size:.78rem;color:var(--muted);direction:ltr}
   var form = document.getElementById('lead-form');
   var msg = document.getElementById('form-msg');
   var btn = document.getElementById('submit-btn');
-  var extra = document.getElementById('lecture-extra');
+  var extraLecture = document.getElementById('extra-lecture');
+  var extraText = document.getElementById('extra-text');
+  var detailsLabel = document.getElementById('f-details-label');
 
   var FORM_BY_PURPOSE = {
     'שתפ': 'אינסטגרם — שת״פ',
     'הרצאה': 'אינסטגרם — הרצאה/סדנה',
     'אחר': 'אינסטגרם — אחר'
   };
+  var TEXT_LABEL = {
+    'שתפ': 'מהות השת״פ — ספרו לי מה ההצעה ',
+    'אחר': 'מה תרצו? פרטו בקצרה '
+  };
 
   form.addEventListener('change', function (e) {
     if (e.target.name === 'purpose') {
-      extra.classList.toggle('show', e.target.value === 'הרצאה');
+      var v = e.target.value;
+      extraLecture.classList.toggle('show', v === 'הרצאה');
+      extraText.classList.toggle('show', v !== 'הרצאה');
+      if (TEXT_LABEL[v]) {
+        detailsLabel.textContent = TEXT_LABEL[v];
+        var star = document.createElement('span');
+        star.className = 'req';
+        star.textContent = '*';
+        detailsLabel.appendChild(star);
+      }
     }
   });
 
@@ -261,9 +279,15 @@ footer span{font-size:.78rem;color:var(--muted);direction:ltr}
       '_honey': form._honey.value
     };
     if (purpose === 'הרצאה') {
+      var req = form.request_details.value.trim();
+      if (!req) return fail('רק רגע — חסר פירוט הבקשה 🙂');
       fields['תאריך האירוע'] = form.event_date.value;
       fields['מספר משתתפים'] = form.participants.value;
-      fields['נושא'] = form.topic.value.trim();
+      fields['פירוט בקשה'] = req;
+    } else {
+      var det = form.details.value.trim();
+      if (!det) return fail(purpose === 'שתפ' ? 'רק רגע — חסר פירוט על השת״פ 🙂' : 'רק רגע — חסר פירוט הפנייה 🙂');
+      fields[purpose === 'שתפ' ? 'מהות השת״פ' : 'פירוט הפנייה'] = det;
     }
 
     btn.disabled = true;
