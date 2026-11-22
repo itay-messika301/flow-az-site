@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>יש לי עובד שלא ישן · חומרי הסדנה · מור נסים</title>
+<meta name="description" content="כל החומרים מהסדנה: ערכת הסדנה להורדה, מדריך התקנה, שיטת AGENT וכל הפרומפטים להעתקה.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:Heebo;font-weight:400;src:url(fonts/heebo-hebrew-400.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:700;src:url(fonts/heebo-hebrew-700.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:900;src:url(fonts/heebo-hebrew-900.woff2) format("woff2");unicode-range:U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:400;src:url(fonts/heebo-latin-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-2199}
+@font-face{font-family:Heebo;font-weight:700;src:url(fonts/heebo-latin-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-2199}
+@font-face{font-family:Heebo;font-weight:900;src:url(fonts/heebo-latin-900.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+2190-2199}
+:root{--bg:#F3F7FB;--card:#fff;--line:rgba(16,52,88,.11);--text:#0B1A2A;--muted:#4D6176;--accent:#1A72C8;--accent2:#4FA8F5;--soft:rgba(26,114,200,.09);--gold:#E8A317}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#E7F1FB 0,#F3F7FB 420px) var(--bg);color:var(--text);font-family:Heebo,system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
+  padding:0 max(16px,env(safe-area-inset-right)) 48px max(16px,env(safe-area-inset-left))}
+main{max-width:760px;margin:0 auto}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+header{padding:48px 0 18px;text-align:center}
+.moon{width:74px;height:74px;margin:0 auto 14px;border-radius:50%;background:linear-gradient(160deg,var(--accent2),var(--accent));display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 14px 34px rgba(26,114,200,.3)}
+h1{font-size:clamp(34px,8vw,52px);font-weight:900;line-height:1.08;margin:0}
+h1 span{color:var(--accent)}
+.sub{color:var(--muted);font-size:18px;margin:12px 0 0}
+nav.toc{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:22px 0 8px}
+nav.toc a{font-size:15px;font-weight:700;color:var(--accent);text-decoration:none;background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:999px}
+section{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 22px;margin-top:18px;box-shadow:0 8px 24px rgba(16,52,88,.05)}
+h2{font-size:25px;font-weight:900;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+h2 i{font-style:normal}
+.lead{color:var(--muted);margin:0 0 14px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;font-weight:900;font-size:19px;padding:14px 24px;border-radius:14px;text-decoration:none}
+.btn:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.list{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.list li{background:var(--bg);border-radius:14px;padding:12px 14px}
+.list b{display:block}
+.list span{color:var(--muted);font-size:15px}
+ol.steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0;display:grid;gap:12px}
+ol.steps li{counter-increment:s;position:relative;padding:4px 50px 4px 0}
+ol.steps li::before{content:counter(s);position:absolute;right:0;top:2px;width:36px;height:36px;border-radius:50%;background:var(--soft);color:var(--accent);font-weight:900;display:flex;align-items:center;justify-content:center}
+ol.steps b{display:block}
+ol.steps span{color:var(--muted);font-size:15.5px}
+.tip{background:#FFF8E6;border:1px solid #F3DFA8;border-radius:14px;padding:12px 14px;margin-top:14px;font-size:15.5px}
+.agent{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;direction:ltr;margin-top:6px}
+.agent div{direction:rtl;background:var(--bg);border-radius:14px;padding:12px 6px;text-align:center}
+.agent .l{font-size:34px;font-weight:900;color:var(--accent);line-height:1}
+.agent b{display:block;font-size:15px;margin-top:6px}
+.agent span{display:block;font-size:12.5px;color:var(--muted);line-height:1.35;margin-top:4px}
+@media (max-width:520px){.agent{grid-template-columns:1fr;direction:rtl}.agent div{display:grid;grid-template-columns:44px 1fr;text-align:right;align-items:center;gap:4px 10px;padding:10px 12px}.agent .l{grid-row:span 2}.agent b,.agent span{margin:0}}
+.prompt{margin-top:14px}
+.prompt h3{font-size:17px;margin:0 0 6px;color:var(--accent)}
+.box{background:var(--bg);border-right:4px solid var(--accent);border-radius:12px;padding:12px 14px;white-space:pre-line;font-size:16px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+.row small{color:var(--muted)}
+button.copy{font:inherit;font-size:14.5px;font-weight:700;color:#fff;background:var(--accent);border:0;border-radius:999px;padding:8px 18px;cursor:pointer}
+button.copy.done{background:#1E7A4D}
+footer{text-align:center;margin-top:28px;color:var(--muted);font-size:14.5px}
+footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:12px}
+footer .links a{color:var(--accent);font-weight:700;text-decoration:none;background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="moon" aria-hidden="true">🌙</div>
+  <h1>יש לי עובד <span>שלא ישן</span></h1>
+  <p class="sub">כל החומרים מהסדנה, במקום אחד</p>
+  <nav class="toc" aria-label="תוכן העמוד">
+    <a href="#kit">הערכה</a><a href="#install">התקנה</a><a href="#agent">השיטה</a><a href="#ideas">6 רעיונות</a><a href="#prompts">פרומפטים</a><a href="#schedule">תזמון</a>
+  </nav>
+</header>
+
+<section id="kit">
+  <h2><i>🧰</i> ערכת הסדנה</h2>
+  <p class="lead">מורידים, פותחים את הקובץ, ומקבלים תיקייה עם כל מה שצריך.</p>
+  <a class="btn" href="agents-kit.zip" download>⬇ הורדת הערכה</a>
+  <ul class="list">
+    <li><b>📁 מנהל-ההפקה</b><span>התיקייה שבה בונים ביחד. יש בה פוסטים של "צומת" (קהילה בדיונית), יומן לדוגמה ורנטגן מוכן</span></li>
+    <li><b>🌙 מנהל-ההפקה-מוכן</b><span>הסוכן הגמור. פותחים אותו ב-Claude Code ומקלידים <span class="ltr">/production</span></span></li>
+    <li><b>🧩 תבנית</b><span>שלד לסוכן הבא שלכם: דף רנטגן ריק, כללי בטיחות, והסקיל "קול הקהילה"</span></li>
+    <li><b>📋 prompts.md</b><span>כל הפרומפטים מהסדנה, להעתקה</span></li>
+    <li><b>🛟 backup</b><span>תוצר מוכן לכל שלב בבנייה, למי שנתקע</span></li>
+  </ul>
+  <p class="tip">כל השמות, הדוברים והמקומות בערכה מומצאים. בבית, מחליפים את הפוסטים לדוגמה בפוסטים שלכם, וזה כל ההבדל.</p>
+</section>
+
+<section id="install">
+  <h2><i>💻</i> מדריך התקנה</h2>
+  <p class="lead">5 צעדים, בערך 10 דקות. אפשר להעביר את זה לחברים בצוות.</p>
+  <ol class="steps">
+    <li><b>מורידים את Claude Desktop</b><span>מהאתר הרשמי: <a class="ltr" href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>. יש ל-Mac ול-Windows.</span></li>
+    <li><b>מתקינים ונכנסים</b><span>פותחים את האפליקציה ומתחברים עם החשבון שלכם ב-Claude.</span></li>
+    <li><b>בודקים את המנוי</b><span>צריך Pro ומעלה. במנוי החינמי אין את הטאב Code.</span></li>
+    <li><b>פותחים את הטאב Code</b><span>בראש החלון של האפליקציה. בוחרים תיקייה, וכותבים: "מה יש בתיקייה הזאת?"</span></li>
+    <li><b>מחברים יומן ומייל</b><span>לוחצים על + ליד תיבת הכתיבה ← Connectors ← Browse connectors, ובוחרים Google Calendar ו-Gmail. בודקים: "מה יש לי ביומן מחר?"</span></li>
+  </ol>
+  <p class="tip"><b>לא רואים את Code?</b> כמעט תמיד זה המנוי. <b>לא רואים Connectors?</b> מחפשים Plugins בסרגל הצד. <b>מחשב של העבודה?</b> בודקים מול מי שאחראי על אבטחת מידע לפני שמחברים חשבונות.</p>
+</section>
+
+<section id="agent">
+  <h2><i>🧭</i> שיטת AGENT</h2>
+  <p class="lead">מרעיון לסוכן שעובד, ב-5 צעדים. כל אות היא שאלה אחת, לפי הסדר.</p>
+  <div class="agent">
+    <div><span class="l">A</span><b>המטרה</b><span>מה בונים, ולמה?</span></div>
+    <div><span class="l">G</span><b>הרנטגן</b><span>איך התהליך עובד היום?</span></div>
+    <div><span class="l">E</span><b>האפיון</b><span>מה בדיוק הסוכן יעשה?</span></div>
+    <div><span class="l">N</span><b>צעד אחד</b><span>זה עובד? רק אז הבא</span></div>
+    <div><span class="l">T</span><b>מלמדים</b><span>איך הוא יזכור לפעם הבאה?</span></div>
+  </div>
+  <p class="tip"><b>מבחן ההתאמה:</b> חוזר? יש כללים? הקלט דיגיטלי? אפשר לבדוק לפני שזה יוצא לקהילה? ארבע פעמים "כן" = מועמד מצוין לסוכן.</p>
+</section>
+
+<section id="ideas">
+  <h2><i>💡</i> 6 רעיונות לסוכנים</h2>
+  <p class="lead">אחד לכל אזור בעבודה של מנהל קהילה. כל רעיון כבר כתוב כמשפט מטרה.</p>
+  <ul class="list">
+    <li><b>👋 קליטה</b><span>סוכן שמקבל את תשובות טופס ההצטרפות ומנסח לכל חבר חדש הודעת ברוכים הבאים אישית, כדי שכל אחד ירגיש שראו אותו.</span></li>
+    <li><b>💬 מענה</b><span>סוכן שקורא את השאלות של השבוע ומנסח תשובות ממאגר הידע שלנו, כדי שאף שאלה לא תישאר בלי מענה.</span></li>
+    <li><b>✍️ תוכן</b><span>סוכן שהופך רעיון אחד לפוסטים לכל הפלטפורמות בקול שלנו, כדי שאפרסם יותר בפחות זמן.</span></li>
+    <li><b>🎟 אירועים</b><span>סוכן שמזהה ביומן כל מפגש קהילה חדש ומכין לו ערכת הפקה מלאה בלי שאבקש, כדי שאשקיע בתוכן ולא בלוגיסטיקה.</span></li>
+    <li><b>📊 דיווח</b><span>סוכן שמקבל את קובץ הנתונים החודשי ומוציא דוח להנהלה עם 3 תובנות, כדי שאגיע לישיבה מוכנה.</span></li>
+    <li><b>🤝 ספונסרים</b><span>סוכן שמקבל נתוני אירוע ומכין דוח מעוצב לספונסר, כדי שירצה לחזור גם בשנה הבאה.</span></li>
+  </ul>
+</section>
+
+<section id="prompts">
+  <h2><i>📋</i> הפרומפטים</h2>
+  <p class="lead">מעתיקים, משלימים את מה שבסוגריים, ושולחים.</p>
+
+  <div class="prompt"><h3>📚 בניית סקיל "קול הקהילה"</h3>
+    <div class="box" id="p1">בוא נבנה סקיל אישי בשם community-voice שכותב בקול של הקהילה שלי.
+אני מדביקה כאן 5–10 פוסטים ששלחתי לקהילה. תנתח את הסגנון: אורך, טון, פתיחות, סגירות, מילים שחוזרות, ומה אנחנו אף פעם לא אומרים.
+בתיאור תכתוב: להשתמש בכל פעם שכותבים טקסט לקהילה.
+לפני שאתה כותב את הסקיל, תשאל אותי את כל השאלות שאתה צריך.</div>
+    <div class="row"><small>מצרפים: 5–10 פוסטים שלכם</small><button class="copy" data-for="p1">העתקה</button></div></div>
+
+  <div class="prompt"><h3>💬 סקיל משיחה שאהבתם</h3>
+    <div class="box" id="p2">תהפוך את מה שעשינו בשיחה הזו לסקיל, כדי שבפעם הבאה תעשה את זה בדיוק ככה.
+לפני שאתה כותב את הסקיל, תשאל אותי את כל השאלות שאתה צריך.</div>
+    <div class="row"><small>בסוף שיחה שיצא בה בדיוק מה שרציתם</small><button class="copy" data-for="p2">העתקה</button></div></div>
+
+  <div class="prompt"><h3>E · ראיון</h3>
+    <div class="box" id="p3">אני רוצה לבנות סוכן ש[משפט המטרה].
+הנה הרנטגן של התהליך: [מדביקים]
+תראיין אותי, שאלה אחת בכל פעם, על הקלט, הפלט, מקרי קצה ומה אסור לך לעשות.
+בסוף, תסכם במסמך אחד את כל מה שהסוכן צריך לעשות, ומה אסור לו.
+אל תבנה כלום עדיין.</div>
+    <div class="row"><small>במצב רגיל</small><button class="copy" data-for="p3">העתקה</button></div></div>
+
+  <div class="prompt"><h3>E · תכנית</h3>
+    <div class="box" id="p4">לפי מה שסיכמנו, תציג לי תכנית עבודה: מה תבנה, באיזה סדר, ואיך נבדוק כל שלב.
+נבנה שלב אחד בכל פעם, ונתחיל רק מ[השלב הראשון].</div>
+    <div class="row"><small>במצב Plan: בוחר המצבים מתחת לתיבת הכתיבה, או Cmd+Shift+M</small><button class="copy" data-for="p4">העתקה</button></div></div>
+
+  <div class="prompt"><h3>N · צעד אחד</h3>
+    <div class="box" id="p5">תבנה רק את [X]. נבדוק אותו על: [דוגמה אמיתית].
+כשתסיים, תפתח לי אותו.</div>
+    <div class="row"><small>יכולת אחת בכל פעם</small><button class="copy" data-for="p5">העתקה</button></div></div>
+
+  <div class="prompt"><h3>🛠 כשמשהו לא עובד</h3>
+    <div class="box" id="p6">זה לא טוב כי [למה]. תתקן, ותזכור את זה להבא.</div>
+    <div class="row"><small>ואם זו שגיאה שחוזרת: "תגלה למה זה קורה, ותקן את השורש, לא את התסמין."</small><button class="copy" data-for="p6">העתקה</button></div></div>
+
+  <div class="prompt"><h3>T · אריזה לסקיל</h3>
+    <div class="box" id="p7">תארוז את כל התהליך כסקיל בשם [שם]. כשהוא רץ: [מאיפה הוא מתחיל], [מה הוא מכין], ותסכם בסוף מה עשית.</div>
+    <div class="row"><small>כשהסוכן עובד מקצה לקצה</small><button class="copy" data-for="p7">העתקה</button></div></div>
+</section>
+
+<section id="schedule">
+  <h2><i>⏰</i> נותנים לו לעבוד לבד</h2>
+  <ol class="steps">
+    <li><b>Scheduled</b><span>בסרגל הצד של הטאב Code</span></li>
+    <li><b>משימה חדשה</b><span>בתיקייה של הסוכן</span></li>
+    <li><b>מה להריץ</b><span>את הפקודה של הסקיל, למשל <span class="ltr">/production</span></span></li>
+    <li><b>מתי</b><span>למשל, כל יום ב-7:00</span></li>
+  </ol>
+  <p class="tip">משימה מתוזמנת רצה על המחשב שלכם, כשהוא ער והאפליקציה פתוחה.</p>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="https://chat.whatsapp.com/Lsso3Pf0vlE8ya2yvNBNpJ" target="_blank" rel="noopener">הקהילה שלי בוואטסאפ</a>
+    <a href="https://youtube.com/@mornissim" target="_blank" rel="noopener">יוטיוב</a>
+    <a href="https://www.instagram.com/mornissim_" target="_blank" rel="noopener">אינסטגרם</a>
+    <a href="https://flow-az.com/links">כל הלינקים</a>
+  </div>
+  © כל הזכויות שמורות למור נסים ולחברת פלואו מ.נ. בע״מ
+</footer>
+</main>
+<script>
+document.querySelectorAll('button.copy').forEach(b=>b.addEventListener('click',()=>{
+  const el=document.getElementById(b.dataset.for), text=el.innerText.trim();
+  const done=()=>{b.textContent='הועתק ✓';b.classList.add('done');setTimeout(()=>{b.textContent='העתקה';b.classList.remove('done')},1800)};
+  const fallback=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='סומן, העתיקו ידנית'};
+  try{navigator.clipboard.writeText(text).then(done,fallback)}catch(e){fallback()}
+}));
+</script>
+</body>
+</html>
