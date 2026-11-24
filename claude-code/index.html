@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claude Code למתחילים · קורס לייב בדצמבר · מור נסים</title>
+<meta name="description" content="4 מפגשים חיים בזום עם מור נסים. בלי ידע טכני, עם ליווי אישי, ותוצרים עובדים לעסק עד סוף דצמבר.">
+<link rel="canonical" href="https://flow-az.com/claude-code/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://flow-az.com/claude-code/">
+<meta property="og:title" content="Claude Code למתחילים · קורס לייב עם מור נסים">
+<meta property="og:description" content="4 מפגשים חיים בזום, בלי ידע טכני, עם ליווי אישי. מתחילים ב-8.12.">
+<meta property="og:image" content="https://flow-az.com/claude-code/mor.jpg">
+<link rel="icon" type="image/png" href="/images/flow-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6FAFE;--tint:#E4F0FC;--card:#fff;--line:rgba(16,52,88,.13);--text:#0B1A2A;--muted:#4D6176;--accent:#1A72C8;--accent2:#4FA8F5;--deep:#0C2F57;--gold:#6CB8F7;--green:#1E7A4D}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Rubik,system-ui,-apple-system,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:96px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+a{color:var(--accent)}
+.band{padding:56px 18px}
+.band.tint{background:var(--tint)}
+.band.dots{background-image:radial-gradient(rgba(26,114,200,.13) 1.2px,transparent 1.2px);background-size:22px 22px}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:720px;margin:0 auto}
+
+/* headings */
+h1{font-size:clamp(36px,9.5vw,76px);font-weight:900;line-height:1.12;letter-spacing:-.02em;margin:0;text-align:center}
+.sticker{display:inline-block;background:var(--accent);color:#fff;padding:.02em .28em .08em;border-radius:.18em;transform:rotate(-2.5deg);box-shadow:0 10px 24px -12px rgba(26,114,200,.9)}
+h2{font-size:clamp(28px,7vw,46px);font-weight:900;line-height:1.2;margin:0 0 10px;text-align:center}
+.mark{background:linear-gradient(transparent 60%,#8CC6F8 60%,#8CC6F8 92%,transparent 92%);padding:0 .12em;border-radius:4px}
+.sub{color:var(--muted);text-align:center;font-size:17.5px;max-width:560px;margin:0 auto 28px}
+
+/* hero */
+.hero{padding:44px 18px 48px;text-align:center}
+.label{display:flex;align-items:center;justify-content:center;gap:12px;font-size:13.5px;font-weight:700;letter-spacing:.14em;color:var(--accent);margin:22px 0 20px}
+.label::before,.label::after{content:"";width:28px;height:1.5px;background:var(--accent2)}
+.q{font-size:clamp(18px,4.4vw,21px);color:var(--muted);max-width:620px;margin:0 auto 6px}
+.q b{color:var(--text)}
+.lead2{font-weight:700;font-size:clamp(17px,4.2vw,19px);margin:26px 0 14px}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:880px;margin:0 auto}
+.chips div{background:#fff;border:1.5px solid var(--accent2);border-radius:14px;padding:16px 12px;font-size:16.5px;font-weight:500;line-height:1.4;display:flex;align-items:center;justify-content:center}
+.wa{position:relative;max-width:880px;margin:26px auto 0;background:#fff;border:2px solid var(--accent);border-radius:16px;padding:24px 20px 18px;text-align:center}
+.wa-tag{position:absolute;top:-15px;right:22px;background:var(--gold);color:#06223F;font-weight:900;font-size:14px;padding:4px 14px;border-radius:8px;transform:rotate(2.5deg)}
+.wa b{display:block;font-size:clamp(19px,4.8vw,25px);font-weight:900;line-height:1.35}
+.wa-sub{display:block;margin-top:4px;color:var(--muted);font-size:16px}
+.facts{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 24px;margin:26px auto 22px;font-size:14.5px;font-weight:500}
+.facts span::before{content:"◆";color:var(--gold);font-size:9px;margin-inline-end:8px;vertical-align:middle}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;font:inherit;font-weight:700;font-size:19px;padding:15px 34px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;box-shadow:0 14px 26px -14px rgba(26,114,200,.9)}
+.btn:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.cd{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+.timer{margin-top:14px;font-size:14.5px;color:var(--muted)}
+.timer b{color:#1A72C8}
+.morcard{margin:36px auto 0;max-width:520px;background:#fff;border:1.5px solid var(--accent2);border-radius:22px;padding:20px;display:flex;gap:16px;align-items:center;text-align:right;box-shadow:0 26px 50px -34px rgba(16,52,88,.6)}
+.morcard img{flex:none;width:92px;height:92px;border-radius:50%;object-fit:cover}
+.morcard p{margin:0;font-size:16.5px;font-weight:500;line-height:1.5}
+.morcard small{display:block;margin-top:6px;color:var(--muted);font-weight:400;font-size:14px}
+
+/* carousel */
+.car{position:relative}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 14px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 min(86%,560px);scroll-snap-align:center}
+.mock{background:#fff;border-radius:18px;border:1px solid var(--line);box-shadow:0 22px 44px -30px rgba(16,52,88,.6);padding:16px;height:300px;overflow:hidden;display:flex;flex-direction:column;gap:10px}
+.cap{text-align:center;margin:12px 6px 0;font-size:15.5px}
+.cap b{display:block;font-size:17px}
+.cap span{color:var(--muted)}
+.nav{position:absolute;top:150px;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:var(--deep);color:#fff;font-size:20px;cursor:pointer;display:none;z-index:2}
+.nav.prev{right:-8px}.nav.next{left:-8px}
+.note{text-align:center;color:var(--muted);font-size:13.5px;margin:8px 0 0}
+/* mock internals */
+.bar{display:flex;gap:5px;align-items:center}.bar i{width:9px;height:9px;border-radius:50%;background:#D5DFE9}
+.bar em{flex:1;height:18px;border-radius:9px;background:#EEF3F8;margin-inline-start:8px}
+.m-hero{flex:1;border-radius:12px;background:linear-gradient(150deg,#E4F0FC,#fff);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;text-align:center;padding:14px}
+.m-hero b{font-size:21px;font-weight:900;line-height:1.2}
+.m-hero span{font-size:13px;color:var(--muted)}
+.m-btn{background:#25A55A;color:#fff;font-weight:700;font-size:13px;border-radius:999px;padding:7px 16px}
+.m-h{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--muted)}
+.m-h b{font-size:18px;color:var(--text)}
+.rows{display:grid;gap:6px;font-size:13.5px}
+.rows div{display:flex;justify-content:space-between;background:#F4F7FA;border-radius:8px;padding:7px 10px}
+.rows .tot{background:var(--deep);color:#fff;font-weight:700}
+.flow{display:grid;gap:8px;flex:1;align-content:center}
+.flow div{display:flex;gap:10px;align-items:center;background:#F4F7FA;border-radius:10px;padding:9px 12px;font-size:14px;font-weight:500}
+.flow div i{font-style:normal;font-size:18px}
+.flow .ok{background:#E8F5EE;color:var(--green);font-weight:700}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpis div{background:#F4F7FA;border-radius:10px;padding:8px 10px}
+.kpis small{display:block;font-size:11.5px;color:var(--muted)}
+.kpis b{font-size:22px;font-weight:900}
+.bars{flex:1;display:flex;align-items:flex-end;gap:8px;background:#F4F7FA;border-radius:10px;padding:12px}
+.bars i{flex:1;background:#BCD8F5;border-radius:6px 6px 0 0}
+.bars i.hi{background:var(--accent)}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;flex:1}
+.posts div{border-radius:10px;background:var(--tint);padding:10px;font-size:12.5px;font-weight:700;display:flex;flex-direction:column;justify-content:space-between}
+.posts div:nth-child(2){background:#FFF3D1}.posts div:nth-child(3){background:#E8F5EE}
+.posts small{font-weight:400;color:var(--muted)}
+
+/* cards */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.card h3{margin:0 0 6px;font-size:19px;line-height:1.35}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+.card .ans{margin-top:12px;padding-top:12px;border-top:1.5px dashed var(--accent2);color:var(--text);font-weight:500;font-size:15.5px}
+.card .ans b{color:var(--accent)}
+.card.key{grid-column:1/-1;background:var(--deep);color:#fff;border:0}
+.card.key p{color:#C9DDF2}.card.key .ans{color:#fff;border-color:rgba(255,255,255,.35)}.card.key .ans b{color:var(--gold)}
+.tcard{background:var(--tint);border-radius:18px;padding:20px}
+.band.tint .tcard{background:#fff}
+.tcard i{font-style:normal;font-size:26px}
+.tcard h3{margin:4px 0 4px;font-size:18.5px}
+.tcard p{margin:0;color:var(--muted);font-size:15.5px}
+.grid2 .tcard:last-child:nth-child(odd){grid-column:1/-1}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
+.fact b{display:block;font-size:19px;font-weight:900;color:var(--accent)}
+.fact span{font-size:14.5px;color:var(--muted)}
+.learn{list-style:none;counter-reset:l;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.learn li{counter-increment:l;position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 76px 20px 20px}
+.learn li::before{content:"0" counter(l);position:absolute;right:18px;top:16px;font-size:30px;font-weight:900;color:var(--accent2);line-height:1}
+.learn b{display:block;font-size:18.5px;line-height:1.35;margin-bottom:4px}
+.learn span{color:var(--muted);font-size:15.5px}
+.notebox{margin-top:22px;background:#fff;border:2px solid var(--gold);border-radius:18px;padding:22px 24px;text-align:center;font-size:17px}
+.notebox p{margin:0}
+.notebox p+p{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted)}
+.notebox p+p b{color:var(--text)}
+.notfor{text-align:center;color:var(--muted);font-size:15px;margin:20px auto 0;max-width:620px}
+
+/* price */
+.pricebox{max-width:520px;margin:0 auto;background:var(--deep);color:#fff;border-radius:26px;padding:30px 24px;text-align:center;box-shadow:0 30px 60px -36px rgba(12,47,87,.9)}
+.pricebox .lbl{display:inline-block;background:var(--gold);color:#06223F;font-weight:700;font-size:14px;border-radius:999px;padding:5px 14px}
+.pricebox .was{margin-top:14px;font-size:20px;color:#9DB6D0;text-decoration:line-through}
+.pricebox .now{font-size:64px;font-weight:900;line-height:1}
+.pricebox .now small{font-size:26px}
+.pricebox ul{list-style:none;padding:0;margin:20px auto;display:grid;gap:8px;text-align:right;max-width:360px;font-size:16px}
+.pricebox li{position:relative;padding-right:26px}
+.pricebox li::before{content:"✓";position:absolute;right:0;color:var(--gold);font-weight:900}
+.pricebox .btn{width:100%;background:var(--gold);color:#06223F;box-shadow:none;font-size:20px}
+.pricebox .fine{font-size:13.5px;color:#B9CDE2;margin-top:12px}
+
+/* faq / about */
+details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:700;font-size:17px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin:10px 0 0;color:var(--muted)}
+.about{display:flex;gap:18px;align-items:center;max-width:620px;margin:0 auto}
+.about img{flex:none;width:110px;height:110px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px #fff,0 0 0 5.5px var(--accent2)}
+.about b{font-size:21px;display:block}
+.about p{margin:0;color:var(--muted)}
+.bio{display:flex;gap:22px;align-items:center;max-width:720px;margin:0 auto 22px}
+.bio-ph{flex:none;width:132px;height:132px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px #fff,0 0 0 5.5px var(--accent2)}
+.bio-eb{font-size:13.5px;font-weight:700;letter-spacing:.12em;color:var(--accent)}
+.bio-name{text-align:right;margin:2px 0 6px}
+.bio-line{margin:0 0 8px;color:var(--muted);font-size:16.5px}
+.bio-tag{margin:0;font-size:clamp(18px,4.4vw,22px);font-weight:700;line-height:1.4}
+.bio-facts .fact b{font-size:20px}
+.logos-h{text-align:center;font-weight:700;font-size:18px;margin:40px 0 18px}
+.logos{display:grid;grid-template-columns:repeat(8,1fr);gap:22px 30px;align-items:center}
+.logos img{width:100%;height:40px;object-fit:contain;filter:brightness(0);opacity:.62}
+.logos img.sq{height:54px}
+.logos img.knock{filter:grayscale(1);opacity:.8;border-radius:8px}
+.logos img.knock.dark{filter:grayscale(1) contrast(1.2);opacity:.75}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:26px 18px}
+
+.legal{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 12px;margin-bottom:8px;font-weight:500}
+.legal a{color:var(--muted)}
+.policy-modal{position:fixed;inset:0;z-index:99;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(8,20,36,.7)}
+.policy-modal.open{display:flex}
+.policy-panel{position:relative;background:#fff;color:var(--text);max-width:780px;width:100%;max-height:86vh;overflow:auto;border-radius:18px;padding:30px 26px;text-align:right}
+.policy-panel h2{font-size:26px;text-align:right;margin:0 0 12px}
+.policy-panel h3{font-size:17.5px;margin:18px 0 6px}
+.policy-panel p,.policy-panel li{font-size:15.5px;line-height:1.7;color:var(--muted)}
+.policy-panel ul,.policy-panel ol{padding-inline-start:22px;margin:6px 0 12px}
+.policy-close{position:absolute;top:10px;left:14px;background:transparent;border:0;font-size:30px;line-height:1;cursor:pointer;color:var(--muted)}
+/* accessibility menu */
+.a11y-btn{position:fixed;left:0;top:38%;z-index:60;width:46px;height:46px;border:0;border-radius:0 12px 12px 0;background:var(--accent);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px -8px rgba(12,47,87,.8)}
+.a11y-btn svg{width:26px;height:26px}
+.a11y-panel{position:fixed;left:8px;top:12%;z-index:61;width:min(300px,calc(100% - 16px));max-height:80vh;overflow:auto;background:#fff;color:#0B1A2A;border:2px solid var(--accent);border-radius:16px;padding:16px;box-shadow:0 24px 50px -20px rgba(12,47,87,.7);display:none;text-align:right}
+.a11y-panel.open{display:block}
+.a11y-panel h2{font-size:19px;text-align:right;margin:0 0 10px}
+.a11y-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.a11y-grid button{font:inherit;font-size:14.5px;font-weight:500;background:#F1F6FB;color:#0B1A2A;border:2px solid transparent;border-radius:10px;padding:10px 6px;cursor:pointer;line-height:1.3}
+.a11y-grid button[aria-pressed="true"]{border-color:var(--accent);background:#DCEBFA;font-weight:700}
+.a11y-grid .wide{grid-column:1/-1}
+.a11y-x{position:absolute;top:8px;left:10px;background:transparent;border:0;font-size:26px;line-height:1;cursor:pointer;color:#4D6176}
+.a11y-panel a{display:block;margin-top:10px;font-size:14px;text-align:center}
+html.a11y-mono{filter:grayscale(1)}
+html.a11y-sepia{filter:sepia(.9)}
+html.a11y-contrast{filter:contrast(1.45)}
+html.a11y-invert{filter:invert(1) hue-rotate(180deg)}
+html.a11y-by body, html.a11y-by body *:not(.a11y-btn):not(.a11y-btn *){background:#000!important;background-image:none!important;color:#FFEB00!important;border-color:#FFEB00!important;box-shadow:none!important}
+html.a11y-links a{text-decoration:underline!important;outline:2px solid currentColor!important;outline-offset:2px}
+html.a11y-heads h1,html.a11y-heads h2,html.a11y-heads h3{outline:2px dashed var(--accent)!important;outline-offset:4px}
+html.a11y-still *,html.a11y-still *::before,html.a11y-still *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html.a11y-font body,html.a11y-font body *{font-family:Arial,Helvetica,sans-serif!important;letter-spacing:.01em}
+html.a11y-focus :focus{outline:4px solid #FF7A00!important;outline-offset:3px!important}
+html[data-a11y-zoom] header,html[data-a11y-zoom] section,html[data-a11y-zoom] footer{zoom:var(--a11y-zoom,1)}
+/* floating bar */
+.float{position:fixed;bottom:14px;left:50%;transform:translate(-50%,140%);z-index:9;background:var(--deep);color:#fff;border-radius:999px;padding:8px 8px 8px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 18px 36px -14px rgba(12,47,87,.8);transition:transform .35s;width:max-content;max-width:calc(100% - 20px)}
+.float.show{transform:translate(-50%,0)}
+.float .t{font-size:13.5px;line-height:1.3}
+.float .t i{font-style:normal}
+body.late [data-early]{display:none!important}
+body:not(.late) [data-late]{display:none!important}
+.float .t b{color:var(--gold);font-size:17px;margin-inline-start:6px}
+.float .btn{background:var(--gold);color:#06223F;box-shadow:none;font-size:15.5px;padding:10px 20px;flex:none}
+
+@media (max-width:760px){
+  .band{padding:44px 16px}
+  .chips{grid-template-columns:1fr 1fr}
+  .grid2,.grid3,.learn{grid-template-columns:1fr}
+  .grid4{grid-template-columns:1fr 1fr}
+  .facts{border-radius:20px;padding:12px 16px}
+  .about,.morcard,.bio{flex-direction:column;text-align:center}
+  .bio-name{text-align:center}
+  .logos{grid-template-columns:repeat(4,1fr);gap:18px 22px}
+  .float .t span{display:none}
+}
+@media (min-width:761px){.nav{display:block}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.float{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <h1>כולם כבר עובדים עם <span class="ltr">Claude Code</span>.<br>הגיע הזמן <span class="sticker">שגם אתם</span></h1>
+  <div class="label">קורס לייב למתחילים</div>
+  <p class="q">שומעים על <span class="ltr">Claude Code</span> מכל כיוון, <b>אבל אין לכם מושג מה זה, מאיפה מתחילים, ומתי בכלל יהיה לכם זמן לזה?</b></p>
+  <p class="lead2">ב-4 מפגשים חיים איתי, בלי שום ידע טכני:</p>
+  <div class="chips">
+    <div>מבינים מה זה ואיך זה עובד</div>
+    <div>מחברים אותו לכלים שאתם עובדים איתם</div>
+    <div>בונים דשבורד שמרכז את כל מה שהעסק צריך</div>
+    <div>לומדים שיטה לבנות כל תהליך אוטומטי וכל תוצר שתרצו</div>
+  </div>
+  <div class="wa">
+    <span class="wa-tag">רק בקורס הזה</span>
+    <b>ואתם בקבוצת <span class="mark">וואטסאפ איתי</span>, לאורך כל הקורס</b>
+    <span class="wa-sub">שואלים, מגישים משימות, ומקבלים ממני פידבק אישי.</span>
+  </div>
+  <div class="facts"><span>4 מפגשים חיים בזום</span><span>ימי שלישי 10:30–12:30</span><span>מתחילים ב-8.12</span><span data-early>590 ₪ לחברי הקהילה</span><span data-late>690 ₪</span></div><br>
+  <a class="btn" href="#price">אני רוצה להיות שם ←</a>
+  <div class="timer" data-early>המחיר לחברי הקהילה עד חמישי 26.11 בחצות · נשארו <b class="cd" data-cd>--:--:--</b></div>
+
+  <div class="morcard">
+    <img src="mor.jpg" alt="מור נסים">
+    <p>"באים בדיוק איך שאתם. את כל התהליך אתם מקבלים ממני על מגש, ואני בודקת אישית שכל אחד מגיש ושהתוצר טוב."<small>מור נסים, מייסדת <span class="ltr">Flow</span></small></p>
+  </div>
+</header>
+
+<!-- WHAT YOU GET (carousel) -->
+<section class="band tint">
+  <div class="wrap">
+    <h2>מה תוכלו לבנות <span class="mark">אחרי 4 מפגשים</span>?</h2>
+    <p class="sub">כמה דוגמאות. כל אחת מהן יכולה להיות אצלכם בעסק, ואתם אלה שתבנו אותה. גללו הצידה כדי לראות את כולן.</p>
+    <div class="car">
+      <button class="nav prev" type="button" aria-label="הקודם">›</button>
+      <button class="nav next" type="button" aria-label="הבא">‹</button>
+      <div class="track" id="track">
+        <div class="slide">
+          <div class="mock">
+            <div class="m-h"><b>הדשבורד של העסק</b><span>עודכן הבוקר, 08:00</span></div>
+            <div class="kpis"><div><small>פניות השבוע</small><b>14</b></div><div><small>הצעות פתוחות</small><b>6</b></div><div><small>משימות להיום</small><b>3</b></div></div>
+            <div class="bars"><i style="height:45%"></i><i style="height:60%"></i><i style="height:52%"></i><i style="height:74%"></i><i style="height:66%"></i><i class="hi" style="height:92%"></i></div>
+          </div>
+          <p class="cap"><b>דשבורד שמרכז את כל מה שהעסק צריך</b><span>מסך אחד, מחובר לכלים שאתם עובדים איתם.</span></p>
+        </div>
+        <div class="slide">
+          <div class="mock">
+            <div class="bar"><i></i><i></i><i></i><em></em></div>
+            <div class="m-hero"><b>סטודיו לדוגמה<br>פילאטיס בקבוצות קטנות</b><span>שיעור ניסיון ראשון, בתיאום מראש</span><div class="m-btn">💬 דברו איתי בוואטסאפ</div></div>
+          </div>
+          <p class="cap"><b>דף נחיתה או אתר לעסק</b><span>מהרעיון ועד דף שעובד, בצבעים ובשפה שלכם.</span></p>
+        </div>
+        <div class="slide">
+          <div class="mock">
+            <div class="m-h"><b>הצעת מחיר</b><span>ללקוח: חברה לדוגמה</span></div>
+            <div class="rows"><div><span>סדנת צוות, 3 שעות</span><span>2,400 ₪</span></div><div><span>חומרי הכנה</span><span>350 ₪</span></div><div><span>פגישת המשך</span><span>600 ₪</span></div><div class="tot"><span>סה"כ</span><span>3,350 ₪</span></div></div>
+            <div class="m-h"><span>נוצר מפרטי הלקוח, לפי המחירון שלכם</span></div>
+          </div>
+          <p class="cap"><b>מנגנון להפקת הצעות מחיר</b><span>נותנים את פרטי הלקוח, מקבלים הצעה מוכנה לשליחה.</span></p>
+        </div>
+        <div class="slide">
+          <div class="mock">
+            <div class="m-h"><b>אוטומציה</b><span>כל יום ראשון, 08:00</span></div>
+            <div class="flow"><div><i>📥</i>קורא את הפניות מהשבוע</div><div><i>🗂️</i>ממיין לפי דחיפות</div><div><i>📝</i>מכין טבלת סיכום</div><div class="ok"><i>✓</i>הסיכום מחכה לכם בבוקר</div></div>
+          </div>
+          <p class="cap"><b>תהליך אוטומטי שחוזר כל שבוע</b><span>בוחרים תהליך שגוזל לכם זמן, ובונים מנגנון שעושה אותו.</span></p>
+        </div>
+      </div>
+    </div>
+    <p class="note">אלה דוגמאות למה שאפשר לבנות עם מה שלומדים בקורס, ולא רשימה של מה שכל משתתף בונה. המסכים להמחשה, עם עסק ומספרים מומצאים.</p>
+  </div>
+</section>
+
+<!-- PROBLEM + SOLUTION -->
+<section class="band dots">
+  <div class="wrap">
+    <h2>מכירים את <span class="mark">השאלות האלה</span>?</h2>
+    <p class="sub">כולם מדברים על <span class="ltr">Claude Code</span>, ואף אחד לא מסביר אותו. הנה מה שנשארים איתו, ואיך פותרים את זה בלייב.</p>
+    <div class="grid2">
+      <div class="card"><h3>"מה זה בכלל?"</h3><p>כולם אומרים שזה משנה הכול. אף אחד לא מסביר מה ההבדל מהצ'אט שאתם כבר מכירים.</p><div class="ans"><b>בקורס:</b> מבינים את זה במפגש הראשון, בעברית פשוטה.</div></div>
+      <div class="card"><h3>"איך מתחילים?"</h3><p>מה מורידים, על מה לוחצים, ומה כותבים בשורה הראשונה.</p><div class="ans"><b>בקורס:</b> סרטון הכנה וצ'קליסט, וכבר במפגש הראשון בונים יחד.</div></div>
+      <div class="card"><h3>"למה דווקא <span class="ltr">Claude</span>?"</h3><p>יש כל כך הרבה כלים. למה זה, ולמה עכשיו?</p><div class="ans"><b>בקורס:</b> רואים בעיניים מה הוא עושה שהצ'אט לא עושה.</div></div>
+      <div class="card"><h3>"איך חושבים כדי שזה ייצא טוב?"</h3><p>שני אנשים מבקשים אותו דבר ומקבלים תוצאות שונות לגמרי.</p><div class="ans"><b>בקורס:</b> שיטה אחת שחוזרת בכל תוצר: מתכננים, בונים, בודקים, מתקנים.</div></div>
+      <div class="card key"><h3>"ואיך אדע שאני עושה את זה נכון?"</h3><p>זו הבעיה הכי גדולה. לבד מול המסך אין מי שיגיד לכם "כן, ככה" או "רגע, לא ככה". סרטונים ומדריכים לא רואים מה אתם עושים.</p><div class="ans"><b>בקורס:</b> אני בודקת אישית כל משימה שתגישו, ועונה לכם בקבוצת הוואטסאפ לאורך כל הקורס.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section class="band">
+  <div class="wrap">
+    <h2>מה <span class="mark">לומדים</span>?</h2>
+    <p class="sub">שישה דברים, לפי הסדר. כל אחד נבנה על הקודם, ואף אחד מהם לא דורש רקע טכני.</p>
+    <ol class="learn">
+      <li><b>מה ההבדל בין צ'אט ל-<span class="ltr">Claude Code</span></b><span>בצ'אט מקבלים תשובה ומסתדרים איתה לבד. כאן <span class="ltr">Claude</span> עושה את העבודה עצמה. מבינים למה זה משנה את כל הדרך שבה עובדים איתו.</span></li>
+      <li><b>לתת לו לעבוד אצלכם במחשב</b><span>פותחים לו תיקייה, והוא יוצר בה קבצים, מסדר, ובונה. אתם רואים כל צעד ומאשרים.</span></li>
+      <li><b>ללמד אותו את העסק, פעם אחת</b><span>מי אתם, מה אתם מוכרים, איך אתם כותבים. מאותו רגע לא מסבירים לו מחדש בכל שיחה.</span></li>
+      <li><b>לחשוב לפני שבונים</b><span>השיטה שחוזרת בכל דבר: מתכננים, בונים, בודקים, מתקנים. זה מה שמבדיל בין תוצאה בינונית לתוצאה שעובדת.</span></li>
+      <li><b>לחבר אותו לכלים שלכם</b><span>מייל, יומן, קבצים ועוד. כך הוא עובד עם המידע האמיתי של העסק, ולא עם מה שהעתקתם לו.</span></li>
+      <li><b>לבנות דשבורד, ולהפוך תהליך לאוטומטי</b><span>מסך אחד שמרכז את מה שחשוב לכם, ותהליך אחד שחוזר אצלכם כל שבוע ורץ מעכשיו בלי שתבקשו.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ON A TRAY -->
+<section class="band tint">
+  <div class="wrap">
+    <h2>מה מקבלים, <span class="mark">על מגש</span></h2>
+    <p class="sub">אתם לא צריכים להבין לבד מה חשוב ומה לא. אתם רק צריכים להגיע.</p>
+    <div class="grid2">
+      <div class="tcard"><i>🎥</i><h3>4 מפגשים חיים איתי בזום</h3><p>שעתיים בכל פעם. אני מראה, אתם עושים יחד איתי, וכל מושג מוסבר מאפס.</p></div>
+      <div class="tcard"><i>🎬</i><h3>הכנה מראש</h3><p>סרטון קצר וצ'קליסט לפני המפגש הראשון, כדי שתגיעו מוכנים ורגועים.</p></div>
+      <div class="tcard"><i>⏺️</i><h3>הקלטות של כל המפגשים</h3><p>פספסתם מפגש, או רוצים לחזור לחלק מסוים? ההקלטה אצלכם.</p></div>
+      <div class="tcard"><i>✅</i><h3>משימה שבועית, עם בדיקה אישית שלי</h3><p>אני מוודאת שהגשתם ושהתוצר טוב. אם משהו לא יושב, תקבלו הכוונה מדויקת.</p></div>
+      <div class="tcard"><i>💬</i><h3>קבוצת וואטסאפ איתי, לאורך כל הקורס</h3><p>שואלים ומקבלים תשובה ממני. גישה ישירה כזאת אליי לא קיימת בשום מסגרת אחרת.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIME -->
+<section class="band">
+  <div class="wrap">
+    <h2>"אבל אין לי <span class="mark">זמן</span>"</h2>
+    <p class="sub">דווקא בגלל זה. מי שאין לו זמן הוא בדיוק מי שצריך ש-<span class="ltr">Claude</span> יתחיל לעבוד בשבילו.</p>
+    <div class="grid4">
+      <div class="fact"><b>4 ימי שלישי</b><span>8.12 · 15.12 · 22.12 · 29.12</span></div>
+      <div class="fact"><b>10:30–12:30</b><span>בזום, וכל מפגש מוקלט</span></div>
+      <div class="fact"><b>משימה אחת בשבוע</b><span>שעתיים-שלוש, על העסק שלכם</span></div>
+      <div class="fact"><b>חודש אחד</b><span>ל-2027 נכנסים כבר אחרי</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="band tint">
+  <div class="wrap">
+    <h2>למי זה <span class="mark">מתאים</span>?</h2>
+    <p class="sub">לא צריך רקע טכני, ולא צריך לדעת מה לשאול.</p>
+    <div class="grid3">
+      <div class="tcard"><h3>לבעלי עסקים ואנשי מקצוע</h3><p>שרוצים לבנות לעסק דברים בעצמם, בלי לחכות למתכנת או לפרילנסר.</p></div>
+      <div class="tcard"><h3>למי שלא יודע מאיפה להתחיל</h3><p>שמעתם על <span class="ltr">Claude Code</span> ולא נגעתם, או שהתחלתם לבד ונתקעתם.</p></div>
+      <div class="tcard"><h3>למי שנמאס להרגיש מאחור</h3><p>ורוצה להיכנס ל-2027 עם עסק שיודע לבנות לעצמו את מה שהוא צריך.</p></div>
+    </div>
+    <div class="notebox">
+      <p><b>שימו לב. מדובר בקורס למתחילים.</b></p>
+      <p>כבר עובדים עם <span class="ltr">Claude Code</span> באופן שוטף ובונים איתו דברים שעובדים? הקורס הזה יהיה לכם איטי מדי. <b>בשבילכם ייפתח מסלול מתקדמים, <a href="https://wa.me/972544566665?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%93%D7%A3%20%D7%A9%D7%9C%20%D7%A7%D7%95%D7%A8%D7%A1%20%D7%94%D7%9E%D7%AA%D7%97%D7%99%D7%9C%D7%99%D7%9D%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9C%D7%A7%D7%95%D7%A8%D7%A1%20%D7%94%D7%9E%D7%AA%D7%A7%D7%93%D7%9E%D7%99%D7%9D" target="_blank" rel="noopener">כתבו לי</a> ואעדכן אתכם.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="band" id="price">
+  <div class="wrap">
+    <h2><span class="mark">נכנסים</span>?</h2>
+    <p class="sub">בעוד חודש זה יכול להיות מאחוריכם.</p>
+    <div class="pricebox">
+      <div class="lbl" data-early>מחיר לחברי הקהילה · נסגר בעוד <span class="cd" data-cd>--:--:--</span></div>
+      <div class="was" data-early>690 ₪</div>
+      <div class="now" data-early>590 <small>₪</small></div>
+      <div class="now" data-late>690 <small>₪</small></div>
+      <ul>
+        <li>4 מפגשים חיים בזום, שעתיים כל אחד</li>
+        <li>הקלטות של כל המפגשים</li>
+        <li>חומרי הכנה לפני המפגש הראשון</li>
+        <li>דשבורד לעסק, מחובר לכלים שלכם</li>
+        <li>שיטה לבנות כל תהליך אוטומטי וכל תוצר</li>
+        <li>משימה שבועית, עם בדיקה אישית שלי</li>
+        <li>קבוצת וואטסאפ איתי לאורך כל הקורס</li>
+      </ul>
+      <a class="btn" data-pay href="#">שריינו לי מקום ←</a>
+      <div class="fine"><span data-early>המחיר לחברי הקהילה בתוקף עד חמישי 26.11 בחצות. אחרי זה המחיר 690 ₪. </span>נדרש מנוי <span class="ltr">Claude</span> בתשלום, פרטים בשאלות הנפוצות.<br>ההרשמה בכפוף ל<a href="#" data-policy-open="polTrm" style="color:#B9CDE2">תקנון האתר</a>, כולל מדיניות ביטול עסקה.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="band tint">
+  <div class="narrow">
+    <h2>שאלות <span class="mark">נפוצות</span></h2>
+    <div style="height:14px"></div>
+    <details><summary><span>אין לי שום רקע טכני. זה באמת בשבילי?</span></summary><p>כן, הקורס נבנה בדיוק בשבילכם. לא כותבים קוד ולא פותחים מסך שחור. אתם כותבים ל-<span class="ltr">Claude</span> בעברית מה אתם רוצים, והוא בונה. כל מושג מוסבר מאפס.</p></details>
+    <details><summary><span>מה ההבדל בין זה לבין הצ'אט של <span class="ltr">Claude</span> או ChatGPT שאני כבר מכיר/ה?</span></summary><p>בצ'אט אתם שואלים ומקבלים תשובה, ואת העבודה עושים לבד. <span class="ltr">Claude Code</span> עובד אצלכם במחשב: פותח תיקייה, יוצר קבצים, בונה ומתקן. זה הנושא של המפגש הראשון.</p></details>
+    <details><summary><span>מתי ואיפה זה קורה?</span></summary><p>4 מפגשים חיים בזום, בימי שלישי בין 10:30 ל-12:30, בתאריכים 8.12, 15.12, 22.12 ו-29.12. משתתפים מהמחשב, מהבית או מהמשרד.</p></details>
+    <details><summary><span>מה בדיוק אבנה?</span></summary><p>דשבורד שמרכז את כל מה שהעסק שלכם צריך, מחובר לכלים שאתם עובדים איתם. לצד זה תלמדו שיטה, ואיתה תוכלו לבנות כל תהליך אוטומטי וכל תוצר שתרצו, למשל דף נחיתה, מנגנון הצעות מחיר או אוטומציה שבועית.</p></details>
+    <details><summary><span>כמה זמן זה דורש בשבוע?</span></summary><p>שעתיים של מפגש חי, ועוד שעתיים-שלוש בערך למשימה השבועית.</p></details>
+    <details><summary><span>מה צריך כדי להשתתף?</span></summary><p>מחשב <span class="ltr">Mac</span> או <span class="ltr">Windows</span>, האפליקציה <span class="ltr">Claude Desktop</span> (חינם להורדה), ומנוי <span class="ltr">Claude</span> בתשלום, <span class="ltr">Pro</span> ומעלה. <span class="ltr">Claude Code</span> לא זמין במנוי החינמי. מנוי <span class="ltr">Pro</span> עולה כ-20$ לחודש (המחיר המדויק תלוי במדינה ובמסלול החיוב), והוא לא כלול במחיר הקורס.</p></details>
+    <details><summary><span>צריך להתקין משהו לפני המפגש הראשון?</span></summary><p>כן, וזה פשוט. אחרי ההרשמה תקבלו סרטון קצר וצ'קליסט: מורידים את האפליקציה, מתחברים, וזהו. בלי טרמינל ובלי התקנות מסובכות.</p></details>
+    <details><summary><span><span class="ltr">Claude</span> עובד בעברית?</span></summary><p>כן. כותבים לו בעברית, והוא עונה ובונה בעברית. כל הקורס, הדוגמאות והמשימות בעברית.</p></details>
+    <details><summary><span>מה קורה אם אני נתקע/ת בין המפגשים?</span></summary><p>בשביל זה יש את קבוצת הוואטסאפ. שואלים שם, ואני עונה. בנוסף, אני עוברת אישית על כל משימה שמגישים.</p></details>
+    <details><summary><span>אני לא בעל/ת עסק. זה מתאים גם לי?</span></summary><p>כן. אם יש לכם בעבודה משימות שחוזרות על עצמן, מידע שמפוזר בכמה מקומות, או דברים שהייתם רוצים לבנות לעצמכם, תוכלו ליישם הכול על העבודה שלכם.</p></details>
+    <details><summary><span>מה אם אפספס מפגש? יש הקלטות?</span></summary><p>כן. כל מפגש מוקלט, וההקלטה נשלחת למשתתפים. אפשר להשלים מפגש שפספסתם, או לחזור לחלק שרוצים לראות שוב. ועדיין, הכי כדאי להגיע לייב: שם שואלים ובונים יחד.</p></details>
+    <details><summary><span>יש לי שאלה שלא מופיעה כאן</span></summary><p><a href="https://wa.me/972557210724" target="_blank" rel="noopener">כתבו לי בוואטסאפ</a>, ואענה.</p></details>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="band">
+  <div class="wrap">
+    <div class="bio">
+      <img class="bio-ph" src="mor.jpg" alt="מור נסים">
+      <div>
+        <div class="bio-eb">נעים להכיר</div>
+        <h2 class="bio-name">מור נסים</h2>
+        <p class="bio-line">מייסדת <span class="ltr">Flow</span> ומדריכת AI. מלמדת בעלי עסקים, מנהלים וצוותים לעבוד עם AI בפועל, בשפה של בני אדם.</p>
+        <p class="bio-tag">המוח מאחורי מנגנונים חכמים שמייצרים <span class="mark">מיליונים לארגונים</span>.</p>
+      </div>
+    </div>
+    <div class="grid4 bio-facts">
+      <div class="fact"><b>מייסדת <span class="ltr">Flow</span></b><span>ייעוץ והטמעת AI ואוטומציות לחברות הגדולות בארץ ובעולם</span></div>
+      <div class="fact"><b class="ltr">+5,500</b><span>חברים בטכנו-TIPS, המועדון הטכנולוגי שלי</span></div>
+      <div class="fact"><b>כ-100K</b><span>עוקבים ברשתות החברתיות</span></div>
+      <div class="fact"><b>מהנדסת תעשייה וניהול</b><span>מרצה, יזמית ובעלת בית ספר טכנולוגי דיגיטלי</span></div>
+    </div>
+    <p class="logos-h">את מה שתלמדו בקורס, אני מטמיעה בארגונים כמו אלה</p>
+    <div class="logos"><img src="logos/google.svg" alt="" class=""><img src="logos/meta.svg" alt="" class=""><img src="logos/microsoft.svg" alt="" class=""><img src="logos/salesforce.svg" alt="" class="knock dark"><img src="logos/sap.png" alt="" class="knock"><img src="logos/intuit.png" alt="" class=""><img src="logos/applied.png" alt="" class=""><img src="logos/monday.png" alt="" class=""><img src="logos/ness.svg" alt="" class=""><img src="logos/wolt.png" alt="" class="sq knock"><img src="logos/bezeq.png" alt="" class="sq"><img src="logos/barilan.png" alt="" class="sq"><img src="logos/cbs.png" alt="" class="sq"><img src="logos/infinity.png" alt="" class="sq"><img src="logos/tsarfati.svg" alt="" class=""><img src="logos/community.png" alt="" class="sq knock"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="legal"><a href="#" data-policy-open="polAcc">הצהרת נגישות</a><span>·</span><a href="#" data-policy-open="polPrv">מדיניות פרטיות</a><span>·</span><a href="#" data-policy-open="polTrm">תקנון אתר</a></div>
+  <div>© 2026 <span class="ltr">Flow</span>. כל הזכויות שמורות. · מור נסים · <a href="https://flow-az.com">flow-az.com</a></div>
+</footer>
+
+<div class="policy-modal" id="polAcc" role="dialog" aria-modal="true" aria-labelledby="polAccT">
+  <div class="policy-panel">
+    <button class="policy-close" data-policy-close aria-label="סגירה">×</button>
+      <h2 id="polAccT">הצהרת נגישות</h2>
+      <p>חברתינו נוקטת את מירב המאמצים ומשקיעה משאבים רבים על מנת לספק לכל לקוחותיה שירות שוויוני, מכובד, נגיש ומקצועי. בהתאם לחוק שוויון זכויות לאנשים עם מוגבלויות תשנ"ח-1998 ולתקנות שהותקנו מכוחו, מושקעים מאמצים ומשאבים רבים בביצוע התאמות הנגישות הנדרשות שיביאו לכך שאדם בעל מוגבלות יוכל לקבל את השירותים הניתנים לכלל הלקוחות, באופן עצמאי ושוויוני.</p>
+
+      <h3>הסדרי נגישות</h3>
+      <p>האינטרנט מהווה כיום את המאגר הגדול ביותר לחופש המידע עבור כלל המשתמשים ומשתמשים בעלי מוגבלויות בפרט. ככזה, אנו שמים חשיבות רבה במתן אפשרות שווה לאנשים עם מוגבלות לשימוש במידע המוצג באתר ולאפשר חווית גלישה טובה יותר.</p>
+
+      <h3>הסדרי נגישות מבנים</h3>
+      <p>ההגעה למשרדנו נגישה הן ללקוחות והן לעובדי המשרד. כפתור וקודן הכניסה נגישים, כך גם מתגי התאורה במשרדנו בגובה נגיש למי המתנייד בכיסא גלגלים.</p>
+
+      <h3>שירות לקוחות נגיש</h3>
+      <ul>
+        <li><strong>הדרכות עובדים לשירות נגיש</strong> – מתקיימות הדרכות להכרת תחום הנגישות, יצירת מודעות בקרב העובדים והקניית כלים מעשיים למתן שירות נגיש.</li>
+        <li><strong>מוקד טלפוני נגיש</strong> – המענה הקולי הונגש כך שהמידע מועבר בשפה ברורה וללא מוסיקת רקע.</li>
+        <li><strong>אמצעים נוספים ליצירת קשר:</strong>
+          <ul>
+            <li>דואר אלקטרוני: office@flow-az.com</li>
+            <li>טלפון: 055-7210724</li>
+            <li>פנייה באמצעות "צרו קשר" באתר</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>נגישות אתר האינטרנט</h3>
+      <p>אתר אינטרנט נגיש הוא אתר המאפשר לאנשים עם מוגבלות ולאנשים מבוגרים לגלוש באותה רמה של יעילות והנאה ככל הגולשים. כ-20 עד 25 אחוזים מהאוכלוסייה נתקלים בקשיי שימוש באינטרנט ועשויים להיטיב מתכני אינטרנט נגישים יותר, כך על פי מחקר שנערך בשנת 2003 ע"י חברת מייקרוסופט.</p>
+
+      <h3>מידע על נגישות האתר</h3>
+      <ul>
+        <li>אתר זה עומד בדרישות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג 2013.</li>
+        <li>התאמות הנגישות בוצעו עפ"י המלצות התקן הישראלי (ת"י 5568) לנגישות תכנים באינטרנט ברמת AA ומסמך WCAG2.0 הבינלאומי.</li>
+        <li>הבדיקות נבחנו לתאימות הגבוהה ביותר עבור דפדפן כרום.</li>
+        <li>האתר מספק מבנה סמנטי עבור טכנולוגיות מסייעות ותמיכה בדפוס השימוש המקובל להפעלה עם מקלדת בעזרת מקשי החיצים, Enter ו-Esc ליציאה מתפריטים וחלונות.</li>
+        <li>מותאם לתצוגה בדפדפנים הנפוצים ולשימוש בטלפון הסלולרי.</li>
+        <li>לשם קבלת חוויית גלישה מיטבית עם תוכנת הקראת מסך, אנו ממליצים לשימוש בתוכנת NVDA העדכנית ביותר.</li>
+        <li>מסמכים או סרטוני וידאו שעלו לאתר לפני אוקטובר 2021 ייתכן שלא נגישים באופן מלא. במידה שנתקלתם במסמך כזה או בסרטון, תוכלו לפנות לרכזת הנגישות של החברה ואנחנו נדאג להנגיש לכם את המידע.</li>
+        <li><strong>מסירת מידע בפורמט נגיש</strong> – המשרד מעמיד עבור לקוחותיו אפשרות לקבלת מידע בפורמטים נגישים. מסירת המידע הינה ללא עלות ומיועדת עבור אנשים עם מוגבלות. לפניות ומידע בנושא נגישות ניתן ליצרו קשר עם רכז הנגישות של המשרד שפרטיו מופיעים בהמשך ההצהרה.</li>
+      </ul>
+
+      <p>אנו שואפים להבטיח כי השירותים הדיגיטליים יהיו נגישים לאנשים עם מוגבלויות מתוך אמונה כי לכל אדם מגיעה הזכות לחיות בשוויון, כבוד, נוחות ועצמאות. כדי לממש הבטחה זו, אנו שואפים לדבוק ככל האפשר בהמלצות התקן הישראלי לנגישות תכנים באינטרנט ובמסמך WCAG2.1 הבינלאומי.</p>
+
+      <h3>כיצד עובדת ההנגשה באתר?</h3>
+      <p>באתר מוצב תפריט הנגשה של <em>enable</em>. לחיצה על התפריט מאפשרת פתיחת כפתורי ההנגשה. לאחר בחירת נושא בתפריט יש להמתין לטעינת הדף. התוכנה פועלת בדפדפנים הפופולריים: Chrome, Firefox, Safari, Opera בכפוף לתנאי היצרן.</p>
+
+      <h3>מדריך למשתמש בתפריט</h3>
+      <ul>
+        <li>כפתור התאמת האתר ותגיות האתר עבור מכשירי עזר וטכנולוגיות עבור בעלי מוגבלויות</li>
+        <li>כפתור איפשור ניווט בעזרת מקשי המקלדת בין הקישורים שבאתר</li>
+        <li>כפתור השבתת הבהובים ו/או אלמנטים נעים על המסך</li>
+        <li>כפתור איפשור מצב מונוכרום שחור לבן עבור עיוורי צבעים</li>
+        <li>כפתור ספיה (גוון חום)</li>
+        <li>כפתור שינוי ניגודיות גבוהה</li>
+        <li>כפתור שחור צהוב</li>
+        <li>כפתור היפוך צבעים</li>
+        <li>כפתור המדגיש בצורה ברורה את כל תגי הכותרות המופיעים באתר</li>
+        <li>כפתור המדגיש בצורה ברורה את כל הקישורים המופיעים באתר</li>
+        <li>כפתור המציג את התיאור החלופי של כל התמונות המופיעות באתר במעבר עכבר</li>
+        <li>כפתור המציג תיאור קבוע של התמונות באתר</li>
+        <li>כפתור ביטול שימוש בגופן קריא</li>
+        <li>כפתור הגדלת גודל הגופנים באתר</li>
+        <li>כפתור הקטנת גודל הגופנים באתר</li>
+        <li>כפתור הגדלת כל התצוגה לכ־200%</li>
+        <li>כפתור הקטנת כל התצוגה לכ־70%</li>
+        <li>כפתור הגדלת סמן העכבר</li>
+        <li>כפתור הגדלת סמן העכבר ושינוי צבעו לשחור</li>
+        <li>כפתור מצב קריאת האתר</li>
+        <li>כפתור המציג את הצהרת הנגישות</li>
+        <li>כפתור איפוס המבטל את הנגישות</li>
+        <li>כפתור שליחת משוב נגישות</li>
+        <li>כפתור שינוי שפת הסרגל והצהרת הנגישות בהתאם</li>
+      </ul>
+
+      <p>בסרגל הנגישות יש 2 סוגים של הגדלות לנוחיותכם, אך אם תרצו להגדיל עוד את האותיות תוכלו להשתמש בפונקציות המקלדת הבאות:</p>
+      <ul>
+        <li>מקש <strong>Esc</strong> יפתח ויסגור את סרגל הנגישות</li>
+        <li>מקש <strong>Ctrl +</strong> יגדיל את הטקסט באתר</li>
+        <li>מקש <strong>Ctrl -</strong> יקטין את הטקסט באתר</li>
+        <li>מקש <strong>Ctrl 0</strong> יחזיר את האתר לגדלו המקורי</li>
+        <li>מקש <strong>רווח (SPACE)</strong> יוריד את האתר כלפי מטה</li>
+        <li>מקש <strong>F11</strong> יגדיל את המסך לגודל מלא – לחיצה נוספת תקטין אותו חזרה</li>
+      </ul>
+
+      <h3>למען הסר ספק</h3>
+      <p>אנחנו מחויבים להפוך את אתרינו לנגיש לכלל האנשים, בעלי יכולות ובעלי מוגבלויות. באתר זה תוכלו למצוא את הטכנולוגיה המתאימה לצרכים שלכם. אתר זה הנו אתר שמיש לכלל האוכלוסייה ברובו ובהשתדלות מקסימאלית. ייתכן ותמצאו אלמנטים שאינם מונגשים כי טרם הונגשו או שלא נמצאה טכנולוגיה מתאימה, ולצד זה אנו מבטיחים כי מתבצעים מרב המאמצים לשפר ולהנגיש ברמה גבוהה ובלי פשרות. במידה ונתקלתם בקושי בגלישה באתר וצפייה בתוכנו אנו מתנצלים ונשמח מאוד כי תפנו את תשומת ליבנו לכך.</p>
+
+      <h3>דרכי פנייה לבקשות והצעות לשיפור בנושא נגישות</h3>
+      <p>אם במהלך הגלישה באתר נתקלתם בקושי בנושא נגישות, צוות הנגישות של החברה עומד לרשותכם במגוון ערוצים לפנייה בנושאי נגישות, נשמח לקבל מכם משוב. יש לציין כי אנו ממשיכים במאמצים לשפר את נגישות החברה כחלק ממחויבותנו לאפשר לכלל האוכלוסייה כולל אנשים עם מוגבלויות לקבל את השירות הנגיש ביותר. במידה ונתקלת בבעיה או בתקלה כלשהי בנושא הנגישות, נשמח שתעדכן אותנו בכך ואנו נעשה כל מאמץ למצוא עבורך פתרון מתאים ולטפל בתקלה בהקדם ככל שניתן.</p>
+
+      <h3>פרטי רכז/ת הנגישות</h3>
+      <p>
+        שם: מור ניסים<br>
+        טלפון: 055-7210724<br>
+        דוא"ל: <a href="mailto:office@flow-az.com">office@flow-az.com</a>
+      </p>
+      <p style="font-size:.8rem;opacity:.7">הצהרת הנגישות עודכנה ביום: 04.02.2021</p>
+  </div>
+</div>
+<div class="policy-modal" id="polPrv" role="dialog" aria-modal="true" aria-labelledby="polPrvT">
+  <div class="policy-panel">
+    <button class="policy-close" data-policy-close aria-label="סגירה">×</button>
+      <h2 id="polPrvT">מדיניות פרטיות</h2>
+      <ol>
+        <li>הנהלת אתר זה רואה חשיבות עליונה בהגנה על פרטיות לקוחותיה, עובדיה, ספקיה וכלל המשתמשים בשירותיה, בין אם באמצעות אתר האינטרנט של הנהלת האתר, יישומון סלולרי או כל אמצעי טכנולוגי אחר. הנהלת האתר מתחייבת לפעול בהתאם להוראות חוק הגנת הפרטיות, התשמ"א-1981 (להלן: "החוק"), לרבות תיקון 13 לחוק והתקנות שהותקנו מכוחו, וכן בהתאם להוראות כל דין רלוונטי אחר, מקומי או בינלאומי, במטרה להבטיח את שמירת המידע האישי של נושאי המידע ולהגן על זכויותיהם החוקתיות לפרטיות. במהלך השימוש באתר ייאסף מידע טכני ותפעולי, לרבות כתובת IP, מיקום גאוגרפי, סוג דפדפן ומערכת הפעלה, פרטי גלישה ומשך ביקור, עמודים שנצפו, נתוני הרשמה ומנויים, פרטי עסקאות, שם, כתובת, טלפון, כתובת דוא"ל, ואף מידע נוסף שמועבר בעת התחברות באמצעות שירותי צד שלישי כגון: Facebook, Google, TikTok, Instagram.</li>
+        <li>במסגרת השימוש באתר זה, הנהלת האתר עשויה לאסוף עליך מידע באמצעים שלהלן. יובהר, כי לא חלה עליך כל חובה למסור מידע כאמור, ומסירתו נעשית מרצונך החופשי, ובעצם השימוש באתר, אתה מביע את הסכמתך לאיסוף, שמירה ושימוש במידע באופן המתואר במדיניות זו.</li>
+        <li>האמור במדיניות פרטיות זו מנוסח מטעמי נוחות בלשון זכר, אולם הוא מתייחס לשני המינים ולצורת רבים בצורה שווה.</li>
+      </ol>
+
+      <h3>רישום</h3>
+      <ol start="4">
+        <li>במסגרת טופס "צרו קשר" תתבקש למסור מידע אישי, כדוגמת שמך, טלפון או כתובת הדואר האלקטרוני שלך. השדות שחובה למלא יסומנו במפורש. בלי למסור את הנתונים המתבקשים בשדות החובה לא תוכל להשאיר פרטים באתר (להלן: "ההרשמה").</li>
+        <li>הנהלת האתר תהיה רשאית לשמור את פרטיך כמפורט לעיל במטרה לנהל את מאגר הלקוחות שלה, לרבות טיפוח ועידוד נאמנות באמצעות ניתוח הרגלי הקנייה וקיום מבצעים ותמריצים, דיוור ישיר למטרות אלו ולצרכים שיווקיים, עריכת ניתוחים, סקרים ומחקרים והעברת המידע לצדדים שלישיים לצורך משלוח הצעות מיוחדות ואחרות.</li>
+        <li>מובהר בזאת כי לא חלה עליך כל חובה שבדין למסור את המידע כאמור ומסירת המידע תלויה ברצונך ובהסכמתך החופשית. בכלל האמור אתה מצהיר בזאת כי המידע שמסרת הנו נכון ומדויק וכי מסרת את המידע בשמך בלבד ולא בשם ו/או עבור צדדים שלישיים.</li>
+      </ol>
+
+      <h3>איסוף ושימוש במידע</h3>
+      <ol start="7">
+        <li>הנהלת האתר רשאית לעשות שימוש במידע שנתקבל ממך גם במקרים הבאים: לשם יצירת קשר איתך במקרה הצורך; לצורך תחזוקת האתר ו/או המערכת; לצורך שיפור המידע והתכנים שהנהלת האתר תציע במסגרת האתר ועוד.
+          <ul>
+            <li>7.1 שיחות טלפוניות עם נציגי החברה עשויות להיות מוקלטות לצורך שיפור השירות, הכשרת נציגים ובקרת איכות. השארת פרטים באתר ו/או יצירת קשר עם החברה מהווה הסכמת המשתמש להקלטת השיחות כאמור. ההקלטות יישמרו באופן מאובטח ולא יועברו לצדדים שלישיים, אלא במקרים המפורטים בסעיפים 4.1–4.9 לעיל.</li>
+          </ul>
+        </li>
+        <li>הנהלת האתר תהיה רשאית להציג או לשלוח לכל לקוח שהשאיר פרטים או רכש שירותים או ביצע הזמנות עדכונים באמצעות הדואר האלקטרוני, מסרונים (SMS) או WhatsApp, ובכלל זה עדכוני תוכן, מידע על שירותי ומוצרי החברה, כמו גם שירותים ומוצרים של אחרים, מבצעים וחידושים באתר, כמשמעות הדברים בסעיף 30א לחוק התקשורת (בזק ושירותים), התשמ"ב-1982 (להלן: "הדיוור הישיר").</li>
+        <li>בהסכמתך לבצע הרשמה או לרכוש שירותים או לבצע הזמנות, אתה מסכים בזאת (כחלק מתקנון זה) להצטרף לרשימת הדיוור הישיר של הנהלת האתר בכל אופן וצורה שהיא. במידה ואתה לא מעוניין להופיע ברשימת הדיוור — עליך לציין זאת במפורש בכתב או להסיר עצמך בכל עת מרשימת התפוצה של האתר או דרך הודעה חוזרת במסרון (למספר עליו תתבקש להשיב בהודעה), במקום המיועד לכך. במקרה זה אנו נמחק את פרטי המידע המשמשים לצורך שליחת הצעות מסחריות אליך, אולם ייתכן ופרטי מידע אחרים אודותיך יוסיפו להישמר במערכותינו ובמאגרי המידע שלנו בהתאם להוראות הדין.</li>
+        <li>מובהר כי האתר משתמש בעוגיות ('Cookies', להלן: "עוגיות") לצורך תפעולו השוטף והתקין, ובכלל זה כדי לאסוף נתונים סטטיסטיים אודות השימוש באתר, לאימות פרטים, כדי להתאים את האתר להעדפות האישיות שלך, לאפיין את המוצרים המתאימים לך ולצרכי אבטחת מידע.</li>
+        <li>עוגיות הן קבצי טקסט, שהדפדפן שלך יוצר לפי פקודה ממחשבי הנהלת האתר. חלק מהעוגיות יפקעו כאשר תסגור את הדפדפן ואחרות נשמרות על גבי הכונן הקשיח במחשב שלך. העוגיות מכילות מידע מגוון כדוגמת הדפים שבהם ביקרת, משך הזמן ששהית באתר, מהיכן הגעת אל האתר, מדורים ומידע שניתן לראות בעת הכניסה לאתר. המידע בעוגיות מוצפן, והנהלת האתר נוקטת צעדי זהירות כדי להבטיח שרק מחשבי הנהלת האתר יוכלו לקרוא ולהבין את המידע האגור בהם.</li>
+        <li>אם אינך רוצה לקבל עוגיות, תוכל להימנע מכך על ידי שינוי ההגדרות בדפדפן שלך. עם זאת, נטרול העוגיות עלול לגרום לכך שלא תוכל להשתמש בחלק מהשירותים והתכונות באתר.</li>
+      </ol>
+
+      <h3>מסירת מידע לצד שלישי</h3>
+      <ol start="13">
+        <li>הנהלת האתר תנקוט באמצעים סבירים ומקובלים על מנת לשמור ולמנוע העברת פרטים אישיים המזהים אותך בשמך ו/או בפרטי זהותך (כגון כתובת), וזאת למעט במקרים כדלקמן:
+          <ul>
+            <li>על פי דרישתך ו/או בהסכמתך המפורשת;</li>
+            <li>לצורך העברתם לספקי התוכן על מנת להשלים את פעולת הרכישה שביצעת באתר;</li>
+            <li>במסגרת שיתופי פעולה עם חברות קשורות עסקית עם הנהלת האתר;</li>
+            <li>בכל מקרה בו הפרת את תנאי השימוש, לרבות תנאי מדיניות הפרטיות ו/או במקרים בהם ביצעת או ניסית לבצע באמצעות האתר פעולות המנוגדות להוראות תנאי השימוש, לרבות מדיניות הפרטיות, לרבות הוראות כל דין;</li>
+            <li>בשל צו שיפוטי המורה לחברה למסור את המידע לצדדים שלישיים;</li>
+            <li>בשל כל מחלוקת, טענה, תביעה, דרישה ו/או הליכים משפטיים אשר יתנהלו בין הצדדים ו/או מי מטעמם;</li>
+            <li>בכל מקרה בו תסבור הנהלת האתר, כי מסירת המידע נחוצה על מנת למנוע נזק חמור לרכוש של הנהלת האתר ו/או של צדדים שלישיים;</li>
+            <li>במקרה בו העבירה ו/או המחתה הנהלת האתר לצד שלישי את פעילותה ו/או את זכויותיה וחובותיה לצדדים שלישיים. אין באמור לעיל בכדי לגרוע מזכות הנהלת האתר להעביר לצדדים שלישיים מידע שאינו אישי, אשר אין בו בכדי לזהות את המשתמש בשמו ו/או בפרטי זהותו באופן ישיר.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>אבטחת מידע</h3>
+      <ol start="14">
+        <li>הנהלת האתר תשתמש באמצעי הגנה והצפנה מסוג SSL, הנהוגים בתחום הסחר האלקטרוני בישראל ובעולם לפעולות של מסירת מידע מקוון, ובהתאם לנדרש על פי כל דין. אמצעי ההגנה האמור נועדו לאבטחת זרימת מידע מוצפנת בין מחשב המשתמש בזמן ביצוע הרכישה לבין שרתי האתר והנהלת האתר.</li>
+        <li>ידוע לך כי הנהלת האתר מקדישה משאבים ונוקטת אמצעים מחמירים למניעת חדירה לאתר ולסיכול פגיעה אפשרית בפרטיות, אולם היא אינה יכולה למנוע שיבושים באתר באופן מוחלט. הנהלת האתר מבהירה כי במקרים שאינם בשליטתה ו/או נובעים מכוח עליון, היא איננה מתחייבת שהאתר יתנהל כסדרו ללא כל הפרעה ו/או שהאתר ו/או הנתונים שנאספו ו/או נמסרו כאמור לעיל יהיו חסינים באופן מוחלט מפני גישה ו/או חדירה בלתי מורשית, וכי ידוע לך שהנהלת האתר לא תישא באחריות בגין כל נזק ו/או אובדן, ישירים או עקיפים, מכל סוג שהוא, שנגרמו כתוצאה מכך, לרבות בשל פגיעה בפרטיות.</li>
+        <li>על-פי חוק הגנת הפרטיות, התשמ"א-1981, כל אדם זכאי לעיין במידע השמור במאגר מידע ומתייחס אליו. זכותך לפנות אלינו בבקשה לתקן את המידע או למחוק אותו במידה ותמצא כי המידע השמור אינו מדויק או חלקי.</li>
+      </ol>
+
+      <h3>שמירת המידע וזכויותיך בקשר לשימוש בו</h3>
+      <ol start="17">
+        <li>ייתכן כי חלק מהשירותים באתר, בהווה או בעתיד, טעונים הרשמה. במסגרת זו ייתכן כי תידרש למסור מידע אישי, כדוגמת שמך, כתובתך, דרכי ההתקשרות שונות עמך (טלפון, מייל) וכו'. השדות שחובה יהיה למלא, יסומנו במפורש. בלי למסור את הנתונים המתבקשים בשדות שיסומנו, לא תוכל לבצע את הפעולות הטעונות רישום. כמו כן, ייתכן שרישום לשירות מסוים דרך האתר, לרבות למועדון הלקוחות של הנהלת האתר או לרשימות דיוור או לכל עניין אחר, הזמינים או נגישים דרך האתר, ידרוש את הסכמתך ואישורך לתנאי אותו שירות, ובמקרה זה תידרש לאשר את הסכמתך בנפרד בעמוד/שירות זה. דע לך כי אינך נדרש על-פי חוק למסור מידע לאתר, וכי העברת מידע על ידך נעשית על אחריותך בלבד, מרצונך ובהסכמתך, ולא תהיה לך כל טענה ו/או תביעה כלפי הנהלת האתר ונציגיה בנושא.</li>
+        <li>המידע יישמר במאגרי מידע דיגיטליים מאובטחים, בהתאם להוראות תקנות הגנת הפרטיות (אבטחת מידע), התשע"ז-2017. מובהר כי הנהלת האתר תנקוט באמצעי אבטחה מתקדמים, לרבות בקרות גישה, הצפנה, ניהול הרשאות, תיעוד, סקרי סיכונים ובדיקות חדירות תקופתיות. המידע האישי יישמר אך ורק למשך התקופה הדרושה להשגת מטרות העיבוד, ולאחר מכן יימחק או יעבור הליך אנונימיזציה, אלא אם קיימת חובה משפטית לשמרו. על-פי החוק, הינך, או מי מטעמך מיופה כוחך, רשאי לעיין במידע אודותיך אשר מצוי במאגר הנהלת האתר ואף לבקש מאיתנו לתקן מידע זה אם אינו נכון, שלם או מדויק ואף למחוק אותו במקרים מתאימים. כדי לממש זכות זו, יש לשלוח בקשה אל הנהלת האתר באמצעות דף יצירת הקשר באתר או באמצעות אחד מפרטי הקשר המפורטים בתחתית מסמך זה. עוד בהתאם לחוק עומדת לך הזכות להתנגד לעיבוד מידע אישי לצורכי שיווק ישיר וגם הזכות לקבל מידע מלא ושקוף על מטרות איסוף המידע, זהות בעל השליטה במאגר, למי יימסר המידע ומהן תוצאות סירוב למסור את המידע. כמו כן, הנהלת האתר תהא רשאית לאסוף, לעבד ולעשות שימוש במידע הנמסר על ידי המשתמשים, לרבות מידע אישי, לצורך אבטחת מערכותיה, הגנה מפני ניסיונות חדירה או פגיעה, מניעת שימוש בלתי מורשה, מעשי תרמית או הונאה, ולצורך עמידה בכל חובה חוקית, דרישה רגולטורית או צו שיפוטי. מובהר כי הנהלת האתר תהא רשאית לשתף מידע כאמור עם רשויות מוסמכות או עם צדדים שלישיים רלוונטיים, ככל שהדבר נדרש לצורך שמירה על ביטחון המשתמשים, מניעת פעילות בלתי חוקית או מילוי אחר הוראות הדין.</li>
+      </ol>
+
+      <h3>ממונה על הגנת הפרטיות (DPO)</h3>
+      <ol start="19">
+        <li>הנהלת האתר מינתה ממונה על הגנת הפרטיות בהתאם לתיקון 13 לחוק. הממונה מוסמך לפקח על עמידת הנהלת האתר בהוראות הדין, לייעץ להנהלה, לפתח תוכניות הדרכה ובקרה, לשמש איש קשר מול הרשות להגנת הפרטיות ולטפל בפניות נושאי המידע. החוק מקנה לבתי המשפט סמכות לפסוק פיצויים ללא הוכחת נזק עד לסך של 10,000 ש"ח בגין הפרות מסוימות של החוק, וכן מאפשר לרשות להגנת הפרטיות להטיל עיצומים כספיים משמעותיים. הנהלת האתר פועלת למנוע כל סיכון להפרת הוראות החוק.</li>
+      </ol>
+
+      <h3>הגבלת אחריות</h3>
+      <ol start="20">
+        <li>מוסכם ומוצהר בזאת כי השימוש באתר, בשירותים ובתכנים הכלולים בו נעשה על אחריות המשתמש בלבד. הנהלת האתר, מנהליה, עובדיה, נציגיה והפועלים מטעמה לא יישאו בכל אחריות מכל סוג, לרבות אחריות נזיקית, חוזית או אחרת, לכל נזק, הפסד, אובדן או הוצאה — בין אם ישירים, עקיפים, תוצאתיים, מיוחדים או נגזרים — אשר ייגרמו למשתמש או לכל צד שלישי, במישרין או בעקיפין, עקב או בקשר עם שימוש באתר או בשירותים, לרבות בשל מסירת מידע אישי, עיבודו או שמירתו, וזאת אף אם הנהלת האתר צפתה או הייתה יכולה לצפות אפשרות התרחשותם של נזקים כאמור.</li>
+      </ol>
+
+      <h3>שינויים במדיניות</h3>
+      <ol start="21">
+        <li>הנהלת האתר שומרת לעצמה את הזכות לעדכן מדיניות זו מעת לעת, לרבות עקב שינויים טכנולוגיים, עסקיים או רגולטוריים. כל שינוי מהותי יפורסם באתר בציון מועד העדכון האחרון. המשתמש אינו רשאי להסב או להעביר את זכויותיו או התחייבויותיו על פי מדיניות זו לכל גורם אחר. אין בהוראות מדיניות זו כדי לגרוע מכל זכות הנתונה להנהלת האתר או למי מטעמה לפי כל דין, והיא שומרת לעצמה את מלוא הזכויות המוקנות לה.</li>
+        <li>בכל שאלה ו/או הבהרה ו/או תגובה בנוגע למדיניות פרטיות זו, או אם ברצונך למחוק, לשנות או לתקן את המידע האישי שלך, צוות החברה עומד לשירותך בדוא"ל ובטלפון המופיעים באתר.</li>
+      </ol>
+
+      <h3>פרטים ליצירת קשר</h3>
+      <p>
+        שם החברה: פלואו מ.נ. בע"מ<br>
+        כתובת: יגאל אלון 94, תל אביב<br>
+        מייל ליצירת קשר: <a href="mailto:office@flow-az.com">office@flow-az.com</a><br>
+        נייד ליצירת קשר: 055-7210724
+      </p>
+  </div>
+</div>
+
+<div class="float" id="float">
+  <div class="t"><span>קורס לייב · 4 מפגשים · </span><i data-early>חברי קהילה<b>590 ₪</b></i><i data-late>מחיר הקורס<b>690 ₪</b></i></div>
+  <a class="btn" href="#price">להרשמה ←</a>
+</div>
+
+<div class="policy-modal" id="polTrm" role="dialog" aria-modal="true" aria-labelledby="polTrmT">
+  <div class="policy-panel">
+    <button class="policy-close" data-policy-close aria-label="סגירה">×</button>
+      <h2 id="polTrmT">תקנון אתר</h2>
+      <p>חברת פלואו מ.נ. בע"מ ח.פ. 516774361 (להלן: "פלואו" או "החברה") מוכרת מוצרי מידע דיגיטליים לרבות קורסים, סדנאות, הרצאות והכשרות (להלן: "המוצר").</p>
+      <p>קורס דיגיטלי הוא בבחינת חומר הניתן להעתקה / שכפול / צפייה חוזרת, ולכן לא ניתן לבטל את העסקה לאחר שבוצעה. אם אתם מבקשים לשמור לעצמכם את הזכות לביטול עסקה – הנכם מתבקשים שלא לרכוש את הקורס ולא לקבל את הסיסמה לצפייה בחומרי הקורס, והכל בהתאם למפורט להלן בהרחבה.</p>
+      <p>מטרת המוצרים הדיגיטליים היא לסייע לך. מנהלי האתר אינם נוטלים אחריות על אי אילו תשלומים למערכת או לעסק במסגרת רכישת מערכת כלשהי על ידי רוכשי הקורס הדיגיטלי שנוגע למערכות המוצעות באתר. ההחלטות המתקבלות ויישום החומר הנלמד ע"י רוכשי הקורס הם על אחריותו הבלעדית של רוכש הקורס וידוע כי אין ביכולתנו לקבוע עבורו את ההחלטות ו/או להתערב בשיקולים בעת ביצוע רכישת המוצר.</p>
+      <p>בנוסף, החומר הנלמד אינו מתאים לכל אחד ויש להשקיע זמן כדי להבין את החומרים והנלמדים בקורס. התוכניות שלנו מיועדות לתת לאנשים כלים מעשיים וסביבה תומכת ומקדמת להגשמת היעדים והמטרות שלהם. עם זאת איננו יכולים להבטיח לך תוצאות כלשהן או הכנסות מסוימות בעקבות השימוש בתכנים, בקורסים וברעיונות שלנו, כי הן תלויות בך ובמה שתבחר לעשות או שלא לעשות.</p>
+      <h3>כללי</h3>
+      <ul>
+        <li>אתר אינטרנט זה ("האתר") המופעל ובבעלות חברת פלואו מ.נ. בע"מ כפוף לתנאי השימוש שיפורטו להלן ולהסכמת כל המשתמשים והמשתמשות באתר ("הלקוח" או "המשתמש"). כל המשתמש באתר מחויב לקרוא היטב את תנאי השימוש ומוחזק כמי שקרא והבין את כלל תנאי השימוש.</li>
+        <li>ההתקשרות עם החברה בעניין האתר ו/או בקשת משתמש להסרת פרטיו ממאגר המידע של החברה יבוצעו באמצעות פנייה בדואר האלקטרוני לכתובת office@flow-az.com.</li>
+        <li>תנאי השימוש הינם בבחינת חוזה משפטי לכל דבר ועניין ומהווים את הבסיס המשפטי היחידי שחל על המשתמש והחברה ו/או מי מטעמה, אלא אם ייערך הסכם ספציפי בין המשתמש לחברה. תנאי השימוש יחולו על כל אופן שבו יבחר המשתמש לגשת ו/או לצפות באתר החברה ובכל פלטפורמה או אמצעי כגון מחשב נייד, טאבלט ומכשיר סלולרי וכיו"ב.</li>
+        <li>כל פעולה שיבצע המשתמש באתר כפופה לתנאי השימוש, וחזקה כי עצם השימוש באתר מהווה אישור והסכמה מלאה של המשתמש לתנאי השימוש.</li>
+        <li>לצרכי נוחות בלבד, תנאי השימוש מנוסחים בלשון זכר ובלשון יחיד, אולם הם מתייחסים לגברים ונשים כאחד, ובכל מקום שבו מצוינת לשון יחיד הכוונה גם ללשון רבים.</li>
+        <li>המשתמש מצהיר שהוא בגיר מעל גיל 18 ואם גילו מתחת לגיל 18 כל הפעולות שיבצע באתר הן בתנאי שקיבל אישור האפוטרופוס שלו. שימוש באתר מהווה אישור המשתמש לכך שהתקבל אישור כאמור. סעיף זה הוא סעיף יסודי בתנאי השימוש.</li>
+        <li>שימוש המשתמש באתר מהווה הצהרה כי קרא והבין את תוכן ומשמעות תנאי השימוש; כי הוא מסכים באופן מוחלט וללא הסתייגות לכל הוראותיו ותנאיו; וכי לא תהיה לו ו/או למי מטעמו, כל טענה ו/או דרישה ו/או תביעה, במישרין ו/או בעקיפין, כנגד החברה ו/או מי מבעליה ו/או מי ממנהליה ו/או מי מטעמה בקשר לתנאי השימוש ותחולתם על המשתמש.</li>
+        <li>שימוש המשתמש באתר מעיד כי המשתמש מודע ומסכים לכך שכל מידע המוצג באתר ו/או כל חלק ממנו מכל מין וסוג שהוא מהווה רכושה של החברה וכי לחברה שמורות זכויות היוצרים ו/או זכויות קניין רוחני אחרות בקשר לכך.</li>
+        <li>המשתמש מתחייב שלא לעשות במידע המצוי באתר כל פעולה (במעשה או במחדל) העלולה לפגוע בנכונות המידע ובמהימנותו או בשמה הטוב או במוניטין של החברה וכל הזכויות שיש לחברה בקשר עם האתר, פעילותה, מוצריה, ספקיה ולקוחותיה.</li>
+        <li>המשתמש מתחייב להשתמש במידע המופיע באתר לשימושו האישי בלבד, ולא לעשות כל פעולה לרבות העתקה וכיו"ב של התוכן המצוי באתר כולו או מקצתו לכל אדם ו/או גוף כלשהו אלא בהסכמת החברה מראש ובכתב.</li>
+        <li>המשתמש מתחייב שלא להשתמש באתר ו/או במידע המופיע באתר שימוש לא כדין.</li>
+        <li>החברה רשאית למנוע כניסה ו/או ביצוע כל פעולה באתר אם היא סבורה כי משתמש הפר את תנאי השימוש ו/או עשה שימוש בלתי ראוי במידע המופיע באתר ולמשתמש לא תהיה כל תביעה ו/או טענה ו/או דרישה כנגד החברה בעניין זה.</li>
+      </ul>
+      <h3>רכישת מוצרים באתר ומדיניות ביטול עסקה</h3>
+      <ul>
+        <li>רכישת המוצר היא באמצעות מילוי כל שדות המידע בדף המכירה באתר פלואו לרבות פרטי הלקוח ופרטי האשראי לתשלום עבור רכישת המוצר.</li>
+        <li>דף המכירה מנוהל ומופעל על ידי חברת WordPress, סביבת פורטל הקורס מנוהלת ומופעלת ע"י חברת סמוב ("סמוב"). דף המכירה מוביל את הלקוח לדף סליקה אינטרנטי באשראי ("דף הסליקה"). דף הסליקה מופעל על ידי חברת קארדקום בע"מ ("חברת הסליקה").</li>
+        <li>חברת הסליקה מבצעת את פעולת הסליקה. תנאי מוקדם לאישור פעולת סליקה: פרטי כרטיס האשראי של הלקוח וכן העברת הכספים יבוצעו ע"י חברת קארדקום בע"מ ולפי כללי אבטחת המידע בחברת הסליקה.</li>
+        <li>עם רכישת המוצר, כלומר לאחר ביצוע התשלום לחברת פלואו (באמצעות חברת הסליקה), יישלחו ללקוח פרטי גישה למוצר וכן חשבונית מס/קבלה כדין.</li>
+        <li>בעת ביצוע הפעולה באתר יידרש המשתתף להכניס למערכת את הפרטים הבאים: ת.ז./ח.פ., שם פרטי, שם משפחה, שם חברה, טלפון, יישוב, מיקוד, דואר אלקטרוני ופרטי תשלום.</li>
+        <li>בד בבד עם רכישת המוצר הדיגיטלי ו/או הרשמה ו/או השארת פרטים בטופס ו/או אישור התקנון, המשתמש מאשר קבלת דיוור מחברת פלואו וכן מאשר קבלת מסרים מרשימת הדיוור של רוכשי המוצר. ניתן להסיר עצמכם מרשימת הדיוור בכל עת.</li>
+        <li>פרטי כרטיס האשראי של הרוכשים לא יישמרו במאגר החברה ולא ייעשה בהם שימוש מלבד לשם קניית המוצר.</li>
+        <li>החיוב מיידי. חשבונית מס/קבלה ומייל אישור על הרשמה יישלחו לאחר התשלום באופן אוטומטי ממערכת קארדקום ומערכת סמוב.</li>
+        <li>המחירים באתר כוללים מע"מ כדין.</li>
+        <li>הלקוח יקבל את המוצר ו/או התכנים בהתאם לתנאים המופיעים בעמוד המכירה של כל מוצר ספציפי באתר חברת פלואו.</li>
+        <li>יודגש כי קורס דיגיטלי הוא בבחינת חומר הניתן להעתקה / שכפול / צפייה חוזרת, ולכן לא ניתן לבטל את העסקה לאחר שבוצעה. אם אתם מבקשים לשמור לעצמכם את הזכות לביטול עסקה – הנכם מתבקשים שלא לרכוש את הקורס ולא לקבל את הסיסמה לצפייה בחומרי הקורס.</li>
+        <li>כל המבצע ו/או המעוניין לבצע פעולה באתר ("משתתף") מצהיר ומתחייב כי הינו מודע לתקנון האתר ומסכים להוראותיו, וכי לא תהא לו ו/או למי מטעמו כל טענה ו/או תביעה כנגד בעלי האתר ו/או מפעיליו ו/או מי מטעמם.</li>
+        <li>החברה לא תישא במישרין או בעקיפין באחריות כלשהי לכל מקרה שבו רכישה של משתתף לא תתקבל במערכת ו/או לכל בעיה טכנית ו/או אחרת אצל ספקי השירות (כדוגמת קארדקום, סמוב וכיו"ב) המונעת ממשתתף לרכוש מוצרים.</li>
+        <li>החברה שומרת לעצמה את הזכות לשנות ו/או לבטל ו/או לסגור את האתר/תכניו/הקורס וההכשרות ולבטל את המכירה על פי שיקול דעתה ובלבד שזכויות לקוח שכבר רכש מוצר לא תפגענה. כמו כן החברה שומרת לעצמה את הזכות לעדכן ו/או להוסיף את/על תכני ההכשרות הדיגיטליות לפי שיקול דעתה המקצועי והבלעדי.</li>
+        <li>במידה וגורמים ו/או אירועים שאינם בשליטת בעלי האתר ו/או מפעיליו (כוח עליון, פעולות איבה, תקיפת סייבר, שביתה, השבתה, גיוס מילואים בהיקף מיוחד וכיו"ב) ימנעו ו/או יפגעו בתהליך הרכישה ו/או באספקה – יסופק המוצר תוך 3 ימי עסקים מיום שהוסרה המניעה והדבר לא ייחשב כהפרת הסכם מצד החברה.</li>
+        <li>אם יחולו שינויים בשיעורי מע"מ ו/או מס ו/או היטלים ("המס הנוסף") החלים על המוצרים בין מועד הפרסום לרכישה לבין התשלום בפועל, תגבה החברה את סכום המס הנוסף באופן אוטומטי ועל פי כל דין, מבלי לבקש אישור נוסף של הלקוח.</li>
+        <li>מנהלי האתר שומרים על זכותם לשנות תקנון וכללי השתתפות אלו מזמן לזמן, ואחריות הלקוח להתעדכן מעת לעת באתר החברה.</li>
+        <li>מטרת המוצרים הדיגיטליים היא לסייע לך. מנהלי האתר אינם נוטלים אחריות על אי אילו תשלומים למערכת או לעסק במסגרת רכישת מערכת כלשהי על ידי רוכשי הקורס הדיגיטלי. ההחלטות המתקבלות ויישום החומר הנלמד הם על אחריותו הבלעדית של רוכש הקורס.</li>
+        <li>החומר הנלמד אינו מתאים לכל אחד ויש להשקיע זמן כדי להבין את החומרים. איננו יכולים להבטיח תוצאות או הכנסות כלשהן בעקבות השימוש בתכנים, בקורסים וברעיונות שלנו, כי הן תלויות בך ובמה שתבחר לעשות או שלא לעשות.</li>
+      </ul>
+      <h3>פרטי המשתמש</h3>
+      <ul>
+        <li>במסגרת השימוש באתר ייתכן שיתבקש המשתמש להזין פרטים אישיים כגון שם, שם משפחה, מס' טלפון, כתובת, כתובת דואר אלקטרוני תקפה, מס' ת.ז, גיל ופרטים נוספים ("הפרטים האישיים").</li>
+        <li>לא חלה על המשתמש כל חובה על פי הדין להזין את הפרטים האישיים. אם עשה כן, המשתמש מסכים להעביר לחברה את פרטיו על פי שיקול דעתו הבלעדי ומרצונו החופשי, על מנת להיכלל במאגר המידע של החברה. אלמלא יוזנו הפרטים, ייתכן שלא יתאפשר למשתמש לבצע פעולות מסוימות באתר.</li>
+        <li>משתמש המבקש להימחק מקבלת דיוור מאת החברה יעשה כן באמצעות לחצן "הסר", וחברת סמוב תסיר את שמו ופרטיו מרשימת הדיוור לרבות הסרת המשתמש מדיוור תכני הקורס כולו, ולא תתאפשר גישה לפורטל הקורס.</li>
+        <li>אם החברה תסבור כי המשתמש מפר את תנאי השימוש ו/או כל דין, החברה תהיה רשאית להתחקות אחר השימוש של המשתמש באתר ולבצע כל פעולה אחרת על מנת להגן על קניינה ו/או על זכויותיה, ולמשתמש לא תהיה כל טענה כנגד החברה בעניין זה.</li>
+      </ul>
+      <h3>סודיות ופרטיות</h3>
+      <ul>
+        <li>המשתמש מאשר ומצהיר כי הזנת פרטיו פירושה הסכמתו לכך שפרטיו האישיים יכללו במאגר המידע של החברה.</li>
+        <li>המשתמש מאשר ומצהיר כי במסגרת השימוש באתר ייתכן שייאסף מידע אודותיו.</li>
+        <li>המשתמש מסכים כי במסגרת שימושו באתר תשתמש החברה בפרטיו לצורך מתן השירות, פילוח וניתוח סטטיסטי, זיהוי המשתמש ובקרת שימוש, יצירת קשר לשם משלוח הודעות, פרסומות ועדכונים רלוונטיים וכיו"ב.</li>
+        <li>החברה מתחייבת כי לא תעביר מידע הנוגע למשתמש לצדדים שלישיים אלא במקרים החריגים המפורטים בתקנון (לרבות צו שיפוטי, הפרת תנאי השימוש, מכירת/העברת זכויות החברה, אישור המשתמש, הליכים משפטיים, מניעת נזק לגופו או לרכושו של המשתמש וכיו"ב).</li>
+        <li>שימוש באתר מהווה אישור המשתמש לכך שהחברה רשאית לפנות אליו בכל אמצעי תקשורת בכל עניין הקשור בפרסומות, עדכונים וחומר שיווקי בקשר לאתר ו/או למידע המופיע בו.</li>
+      </ul>
+      <h3>סיכונים ואחריות</h3>
+      <ul>
+        <li>החברה נוקטת באמצעי הזהירות המקובלים על מנת לשמור ככל האפשר על סודיות, פרטיות המשתמש ואבטחת המידע באתר.</li>
+        <li>המשתמש מצהיר כי הוא מודע לכך שהשימוש באתר כרוך בסיכונים, וכי לעיתים אין די באמצעים שננקטים על ידי החברה כדי למנוע לחלוטין גישה בלתי מורשית למידע.</li>
+        <li>החברה ו/או מי מטעמה אינה מתחייבת להגנה מלאה מפני פריצות, ולא יהיו אחראים לכל נזק עקיף או ישיר שייגרם למשתמש בשל שימוש כלשהו באתר ו/או אם מידע יאבד ו/או אם ייעשה שימוש לא מורשה.</li>
+        <li>החברה אינה אחראית ולא תישא בכל נזק ישיר, עקיף, תוצאתי או אחר שייגרם כתוצאה מביצוע פעולות באתר העומדות בניגוד לתנאי השימוש או לכל דין.</li>
+        <li>החברה אינה אחראית לכל פעילות בלתי חוקית שתתבצע על ידי משתמש או גורם אחר שאינו מטעמה באתר ו/או במידע המופיע בו.</li>
+        <li>באתר עשויים להופיע קישורים לאתרים המופעלים על ידי צדדים שלישיים. החברה לא תישא בכל אחריות לתוכן של אתרים אלו ו/או לתכנים המוצגים בהם.</li>
+        <li>כל התכנים ועצם השימוש באתר הינם לשימושו האישי של המשתמש בלבד והשימוש בו, לרבות כל הסתמכות עליו, הינם על אחריותו הבלעדית של המשתמש.</li>
+        <li>סמכות שיפוט (עניינית, מקומית ובינלאומית) לבית המשפט במחוז ת"א בלבד.</li>
+        <li>לפרטים ובירורים נוספים בקשר לתנאי השימוש יש לפנות לשירות הלקוחות של החברה בימים א'-ה' בין השעות 09:00-17:00 באמצעות הדואר האלקטרוני: office@flow-az.com.</li>
+      </ul>
+      <p style="font-size:.8rem;opacity:.7">עדכון אחרון: מאי 2026</p>
+    
+  
+  </div>
+</div>
+
+<button class="a11y-btn" id="a11yBtn" type="button" aria-label="תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M20 7.5c-2.6.7-5.3 1-8 1s-5.400-.3-8-1l-.5 2c1.900.5 3.800.8 5.700 1v3.300L7.300 20l1.900.7 2.300-5.200h1l2.300 5.200 1.900-.7-1.900-6.200v-3.300c1.900-.2 3.800-.5 5.700-1l-.5-2z"/></svg>
+</button>
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-labelledby="a11yT">
+  <button class="a11y-x" type="button" id="a11yX" aria-label="סגירת תפריט הנגישות">×</button>
+  <h2 id="a11yT">נגישות</h2>
+  <div class="a11y-grid">
+    <button type="button" data-a11y-size="1">הגדלת טקסט +</button>
+    <button type="button" data-a11y-size="-1">הקטנת טקסט −</button>
+    <button type="button" data-a11y="contrast" aria-pressed="false">ניגודיות גבוהה</button>
+    <button type="button" data-a11y="by" aria-pressed="false">שחור־צהוב</button>
+    <button type="button" data-a11y="invert" aria-pressed="false">היפוך צבעים</button>
+    <button type="button" data-a11y="mono" aria-pressed="false">שחור־לבן</button>
+    <button type="button" data-a11y="sepia" aria-pressed="false">גוון חום (ספיה)</button>
+    <button type="button" data-a11y="font" aria-pressed="false">גופן קריא</button>
+    <button type="button" data-a11y="links" aria-pressed="false">הדגשת קישורים</button>
+    <button type="button" data-a11y="heads" aria-pressed="false">הדגשת כותרות</button>
+    <button type="button" data-a11y="still" aria-pressed="false">עצירת אנימציות</button>
+    <button type="button" data-a11y="focus" aria-pressed="false">ניווט מקלדת מודגש</button>
+    <button type="button" class="wide" id="a11yReset">איפוס כל ההגדרות</button>
+  </div>
+  <a href="#" data-policy-open="polAcc">הצהרת נגישות</a>
+</div>
+
+<script>
+const CONFIG = {
+  deadline: "2026-11-27T00:00:00+02:00",
+  pay: "https://secure.cardcom.solutions/EA/EA5/bgJrO3OkzhrPZEgLGg/PaymentSP"
+};
+(function(){
+  // עד הדדליין: מחיר לחברי הקהילה + ספירה לאחור. אחריו: הדף עובר לבד למחיר המלא.
+  const end = new Date(CONFIG.deadline).getTime();
+  const force = new URLSearchParams(location.search).get('late') === '1'; // לתצוגה מוקדמת של מצב "אחרי הדדליין"
+  const els = document.querySelectorAll('[data-cd]');
+  const pad = n => String(n).padStart(2,'0');
+  function tick(){
+    const late = force || Date.now() >= end;
+    document.body.classList.toggle('late', late);
+    if (late) return;
+    let s = Math.floor((end - Date.now())/1000);
+    const h = Math.floor(s/3600); s%=3600;
+    const m = Math.floor(s/60); s%=60;
+    els.forEach(e => e.textContent = pad(h)+':'+pad(m)+':'+pad(s));
+  }
+  tick(); setInterval(tick, 1000);
+})();
+document.querySelectorAll('[data-pay]').forEach(a => { a.href = CONFIG.pay; a.target = '_blank'; a.rel = 'noopener'; });
+(function(){
+  const t = document.getElementById('track');
+  const step = () => t.querySelector('.slide').offsetWidth + 16;
+  document.querySelector('.nav.next').addEventListener('click', () => t.scrollBy({left:-step(),behavior:'smooth'}));
+  document.querySelector('.nav.prev').addEventListener('click', () => t.scrollBy({left:step(),behavior:'smooth'}));
+})();
+(function(){
+  const f = document.getElementById('float'), price = document.getElementById('price');
+  let pastHero = false, atPrice = false;
+  const upd = () => f.classList.toggle('show', pastHero && !atPrice);
+  new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting && e.boundingClientRect.top < 0; upd(); }).observe(document.querySelector('.hero'));
+  new IntersectionObserver(([e]) => { atPrice = e.isIntersecting; upd(); }, {threshold:.25}).observe(price);
+})();
+(function(){
+  let last=null;
+  const close=()=>{document.querySelectorAll('.policy-modal.open').forEach(m=>m.classList.remove('open'));document.body.style.overflow='';if(last)last.focus();};
+  document.addEventListener('click',e=>{
+    const o=e.target.closest('[data-policy-open]');
+    if(o){e.preventDefault();last=o;const m=document.getElementById(o.dataset.policyOpen);m.classList.add('open');document.body.style.overflow='hidden';m.querySelector('.policy-close').focus();return;}
+    if(e.target.closest('[data-policy-close]')||e.target.classList.contains('policy-modal'))close();
+  });
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+(function(){
+  const root=document.documentElement, btn=document.getElementById('a11yBtn'), panel=document.getElementById('a11yPanel');
+  const KEY='flowA11y', FILTERS=['contrast','by','invert','mono','sepia'];
+  let st={on:[],zoom:0};
+  try{const v=JSON.parse(localStorage.getItem(KEY)||'null'); if(v&&Array.isArray(v.on))st=v;}catch(e){}
+  function apply(){
+    panel.querySelectorAll('[data-a11y]').forEach(b=>{const on=st.on.includes(b.dataset.a11y);root.classList.toggle('a11y-'+b.dataset.a11y,on);b.setAttribute('aria-pressed',on);});
+    if(st.zoom){root.setAttribute('data-a11y-zoom','');root.style.setProperty('--a11y-zoom',1+st.zoom*0.1);}else{root.removeAttribute('data-a11y-zoom');root.style.removeProperty('--a11y-zoom');}
+    try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+  }
+  function open(o){panel.classList.toggle('open',o);btn.setAttribute('aria-expanded',o);if(o)document.getElementById('a11yX').focus();else btn.focus();}
+  btn.addEventListener('click',()=>open(!panel.classList.contains('open')));
+  document.getElementById('a11yX').addEventListener('click',()=>open(false));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('open'))open(false);});
+  panel.addEventListener('click',e=>{
+    const t=e.target.closest('button'); if(!t)return;
+    if(t.dataset.a11y){const k=t.dataset.a11y; if(st.on.includes(k))st.on=st.on.filter(x=>x!==k); else{ if(FILTERS.includes(k))st.on=st.on.filter(x=>!FILTERS.includes(x)); st.on.push(k);} apply();}
+    else if(t.dataset.a11ySize){st.zoom=Math.max(-2,Math.min(5,st.zoom+Number(t.dataset.a11ySize)));apply();}
+    else if(t.id==='a11yReset'){st={on:[],zoom:0};apply();}
+  });
+  apply();
+})();
+</script>
+</body>
+</html>
