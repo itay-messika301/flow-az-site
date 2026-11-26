@@ -51,6 +51,16 @@ window.sendFlowLead = function (form, fields) {
     else payload[keyEn[k] || k] = valEn[v] || v;
   }
 
+  /* one submission = one email: a repeated identical submit (impatient double-click)
+     within 2 minutes is ignored instead of sending another copy */
+  var dupKey = JSON.stringify(payload);
+  window.__flowSent = window.__flowSent || {};
+  if (window.__flowSent[dupKey] && Date.now() - window.__flowSent[dupKey] < 120000) {
+    return Promise.resolve();
+  }
+  window.__flowSent[dupKey] = Date.now();
+  function allowRetry(err) { delete window.__flowSent[dupKey]; throw err; }
+
   function viaEmail() {
     return fetch('https://formsubmit.co/ajax/' + window.FLOW_LEADS.email, {
       method: 'POST',
@@ -79,7 +89,7 @@ window.sendFlowLead = function (form, fields) {
     }).catch(function () {});
   } catch (e) {}
 
-  if (!window.FLOW_LEADS.webhook) return viaEmail();
+  if (!window.FLOW_LEADS.webhook) return viaEmail().catch(allowRetry);
 
   return fetch(window.FLOW_LEADS.webhook, {
     method: 'POST',
@@ -92,5 +102,5 @@ window.sendFlowLead = function (form, fields) {
     if (/no scenario listening/i.test(t)) throw new Error('scenario off');
   }).catch(function () {
     return viaEmail();
-  });
+  }).catch(allowRetry);
 };

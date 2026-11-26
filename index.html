@@ -1177,6 +1177,9 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
     }
     const name=document.getElementById('nlPopName').value.trim();
     const last=document.getElementById('nlPopLastName').value.trim();
+    const btn=form.querySelector('button[type="submit"]');
+    if(btn && btn.disabled) return;
+    if(btn){ btn.disabled=true; btn.textContent=isHe?'שולח…':'Sending…'; }
     sendFlowLead('ניוזלטר',{
       'שם':name,'שם משפחה':last,'אימייל':email,'אישור דיוור':'כן'
     }).then(()=>{
@@ -1184,6 +1187,7 @@ document.getElementById('submitBtn').addEventListener('click',()=>{
       success.classList.add('show');
       setTimeout(close, 2800);
     }).catch(()=>{
+      if(btn){ btn.disabled=false; btn.textContent=isHe?'הרשמו עכשיו →':'Sign up now →'; }
       alert(isHe?'אירעה שגיאה בהרשמה. נסו שוב או כתבו לנו: mor@flow-az.com':'Something went wrong. Please try again or email us: mor@flow-az.com');
     });
   });
